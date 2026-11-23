@@ -21,9 +21,8 @@ Draw a card, copy the result, and take it to your favourite AI for a reading. No
 3. Pick a spread and tap Draw
 4. Tap Copy, then paste it to an AI for your reading
 
+# EMBERMOON Tarot
 
 Updated: now available in 中文 / English / Español.
 
-Slogan: A dreamy, macaron-style random tarot draw page.
-
-
+Slogan: Where embers glow, the moon answers.
