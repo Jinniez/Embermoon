@@ -2,6 +2,10 @@
 
 A dreamy, macaron-style random tarot draw page.
 
+Slogan: Where embers glow, the moon answers.
+
+Updated: now available in 中文 / English / Español.
+
 Draw a card, copy the result, and take it to your favourite AI for a reading. No interpretation is built in — the page only draws.
 
 ## Features
@@ -22,6 +26,4 @@ Draw a card, copy the result, and take it to your favourite AI for a reading. No
 4. Tap Copy, then paste it to an AI for your reading
 
 
-Updated: now available in 中文 / English / Español.
 
-Slogan: Where embers glow, the moon answers.
