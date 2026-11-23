@@ -150,12 +150,14 @@ textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
 }
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:.25s;z-index:30;white-space:nowrap}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-/* 页脚联系方式：页面最底部，小字居中，与品牌淡紫色呼应 */
-.contact{margin-top:44px;padding-top:18px;border-top:1px solid var(--line-soft);text-align:center;font-size:13px;line-height:1.9;color:var(--ink-60)}
-.contact p{margin:0}
-.contact .cbrand{font-family:"Noto Serif SC",serif;font-weight:700;color:var(--ink);letter-spacing:.04em}
-.contact .clabel{color:var(--accent);font-weight:700;letter-spacing:.08em}
-.contact .cintro{font-family:"Noto Serif SC",serif;font-weight:700;font-size:14.5px;color:var(--ink);letter-spacing:.05em;margin:0 0 8px;line-height:1.7}
+/* 语言切换：三段胶囊，居中放在标题上方，选中态用马卡龙渐变，与抽牌按钮呼应 */
+.langbar{display:flex;justify-content:center;gap:4px;margin:18px auto 0;background:rgba(255,255,255,.5);border:1px solid var(--line-accent);border-radius:999px;padding:4px;width:fit-content;max-width:100%}
+.langbtn{border:0;background:transparent;color:var(--ink-60);font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.04em;padding:7px 16px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.langbtn:active{transform:scale(.97)}
+.langbtn[aria-pressed="true"]{background:var(--grad);color:var(--on-grad);box-shadow:var(--glow-shadow)}
+/* 页脚：只留一句 slogan，衬线小字居中收尾 */
+.sloganbar{margin-top:44px;padding-top:20px;border-top:1px solid var(--line-soft);text-align:center}
+.slogan{margin:0;font-family:"Cormorant Garamond","Noto Serif SC",serif;font-weight:600;font-size:16px;letter-spacing:.12em;color:var(--accent)}
 </style>
 </head>
 <body>
@@ -165,9 +167,14 @@ textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
 <p class="brand">EMBERMOON</p>
 <div class="logo-sub"><span>TAROT</span></div>
 </header>
-<h1>塔罗抽牌</h1>
+<div class="langbar" role="group" aria-label="Language">
+<button type="button" class="langbtn" data-lang="zh" aria-pressed="true">中文</button>
+<button type="button" class="langbtn" data-lang="en" aria-pressed="false">English</button>
+<button type="button" class="langbtn" data-lang="es" aria-pressed="false">Español</button>
+</div>
+<h1 id="pageTitle">塔罗抽牌</h1>
 
-<section class="panel" aria-label="抽牌">
+<section class="panel" id="panelSec" aria-label="抽牌">
 <textarea id="q" rows="2" placeholder="输入你的问题" aria-label="你的问题"></textarea>
 <div class="spreadbar" id="spreadBar" role="group" aria-label="牌阵"></div>
 <div class="spreadinfo" id="spreadInfo"></div>
@@ -177,21 +184,19 @@ textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
 </div>
 </section>
 
-<section class="stage" aria-label="牌面">
+<section class="stage" id="stageSec" aria-label="牌面">
 <div id="board"><div class="empty">尚未抽牌</div></div>
 <div class="focusinfo" id="focusInfo" hidden></div>
 </section>
 
-<footer class="contact" aria-label="联系方式">
-<p class="cintro">EMBERMOON —— 塔罗占卜与解读，微信预约一对一</p>
-<p><span class="clabel">Contact:</span> <span class="cbrand">Embermoon Studio</span></p>
-<p><span class="clabel">WeChat:</span> Iheargodswhisper</p>
+<footer class="sloganbar">
+<p class="slogan" id="sloganText">余烬有光，月下有答。</p>
 </footer>
 </div>
 
 <div class="manualmask" id="manualMask" hidden>
 <div class="manualcard">
-<p>自动复制没有成功，下面是这次抽牌的全部内容，长按（或全选）即可手动复制：</p>
+<p id="manualTip">自动复制没有成功，下面是这次抽牌的全部内容，长按（或全选）即可手动复制：</p>
 <textarea id="manualText" readonly aria-label="抽牌内容"></textarea>
 <button class="btn primary" id="manualClose" type="button">完成</button>
 </div>
@@ -237,6 +242,16 @@ var DECK = [
 {n:"星币皇后",e:"Queen of Pentacles",num:"Q"},{n:"星币国王",e:"King of Pentacles",num:"K"}
 ];
 
+/* 78 张牌的西班牙语牌名（与 DECK 同序）：大阿卡纳 + 权杖 Bastos / 圣杯 Copas / 宝剑 Espadas / 星币 Oros */
+var ES_NAMES=[
+"El Loco","El Mago","La Sacerdotisa","La Emperatriz","El Emperador","El Sumo Sacerdote","Los Enamorados","El Carro","La Fuerza","El Ermitaño","La Rueda de la Fortuna","La Justicia","El Colgado","La Muerte","La Templanza","El Diablo","La Torre","La Estrella","La Luna","El Sol","El Juicio","El Mundo",
+"As de Bastos","Dos de Bastos","Tres de Bastos","Cuatro de Bastos","Cinco de Bastos","Seis de Bastos","Siete de Bastos","Ocho de Bastos","Nueve de Bastos","Diez de Bastos","Sota de Bastos","Caballo de Bastos","Reina de Bastos","Rey de Bastos",
+"As de Copas","Dos de Copas","Tres de Copas","Cuatro de Copas","Cinco de Copas","Seis de Copas","Siete de Copas","Ocho de Copas","Nueve de Copas","Diez de Copas","Sota de Copas","Caballo de Copas","Reina de Copas","Rey de Copas",
+"As de Espadas","Dos de Espadas","Tres de Espadas","Cuatro de Espadas","Cinco de Espadas","Seis de Espadas","Siete de Espadas","Ocho de Espadas","Nueve de Espadas","Diez de Espadas","Sota de Espadas","Caballo de Espadas","Reina de Espadas","Rey de Espadas",
+"As de Oros","Dos de Oros","Tres de Oros","Cuatro de Oros","Cinco de Oros","Seis de Oros","Siete de Oros","Ocho de Oros","Nueve de Oros","Diez de Oros","Sota de Oros","Caballo de Oros","Reina de Oros","Rey de Oros"
+];
+DECK.forEach(function(c,i){ c.s=ES_NAMES[i]; });
+
 /* 牌阵：layout=row 横排；layout=pos 按坐标摆位（coords 为百分比中心点） */
 var SPREADS=[
 {id:"single",name:"单张牌",pos:["指引"],layout:"row"},
@@ -268,6 +283,48 @@ for(var i=0;i<12;i++){var a=(-90+i*30)*Math.PI/180;c.push([50+34*Math.cos(a),50+
 z.coords=c;
 })();
 
+/* ---------- 三语：界面文字 + 牌阵译名（默认中文，可切 English / Español） ---------- */
+var LANG="zh";
+var I18N={
+zh:{htmlLang:"zh-CN",docTitle:"EMBERMOON 塔罗抽牌",title:"塔罗抽牌",ph:"输入你的问题",qLabel:"你的问题",panel:"抽牌",stage:"牌面",spreads:"牌阵",draw:"抽牌",copy:"复制",empty:"尚未抽牌",up:"正位",rev:"逆位",manual:"自动复制没有成功，下面是这次抽牌的全部内容，长按（或全选）即可手动复制：",done:"完成",copied:"已复制",slogan:"余烬有光，月下有答。",
+cards:function(n){return n+" 张";},copyQ:"问题：",copySpread:function(name,n){return "牌阵："+name+"（"+n+"张）";},copyLine:function(pos,name,o){return pos+"："+name+"（"+o+"）";}},
+en:{htmlLang:"en",docTitle:"EMBERMOON Tarot Draw",title:"Tarot Draw",ph:"Type your question",qLabel:"Your question",panel:"Draw",stage:"Cards",spreads:"Spreads",draw:"Draw",copy:"Copy",empty:"No cards drawn yet",up:"Upright",rev:"Reversed",manual:"Auto-copy didn't work. Here is everything from this draw — long-press (or select all) to copy it manually:",done:"Done",copied:"Copied",slogan:"Where embers glow, the moon answers.",
+cards:function(n){return n+(n===1?" card":" cards");},copyQ:"Question: ",copySpread:function(name,n){return "Spread: "+name+" ("+n+(n===1?" card":" cards")+")";},copyLine:function(pos,name,o){return pos+": "+name+" ("+o+")";}},
+es:{htmlLang:"es",docTitle:"EMBERMOON Sorteo de Tarot",title:"Sorteo de Tarot",ph:"Escribe tu pregunta",qLabel:"Tu pregunta",panel:"Sorteo",stage:"Cartas",spreads:"Tiradas",draw:"Sacar",copy:"Copiar",empty:"Aún no has sacado cartas",up:"Derecha",rev:"Invertida",manual:"La copia automática no funcionó. Aquí está todo el contenido de esta tirada: mantén pulsado (o selecciona todo) para copiarlo manualmente:",done:"Listo",copied:"Copiado",slogan:"Donde brillan las brasas, la luna responde.",
+cards:function(n){return n+(n===1?" carta":" cartas");},copyQ:"Pregunta: ",copySpread:function(name,n){return "Tirada: "+name+" ("+n+(n===1?" carta":" cartas")+")";},copyLine:function(pos,name,o){return pos+": "+name+" ("+o+")";}}
+};
+function T(){ return I18N[LANG]; }
+function cardName(c){ return LANG==="zh"?c.n:(LANG==="es"?c.s:c.e); }
+function cardSub(c){ return LANG==="en"?c.n:c.e; }
+
+var SPREAD_I18N={
+single:{en:["Single Card",["Guidance"]],es:["Carta Única",["Guía"]]},
+yesno:{en:["Yes or No",["The Answer"]],es:["Sí o No",["La Respuesta"]]},
+time:{en:["Past · Present · Future",["Past","Present","Future"]],es:["Pasado · Presente · Futuro",["Pasado","Presente","Futuro"]]},
+sar:{en:["Situation · Action · Outcome",["Situation","Action","Outcome"]],es:["Situación · Acción · Resultado",["Situación","Acción","Resultado"]]},
+bms:{en:["Body · Mind · Spirit",["Body","Mind","Spirit"]],es:["Cuerpo · Mente · Espíritu",["Cuerpo","Mente","Espíritu"]]},
+rel:{en:["You · Them · Relationship",["You","Them","Relationship"]],es:["Tú · La Otra Persona · La Relación",["Tú","La otra persona","La relación"]]},
+elements:{en:["Four Elements",["Fire · Action","Water · Emotions","Air · Thoughts","Earth · Reality"]],es:["Cuatro Elementos",["Fuego · Acción","Agua · Emociones","Aire · Pensamientos","Tierra · Realidad"]]},
+diamond:{en:["The Diamond",["Core","Past","Future","Advice","Outcome"]],es:["El Diamante",["Núcleo","Pasado","Futuro","Consejo","Resultado"]]},
+cross:{en:["The Cross",["Situation","Goal","Foundation","Past","Future"]],es:["La Cruz",["Situación","Meta","Base","Pasado","Futuro"]]},
+five:{en:["Five-Card Overview",["Situation","Challenge","Resources","Action","Outcome"]],es:["Cinco Cartas",["Situación","Desafío","Recursos","Acción","Resultado"]]},
+horseshoe:{en:["The Horseshoe",["Past","Present","Hidden Influences","Obstacle","Environment","Advice","Outcome"]],es:["La Herradura",["Pasado","Presente","Factores Ocultos","Obstáculo","Entorno","Consejo","Resultado"]]},
+celtic:{en:["Celtic Cross",["Present","Challenge","Foundation","Past","Goal","Future","Self","Environment","Hopes & Fears","Outcome"]],es:["Cruz Celta",["Presente","Desafío","Base","Pasado","Meta","Futuro","El Yo","Entorno","Esperanzas y Temores","Resultado"]]},
+zodiac:{en:["Twelve Houses",["1st House · Self","2nd House · Wealth","3rd House · Communication","4th House · Home","5th House · Creativity","6th House · Health","7th House · Relationships","8th House · Transformation","9th House · Exploration","10th House · Career","11th House · Community","12th House · Subconscious"]],
+enShort:["House 1","House 2","House 3","House 4","House 5","House 6","House 7","House 8","House 9","House 10","House 11","House 12"],
+es:["Las Doce Casas",["Casa 1 · El Yo","Casa 2 · Recursos","Casa 3 · Comunicación","Casa 4 · Hogar","Casa 5 · Creatividad","Casa 6 · Salud","Casa 7 · Relaciones","Casa 8 · Transformación","Casa 9 · Exploración","Casa 10 · Carrera","Casa 11 · Comunidad","Casa 12 · Subconsciente"]],
+esShort:["Casa 1","Casa 2","Casa 3","Casa 4","Casa 5","Casa 6","Casa 7","Casa 8","Casa 9","Casa 10","Casa 11","Casa 12"]}
+};
+SPREADS.forEach(function(sp){
+var tr=SPREAD_I18N[sp.id]; if(!tr) return;
+sp.nameEn=tr.en[0]; sp.posEn=tr.en[1]; sp.nameEs=tr.es[0]; sp.posEs=tr.es[1];
+if(tr.enShort) sp.shortEn=tr.enShort;
+if(tr.esShort) sp.shortEs=tr.esShort;
+});
+function spName(sp){ return LANG==="zh"?sp.name:(LANG==="es"?sp.nameEs:sp.nameEn); }
+function spPos(sp){ return LANG==="zh"?sp.pos:(LANG==="es"?sp.posEs:sp.posEn); }
+function spShort(sp){ if(!sp.short) return null; return LANG==="zh"?sp.short:(LANG==="es"?sp.shortEs:sp.shortEn); }
+
 function imgFor(idx){
 if(idx<22)return "m"+(idx<10?"0":"")+idx+".jpg";
 var m=idx-22,suit=["w","c","s","p"][Math.floor(m/14)],rank=(m%14)+1;
@@ -287,26 +344,30 @@ return idx.slice(0,n);
 }
 
 var $=function(id){return document.getElementById(id);};
-var current=SPREADS[2], copyText="", focusedSlot=null, boardWrap=null;
+var current=SPREADS[2], copyText="", focusedSlot=null, focusedRec=null, boardWrap=null, lastDraw=null;
 
-/* 牌阵滑动选项 */
+/* 牌阵滑动选项（语言切换时按当前语言重建，保留选中项） */
+function renderSpreads(){
+var bar=$("spreadBar"); bar.innerHTML="";
 SPREADS.forEach(function(sp){
 var b=document.createElement("button");
 b.type="button";b.className="spreadchip";b.dataset.id=sp.id;
 b.setAttribute("aria-pressed", sp===current?"true":"false");
-b.innerHTML='<span class="sname">'+sp.name+'</span><span class="scount">'+sp.pos.length+' 张</span>';
+b.innerHTML='<span class="sname">'+spName(sp)+'</span><span class="scount">'+T().cards(sp.pos.length)+'</span>';
 b.addEventListener("click",function(){
-current=sp;copyText="";$("copyBtn").disabled=true;
-$("spreadBar").querySelectorAll(".spreadchip").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false");});
+current=sp;copyText="";lastDraw=null;$("copyBtn").disabled=true;
+bar.querySelectorAll(".spreadchip").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false");});
 renderInfo();
 clearFocus();
-$("board").innerHTML='<div class="empty">尚未抽牌</div>';
+$("board").innerHTML='<div class="empty">'+T().empty+'</div>';
 });
-$("spreadBar").appendChild(b);
+bar.appendChild(b);
 });
-function renderInfo(){
-$("spreadInfo").innerHTML="<b>"+current.name+"</b> · "+current.pos.length+" 张 · "+current.pos.join(" / ");
 }
+function renderInfo(){
+$("spreadInfo").innerHTML="<b>"+spName(current)+"</b> · "+T().cards(current.pos.length)+" · "+spPos(current).join(" / ");
+}
+renderSpreads();
 renderInfo();
 
 function toast(msg){ var t=$("toast"); t.textContent=msg; t.classList.add("show"); setTimeout(function(){t.classList.remove("show");},1800); }
@@ -316,7 +377,7 @@ function clearFocus(){
 if(boardWrap) boardWrap.classList.remove("focusing");
 var f=document.querySelector(".slot.focused");
 if(f){ f.classList.remove("focused"); if(f.dataset.prevz!==undefined){ f.style.zIndex=f.dataset.prevz; delete f.dataset.prevz; } }
-focusedSlot=null;
+focusedSlot=null;focusedRec=null;
 $("focusInfo").hidden=true;
 }
 function setFocus(slot,rec){
@@ -327,11 +388,15 @@ slot.classList.add("focused");
 /* 聚焦的牌临时提到最上层（阵型槽位带有按高度排的内联 z-index，需在这里覆盖，恢复时还原） */
 slot.dataset.prevz=slot.style.zIndex||"";
 slot.style.zIndex="999";
+focusedRec=rec;
 var fi=$("focusInfo");
-fi.innerHTML='<div class="fp">'+rec.pos+'</div>'+
-'<div class="fcnrow"><span class="fcn">'+rec.card.n+'</span><span class="fdot">•</span><span class="fo">'+(rec.rev?"逆位":"正位")+'</span></div>'+
-'<div class="fen">'+rec.card.e+'</div>';
+fi.innerHTML=focusInfoHTML(rec);
 fi.hidden=false;
+}
+function focusInfoHTML(rec){
+return '<div class="fp">'+spPos(rec.sp)[rec.i]+'</div>'+
+'<div class="fcnrow"><span class="fcn">'+cardName(rec.card)+'</span><span class="fdot">•</span><span class="fo">'+(rec.rev?T().rev:T().up)+'</span></div>'+
+'<div class="fen">'+cardSub(rec.card)+'</div>';
 }
 document.addEventListener("click",function(ev){
 var t=ev.target;
@@ -343,7 +408,7 @@ function cardHTML(idx,rev){
 var c=DECK[idx];
 return '<div class="flip'+(rev?" rev":"")+'"><div class="flip-inner">'+
 '<div class="face back"><span>☾</span></div>'+
-'<div class="face front"><img src="'+CARDIMG[imgFor(idx)]+'" alt="'+c.n+' '+c.e+'"><div class="veil"></div></div>'+
+'<div class="face front"><img src="'+CARDIMG[imgFor(idx)]+'" alt="'+cardName(c)+' '+cardSub(c)+'"><div class="veil"></div></div>'+
 '</div></div>';
 }
 
@@ -357,7 +422,7 @@ var sp=current;
 var draws=drawCards(sp.pos.length);
 /* 每张牌独立真随机决定正位 / 逆位 */
 var recs=draws.map(function(idx,i){
-return {pos:sp.pos[i],card:DECK[idx],rev:secureInt(2)===1};
+return {sp:sp,i:i,card:DECK[idx],rev:secureInt(2)===1};
 });
 var board=$("board"); board.innerHTML="";
 var wrap=document.createElement("div");
@@ -381,7 +446,7 @@ if(sp.id==="celtic"&&i===0)slot.className+=" cross1";
 if(sp.id==="celtic"&&i===1)slot.className+=" cross2";
 }
 /* 牌上方只显示位置名本身；牌名与正逆位只在点击后出现在信息条里 */
-slot.innerHTML='<div class="posname">'+(sp.short?sp.short[i]:sp.pos[i])+'</div>'+cardHTML(draws[i],rec.rev);
+slot.innerHTML='<div class="posname">'+(spShort(sp)?spShort(sp)[i]:spPos(sp)[i])+'</div>'+cardHTML(draws[i],rec.rev);
 slot.addEventListener("click",function(ev){
 ev.stopPropagation();
 if(focusedSlot===slot){
@@ -403,18 +468,26 @@ setTimeout(function(){ f.classList.add("revealed"); },60);
 }, 200+i*220);
 });
 board.appendChild(wrap);
-/* 复制内容：问题 + 牌阵 + 每个位置的牌（带正位 / 逆位） */
-var lines=[];
-if(q) lines.push("问题："+q);
-lines.push("牌阵："+sp.name+"（"+sp.pos.length+"张）");
-recs.forEach(function(rec){
-lines.push(rec.pos+"："+rec.card.n+" "+rec.card.e+"（"+(rec.rev?"逆位":"正位")+"）");
-});
-copyText=lines.join("\n");
+/* 复制内容按当前语言生成（问题 + 牌阵 + 每个位置的牌，带正位 / 逆位） */
+lastDraw={sp:sp,recs:recs,q:q};
+buildCopyText();
 $("copyBtn").disabled=false;
 }, 600);
 }
 $("drawBtn").addEventListener("click",doDraw);
+
+/* 复制文本：牌名用当前语言 + 英文名并列（英文模式只留英文名），正逆位用当前语言 */
+function buildCopyText(){
+if(!lastDraw){ copyText=""; return; }
+var t=T(),sp=lastDraw.sp,lines=[];
+if(lastDraw.q) lines.push(t.copyQ+lastDraw.q);
+lines.push(t.copySpread(spName(sp),sp.pos.length));
+lastDraw.recs.forEach(function(rec){
+var nm = LANG==="en" ? rec.card.e : (cardName(rec.card)+" "+rec.card.e);
+lines.push(t.copyLine(spPos(sp)[rec.i],nm,rec.rev?t.rev:t.up));
+});
+copyText=lines.join("\n");
+}
 
 /* ---------- 复制：三级方案，任何一级成功即可 ----------
    1) navigator.clipboard.writeText（安全上下文）
@@ -437,11 +510,11 @@ return !!ok;
 }
 function doCopy(text){
 if(navigator.clipboard&&navigator.clipboard.writeText){
-navigator.clipboard.writeText(text).then(function(){ toast("已复制"); },function(){
-if(legacyCopy(text)) toast("已复制"); else showManual(text);
+navigator.clipboard.writeText(text).then(function(){ toast(T().copied); },function(){
+if(legacyCopy(text)) toast(T().copied); else showManual(text);
 });
 } else if(legacyCopy(text)){
-toast("已复制");
+toast(T().copied);
 } else {
 showManual(text);
 }
@@ -457,6 +530,43 @@ $("manualMask").addEventListener("click",function(ev){ if(ev.target===this) this
 $("copyBtn").addEventListener("click",function(){
 if(!copyText) return;
 doCopy(copyText);
+});
+
+/* ---------- 语言切换：整页文字、牌阵、已抽出的牌、复制文本一起换 ---------- */
+function setLang(lang){
+LANG=lang;
+var t=T();
+document.documentElement.lang=t.htmlLang;
+document.title=t.docTitle;
+$("pageTitle").textContent=t.title;
+var q=$("q"); q.placeholder=t.ph; q.setAttribute("aria-label",t.qLabel);
+$("panelSec").setAttribute("aria-label",t.panel);
+$("stageSec").setAttribute("aria-label",t.stage);
+$("spreadBar").setAttribute("aria-label",t.spreads);
+$("drawBtn").textContent=t.draw;
+$("copyBtn").textContent=t.copy;
+$("manualTip").textContent=t.manual;
+$("manualClose").textContent=t.done;
+$("sloganText").textContent=t.slogan;
+document.querySelectorAll(".langbtn").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.lang===lang?"true":"false"); });
+renderSpreads();
+renderInfo();
+var emptyEl=$("board").querySelector(".empty");
+if(emptyEl) emptyEl.textContent=t.empty;
+if(lastDraw){
+document.querySelectorAll("#board .slot").forEach(function(slot,i){
+var rec=lastDraw.recs[i]; if(!rec) return;
+var pn=slot.querySelector(".posname");
+if(pn) pn.textContent=(spShort(lastDraw.sp)?spShort(lastDraw.sp)[i]:spPos(lastDraw.sp)[i]);
+var img=slot.querySelector("img");
+if(img) img.alt=cardName(rec.card)+" "+cardSub(rec.card);
+});
+buildCopyText();
+}
+if(focusedSlot&&focusedRec) $("focusInfo").innerHTML=focusInfoHTML(focusedRec);
+}
+document.querySelectorAll(".langbtn").forEach(function(b){
+b.addEventListener("click",function(){ if(LANG!==b.dataset.lang) setLang(b.dataset.lang); });
 });
 </script>
 </body>
