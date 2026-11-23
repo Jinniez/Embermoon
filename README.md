@@ -16,10 +16,14 @@ Draw a card, copy the result, and take it to your favourite AI for a reading. No
 
 ## How to use
 
-1. Open https://jinniez.github.io/embermoon-tarot/
+1. Open https://jinniez.github.io/Embermoon-tarot/
 2. Type your question
 3. Pick a spread and tap Draw
 4. Tap Copy, then paste it to an AI for your reading
 
+
+Updated: now available in 中文 / English / Español.
+
+Slogan: A dreamy, macaron-style random tarot draw page.
 
 
