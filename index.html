@@ -155,6 +155,21 @@ textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
 /* 页脚：只留一句 slogan，衬线小字居中收尾 */
 .sloganbar{margin-top:44px;padding-top:20px;border-top:1px solid var(--line-soft);text-align:center}
 .slogan{margin:0;font-family:"Cormorant Garamond","Noto Serif SC",serif;font-weight:600;font-size:16px;letter-spacing:.12em;color:var(--accent)}
+/* 页脚法务入口：隐私政策 / 使用条款 / 娱乐免责声明——低调文字链，与 slogan 同区收尾 */
+.legal-links{margin-top:13px;display:flex;justify-content:center;flex-wrap:wrap}
+.legal-link{border:0;background:transparent;color:var(--ink-60);font-family:inherit;font-size:12.5px;font-weight:700;letter-spacing:.06em;padding:4px 13px;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.legal-link + .legal-link{border-left:1px solid var(--line-soft)}
+.legal-link:hover{color:var(--accent)}
+.legal-link:active{transform:scale(.97)}
+/* 法务页面：与手册文章同一排版——衬线小标题分节，正文左对齐，细线分隔 */
+.legal-body{max-width:600px;margin:16px auto 0;text-align:left}
+.legal-updated{font-size:12.5px;color:var(--ink-45);margin:0}
+.legal-intro{font-size:14.5px;line-height:1.8;color:var(--ink);margin:10px 0 0}
+.legal-body h3{font-family:"Noto Serif SC",serif;font-weight:900;font-size:16px;color:var(--ink);letter-spacing:.04em;margin:24px 0 0;padding-top:16px;border-top:1px dashed var(--line-soft)}
+.legal-body p{font-size:14px;line-height:1.85;color:var(--ink);margin:8px 0 0}
+.legal-body ul{margin:8px 0 0;padding-left:20px}
+.legal-body li{font-size:14px;line-height:1.85;color:var(--ink);margin:3px 0}
+.legal-body a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 /* 八字排盘：沿用马卡龙色板与同圆角（12）、同字重，与塔罗面板成套 */
 /* 主导航：不再四个入口等宽平摊——按东玄 / 西占 / 印占三大类分组，
    每组是一块带组名的小牌：组名（中文 + 小字说明）压在上方定调，
@@ -431,6 +446,27 @@ textarea{border-radius:2px;background:rgba(255,255,255,.35)}
 .tnav-link:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 @media (max-width:420px){.topnav{gap:20px}.tnav-label{font-size:12.5px;letter-spacing:.05em}}
 @media (prefers-reduced-motion: reduce){.tnav-dot,.tnav-label{transition:none!important}}
+/* 顶部导航第六个点：「我的」用户中心，余烬橙，与其他五点同一套微光 / 细环规则 */
+#tnavMine .tnav-dot{background:rgba(233,171,120,.88);box-shadow:0 0 5px 0 rgba(233,171,120,.13)}
+#tnavMine:hover .tnav-dot,#tnavMine:focus-visible .tnav-dot,#tnavMine.label-show .tnav-dot{box-shadow:0 0 6px 0 rgba(233,171,120,.16)}
+#tnavMine[aria-pressed="true"] .tnav-dot{background:rgba(224,160,108,.85);box-shadow:0 0 0 2px var(--paper),0 0 0 2.75px rgba(216,150,96,.40)}
+/* 工具结果下方的「保存」条：居中一条文字按钮，与全站去框风格一致 */
+.savebar{margin:20px auto 0;max-width:600px;text-align:center;border-top:1px solid var(--line-soft);padding-top:16px}
+.savebar .btn{display:inline-flex;width:auto;min-width:210px;flex:none}
+/* 用户中心：输入框沿用表单的底线式；记录列表一条细线一行，点开看全文 */
+#mineSec input[type="email"],#mineSec input[type="password"],#mineSec input[type="text"],#mineSec input[type="date"],#mineSec input[type="time"]{width:100%;height:48px;border:0;border-bottom:1px solid var(--line-accent);border-radius:0;background:transparent;color:var(--ink);padding:0 13px;font-size:16px;font-family:inherit}
+#mineSec input:focus{outline:none;border-bottom:2px solid var(--accent)}
+.mine-email{font-size:14.5px;color:var(--ink-60);text-align:center;margin:0 0 4px}
+.mine-email b{color:var(--ink)}
+.mine-row{display:flex;align-items:baseline;gap:10px;width:100%;padding:12px 2px;border-bottom:1px solid var(--line-soft);cursor:pointer}
+.mine-row:hover .mr-title{color:var(--accent)}
+.mr-title{font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.45;min-width:0;word-break:break-word}
+.mr-date{margin-left:auto;font-size:12px;color:var(--ink-45);white-space:nowrap;flex:0 0 auto}
+.mr-del{flex:0 0 auto;border:0;background:transparent;color:#c2436b;font-family:inherit;font-size:12.5px;font-weight:700;padding:2px 4px;cursor:pointer;white-space:nowrap}
+.mr-del:active{transform:scale(.96)}
+.mine-detailtitle{font-family:"Noto Serif SC",serif;font-weight:900;font-size:17px;color:var(--ink);line-height:1.5;margin:14px 0 0;word-break:break-word}
+.mine-detaildate{font-size:12.5px;color:var(--ink-45);margin:3px 0 0}
+.mine-text{white-space:pre-wrap;word-break:break-word;font-size:14.5px;line-height:1.85;color:var(--ink);border-top:1px solid var(--line-accent);padding-top:14px;margin-top:12px;text-align:left}
 /* 品牌徽记去掉圆形外框：只留月牙余烬图形本身，不再是一个圆圈徽章 */
 .logo-mark{background:transparent;border:0;border-radius:0;box-shadow:none}
 .logo-mark svg{width:52px;height:52px}
@@ -587,6 +623,8 @@ textarea:focus{outline:none;border-bottom:2px solid var(--accent)}
 .mh-nowbtn{border:1px solid var(--line-accent);background:#f3effc;color:var(--accent);font-family:inherit;font-size:13px;font-weight:700;padding:7px 14px;border-radius:12px;cursor:pointer}
 .mh-nowbtn:active{transform:scale(.97)}
 .mh-nowbtn:hover{border-color:var(--accent)}
+.mh-numrow{display:flex;gap:10px}
+.mh-numrow input{flex:1 1 0;min-width:0;text-align:center}
 @media (max-width:560px){.mh-tri .mh-tv{font-size:16.5px}}
 </style>
 <style>
@@ -660,7 +698,62 @@ textarea:focus{outline:none;border-bottom:2px solid var(--accent)}
    文字水平垂直居中，选中底色就是按钮本身的完整形状，不偏移、不突出 */
 .bz-gender{display:inline-flex;gap:4px;padding:4px;width:auto}
 .bz-gbtn{flex:1 1 0;min-width:76px;height:38px;padding:0 16px;display:inline-flex;align-items:center;justify-content:center;text-align:center;line-height:1.2}
+/* ===== 订阅会员：状态一行 + 三档价目，沿用全站细线分层 ===== */
+.mine-substatus{font-size:14.5px;color:var(--ink);text-align:center;margin:0 0 6px}
+.sub-plans{max-width:600px;margin:6px auto 0}
+.sub-plan{display:flex;align-items:center;gap:12px;padding:13px 2px;border-bottom:1px solid var(--line-soft)}
+.sub-plan:first-child{border-top:1px solid var(--line-soft)}
+.sub-pinfo{flex:1 1 0;min-width:0}
+.sub-pname{font-family:"Noto Serif SC",serif;font-weight:900;font-size:16px;color:var(--ink);margin:0;line-height:1.35}
+.sub-badge{display:inline-block;font-family:"Noto Sans SC",sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;color:var(--on-grad);background:var(--grad);border-radius:999px;padding:2px 8px;margin-left:8px;vertical-align:2px}
+.sub-pnote{font-size:12px;color:var(--ink-45);margin:2px 0 0;line-height:1.45}
+.sub-ppricebox{flex:0 0 auto;text-align:right;white-space:nowrap}
+.sub-pprice{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:25px;color:var(--ink)}
+.sub-pper{font-size:12.5px;color:var(--ink-60);margin-left:2px}
+.sub-btn{flex:0 0 auto;min-width:92px;height:42px;padding:0 18px}
+.sub-btn:disabled{opacity:.45}
+.sub-cmp{max-width:600px;margin:14px auto 0;font-size:13.5px;line-height:1.65;color:var(--ink-60)}
+.sub-cmp p{margin:3px 0}
+@media (max-width:420px){.sub-pprice{font-size:21px}.sub-btn{min-width:78px;padding:0 12px}}
 </style>
+<style>
+/* ===== 导师页 Ember：沿用全站去框风格——细线、留白、直角；AI 标签始终贴在名字旁 ===== */
+.ai-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--accent);border:1px solid var(--line-accent);padding:1px 7px 2px;margin-left:9px;vertical-align:middle;line-height:1.5;white-space:nowrap}
+.mentor-head{max-width:600px;margin:0 auto;text-align:left}
+.mentor-name{font-family:"Noto Serif SC",serif;font-weight:900;font-size:21px;color:var(--ink);letter-spacing:.04em;margin:4px 0 0;line-height:1.4}
+.mentor-aisnote{font-size:12.5px;color:var(--ink-60);line-height:1.6;margin:6px 0 0}
+.mentor-chartline{font-size:13.5px;font-weight:700;color:var(--accent);margin:12px 0 0;line-height:1.6}
+.mentor-chartbtns{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.mentor-chartbtn{border:1px solid var(--line-soft);background:rgba(255,255,255,.5);color:var(--ink-60);font-family:inherit;font-size:12.5px;font-weight:700;padding:5px 12px;cursor:pointer}
+.mentor-chartbtn[aria-pressed="true"]{background:var(--grad);color:var(--on-grad);border-color:transparent}
+.mentor-archive{max-width:600px;margin:20px auto 0;border-top:1px solid var(--line-accent);padding-top:14px;text-align:left}
+.mentor-arcsec{font-family:"Noto Serif SC",serif;font-weight:700;font-size:13px;color:var(--accent);letter-spacing:.08em;margin:14px 0 4px}
+.mentor-arcline{font-size:13.5px;color:var(--ink-60);line-height:1.7;margin:2px 0;word-break:break-word}
+.mentor-arcline button{color:var(--accent);font-weight:700}
+.mentor-fact{display:flex;align-items:baseline;gap:10px;padding:7px 2px;border-bottom:1px solid var(--line-soft)}
+.mentor-fact span{flex:1 1 0;min-width:0;font-size:13.5px;line-height:1.6;color:var(--ink);word-break:break-word}
+.mentor-savedrow{display:flex;align-items:baseline;gap:10px;width:100%;padding:8px 2px;border:0;border-bottom:1px solid var(--line-soft);background:transparent;color:var(--ink);font-family:inherit;font-size:13.5px;font-weight:700;text-align:left;cursor:pointer}
+.mentor-savedrow:hover{color:var(--accent)}
+.mentor-savedrow .ms-date{margin-left:auto;font-size:12px;font-weight:500;color:var(--ink-45);white-space:nowrap}
+#mentorSec .bz-chatlog{max-width:600px;margin:22px auto 0}
+#mentorSec .bz-chatbar{max-width:600px;margin-left:auto;margin-right:auto}
+.mentor-left{max-width:600px;margin:10px auto 0;font-size:12.5px;color:var(--ink-45);text-align:center}
+.mtag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--accent);border:1px solid var(--line-accent);padding:1px 8px 2px;margin-bottom:6px;line-height:1.5}
+.mbasis{display:block;font-size:11.5px;color:var(--ink-45);margin-top:7px;line-height:1.5}
+.mentor-upgrade{max-width:600px;margin:20px auto 0;border-top:1px solid var(--line-accent);padding-top:16px;text-align:left}
+.mentor-upgrade p{font-size:14.5px;line-height:1.75;margin:0}
+.mentor-gate{max-width:600px;margin:0 auto;text-align:center;padding:14px 0 4px}
+.mentor-gate p{font-size:15px;line-height:1.75;color:var(--ink);margin:0 0 6px}
+.mentor-gate .btn{display:inline-flex;width:auto;min-width:210px;flex:none;margin-top:10px}
+.mentor-crisis{max-width:600px;margin:16px auto 0;border-top:2px solid var(--rose);padding-top:12px;text-align:left}
+.mentor-crisis p{font-size:14px;line-height:1.8;margin:0;color:var(--ink)}
+.age-row{display:flex;gap:9px;align-items:flex-start;margin-top:14px;text-align:left;cursor:pointer}
+.age-row input[type="checkbox"]{flex:0 0 auto;width:19px;height:19px;margin:2px 0 0;accent-color:var(--accent);cursor:pointer}
+.age-row span{font-size:13.5px;line-height:1.6;color:var(--ink)}
+.age-row a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-weight:700}
+.bringbar .btn{min-width:210px}
+</style>
+
 </head>
 <body>
 <div class="wrap">
@@ -679,6 +772,7 @@ textarea:focus{outline:none;border-bottom:2px solid var(--accent)}
 <button type="button" class="tnav-link" id="tnavXi" aria-pressed="false" aria-label="西占"><span class="tnav-dot" aria-hidden="true"></span><span class="tnav-label">西占</span></button>
 <button type="button" class="tnav-link" id="tnavYin" aria-pressed="false" aria-label="印占"><span class="tnav-dot" aria-hidden="true"></span><span class="tnav-label">印占</span></button>
 <button type="button" class="tnav-link" id="tnavLearn" aria-pressed="false" aria-label="手册"><span class="tnav-dot" aria-hidden="true"></span><span class="tnav-label">手册</span></button>
+<button type="button" class="tnav-link" id="tnavMine" aria-pressed="false" aria-label="我的"><span class="tnav-dot" aria-hidden="true"></span><span class="tnav-label">我的</span></button>
 </nav>
 <nav class="mainnav" aria-label="导航 · 东玄 / 西占 / 印占" aria-hidden="true">
 <div class="nav-groups">
@@ -753,6 +847,14 @@ textarea:focus{outline:none;border-bottom:2px solid var(--accent)}
 </span>
 </button>
 </div>
+
+<button type="button" class="home-card" id="homeMentor">
+<span class="home-body">
+<span class="home-top"><span class="home-zh" id="homeMentorZh">认识你的导师</span><span class="home-en" id="homeMentorEn">MEET YOUR MENTOR</span></span>
+<span class="home-desc" id="homeMentorDesc">Ember 是 EMBERMOON 的 AI 导师，记得你的盘，也记得你说过的事。排完盘点「带给导师」，就能接着聊。</span>
+<span class="home-go" id="homeMentorGo">去见 Ember →</span>
+</span>
+</button>
 </section>
 
 <section id="groupSec" aria-label="分组" hidden>
@@ -775,6 +877,7 @@ textarea:focus{outline:none;border-bottom:2px solid var(--accent)}
 <section class="stage" id="stageSec" aria-label="牌面">
 <div id="board"><div class="empty">尚未抽牌</div></div>
 <div class="focusinfo" id="focusInfo" hidden></div>
+<div class="bz-ai" id="taChatWrap" hidden><div class="bz-chatlog" id="taChatLog" aria-live="polite"></div><div class="bz-chatbar"><input type="text" id="taChatInput" autocomplete="off" placeholder="想问什么，直接打字…"><button class="btn primary" id="taChatSend" type="button">发送</button></div></div>
 </section>
 
 <section class="panel" id="baziSec" aria-label="八字排盘" hidden>
@@ -885,6 +988,7 @@ textarea:focus{outline:none;border-bottom:2px solid var(--accent)}
 <button type="button" class="ved-tab" data-vtab="nav" aria-pressed="false">九分盘</button>
 </div>
 <div id="vedBoard"></div>
+<div class="bz-ai"><div class="bz-chatlog" id="vedChatLog" aria-live="polite"></div><div class="bz-chatbar"><input type="text" id="vedChatInput" autocomplete="off" placeholder="想问什么，直接打字…"><button class="btn primary" id="vedChatSend" type="button">发送</button></div></div>
 </section>
 
 <section class="panel" id="ziweiSec" aria-label="紫微斗数排盘" hidden>
@@ -916,6 +1020,7 @@ textarea:focus{outline:none;border-bottom:2px solid var(--accent)}
 
 <section class="stage" id="ziweiResult" aria-label="紫微斗数排盘" hidden>
 <div id="zwBoard"></div>
+<div class="bz-ai"><div class="bz-chatlog" id="zwChatLog" aria-live="polite"></div><div class="bz-chatbar"><input type="text" id="zwChatInput" autocomplete="off" placeholder="想问什么，直接打字…"><button class="btn primary" id="zwChatSend" type="button">发送</button></div></div>
 </section>
 
 <section class="panel" id="liuyaoSec" aria-label="六爻起卦" hidden>
@@ -923,6 +1028,10 @@ textarea:focus{outline:none;border-bottom:2px solid var(--accent)}
 <div class="bz-field">
 <label class="bz-flabel" id="lyQLabel" for="lyQ">你想问的事</label>
 <textarea id="lyQ" rows="2"></textarea>
+</div>
+<div class="bz-field">
+<label class="bz-flabel" id="lyDateLabel" for="lyDate">起卦日期</label>
+<input type="date" id="lyDate" min="1900-01-01" max="2050-12-31">
 </div>
 <div class="bz-field">
 <label class="bz-flabel" id="lyYongLabel" for="lyYong">用神（按所问之事取）</label>
@@ -946,6 +1055,7 @@ textarea:focus{outline:none;border-bottom:2px solid var(--accent)}
 
 <section class="stage" id="liuyaoResult" aria-label="六爻起卦" hidden>
 <div id="lyBoard"></div>
+<div class="bz-ai"><div class="bz-chatlog" id="lyChatLog" aria-live="polite"></div><div class="bz-chatbar"><input type="text" id="lyChatInput" autocomplete="off" placeholder="想问什么，直接打字…"><button class="btn primary" id="lyChatSend" type="button">发送</button></div></div>
 </section>
 
 <section class="panel" id="meihuaSec" aria-label="梅花易数起卦" hidden>
@@ -966,14 +1076,18 @@ textarea:focus{outline:none;border-bottom:2px solid var(--accent)}
 </div>
 <div class="bz-field">
 <label class="bz-flabel" id="mhTimeLabel" for="mhTime">时间</label>
-<input type="time" id="mhTime">
+<select id="mhTime" aria-label="时辰"></select>
 </div>
 <div class="mh-nowrow"><button type="button" class="mh-nowbtn" id="mhNowBtn">用当前时间</button></div>
 </div>
 <div class="west-block" id="mhNumBlock" style="border-top:0;padding-top:0;margin-top:0" hidden>
 <div class="bz-field ved-field">
-<label class="bz-flabel" id="mhNumLabel" for="mhNums">报三个以内的数字</label>
-<input type="text" id="mhNums" inputmode="numeric" autocomplete="off">
+<label class="bz-flabel" id="mhNumLabel" for="mhNum1">报三个以内的数字</label>
+<div class="mh-numrow">
+<input type="text" id="mhNum1" inputmode="numeric" autocomplete="off" placeholder="3" aria-label="第一个数字">
+<input type="text" id="mhNum2" inputmode="numeric" autocomplete="off" placeholder="58" aria-label="第二个数字">
+<input type="text" id="mhNum3" inputmode="numeric" autocomplete="off" placeholder="6" aria-label="第三个数字">
+</div>
 </div>
 </div>
 <div class="west-block" id="mhCharBlock" style="border-top:0;padding-top:0;margin-top:0" hidden>
@@ -993,6 +1107,7 @@ textarea:focus{outline:none;border-bottom:2px solid var(--accent)}
 
 <section class="stage" id="meihuaResult" aria-label="梅花易数起卦" hidden>
 <div id="mhBoard"></div>
+<div class="bz-ai"><div class="bz-chatlog" id="mhChatLog" aria-live="polite"></div><div class="bz-chatbar"><input type="text" id="mhChatInput" autocomplete="off" placeholder="想问什么，直接打字…"><button class="btn primary" id="mhChatSend" type="button">发送</button></div></div>
 </section>
 
 <section class="panel" id="westSec" aria-label="西占星盘" hidden>
@@ -1119,6 +1234,7 @@ textarea:focus{outline:none;border-bottom:2px solid var(--accent)}
 
 <section class="stage" id="westResult" aria-label="西占星盘" hidden>
 <div id="wBoard"></div>
+<div class="bz-ai"><div class="bz-chatlog" id="wChatLog" aria-live="polite"></div><div class="bz-chatbar"><input type="text" id="wChatInput" autocomplete="off" placeholder="想问什么，直接打字…"><button class="btn primary" id="wChatSend" type="button">发送</button></div></div>
 </section>
 
 <section class="stage" id="learnSec" aria-label="Learn" hidden>
@@ -1133,10 +1249,169 @@ textarea:focus{outline:none;border-bottom:2px solid var(--accent)}
 </div>
 </section>
 
+<section class="panel" id="mineSec" aria-label="我的" hidden>
+<div id="mineNotCfg" hidden>
+<p class="bz-meta" id="mineNotCfgText">暂时还不能登录，请稍后再来看看。</p>
+</div>
+<div id="mineAuth" hidden>
+<div class="bz-form">
+<label class="bz-field">
+<span class="bz-flabel" id="mineEmailLabel">邮箱</span>
+<input type="email" id="mineEmail" autocomplete="email" placeholder="you@example.com">
+</label>
+<label class="bz-field">
+<span class="bz-flabel" id="minePassLabel">密码</span>
+<input type="password" id="minePass" autocomplete="current-password">
+</label>
+<label class="age-row"><input type="checkbox" id="mineAgeCheck"><span><span id="mineAgeTextA">我确认我已满 18 岁，并同意</span> <a href="#" id="mineTermsLink">用户条款</a></span></label>
+<p class="bz-hint" id="mineAgeHint">注册导师账号需年满 18 岁，勾选时间会被记录；排盘工具不需要登录就能用。合盘里他人的出生日期不会用来判断你的年龄。</p>
+
+</div>
+<div class="drawbar">
+<button class="btn primary" id="mineLoginBtn" type="button">登录</button>
+<button class="btn" id="mineSignupBtn" type="button">注册</button>
+</div>
+<p class="bz-error" id="mineAuthErr" hidden></p>
+<p class="bz-hint" id="mineAuthMsg"></p>
+</div>
+<div id="mineMain" hidden>
+<p class="mine-email" id="mineEmailLine"></p>
+<div id="mineMentorBox">
+<p class="bz-sectitle" id="mineMentorTitle" style="margin-top:18px">导师</p>
+<p class="mine-email" id="mineMentorDesc">Ember 记得你的盘和你说过的事。</p>
+<div class="drawbar"><button class="btn primary" id="mineMentorBtn" type="button">继续和导师聊</button></div>
+</div>
+
+<div id="mineSub">
+<p class="bz-sectitle" id="mineSubTitle" style="margin-top:18px">订阅会员</p>
+<p class="mine-substatus" id="mineSubStatus">当前：免费版</p>
+<div class="sub-plans">
+<div class="sub-plan">
+<div class="sub-pinfo"><p class="sub-pname" id="subNameM">月度会员</p><p class="sub-pnote" id="subNoteM">随时可取消</p></div>
+<div class="sub-ppricebox"><span class="sub-pprice">$9.99</span><span class="sub-pper" id="subPerM">/月</span></div>
+<button class="btn primary sub-btn" id="mineSubBtnM" type="button">订阅</button>
+</div>
+<div class="sub-plan">
+<div class="sub-pinfo"><p class="sub-pname" id="subNameQ">季度会员</p><p class="sub-pnote" id="subNoteQ">约 $8.33/月，比月付省 17%</p></div>
+<div class="sub-ppricebox"><span class="sub-pprice">$24.99</span><span class="sub-pper" id="subPerQ">/季</span></div>
+<button class="btn primary sub-btn" id="mineSubBtnQ" type="button">订阅</button>
+</div>
+<div class="sub-plan">
+<div class="sub-pinfo"><p class="sub-pname"><span id="subNameY">年度会员</span><span class="sub-badge" id="subBestTag">最划算</span></p><p class="sub-pnote" id="subNoteY">约 $6.67/月，比月付省 33%</p></div>
+<div class="sub-ppricebox"><span class="sub-pprice">$79.99</span><span class="sub-pper" id="subPerY">/年</span></div>
+<button class="btn primary sub-btn" id="mineSubBtnY" type="button">订阅</button>
+</div>
+</div>
+<div class="sub-cmp">
+<p id="subCmp1">全部排盘：免费版与会员都免费</p>
+<p id="subCmp2">AI 对话：免费版每天 5 句 · 会员无限次</p>
+<p id="subCmp3">保存记录：免费版最多 50 条 · 会员不限条数</p>
+</div>
+<p class="bz-error" id="mineSubMsg" hidden></p>
+</div>
+<div id="mineAiBox">
+<p class="bz-sectitle" id="mineAiTitle" style="margin-top:18px">今天的 AI 对话</p>
+<p class="mine-email" id="mineAiLeft"></p>
+</div>
+<p class="bz-sectitle" id="mineBirthTitle" style="margin-top:18px">我的出生信息</p>
+<div class="bz-form">
+<label class="bz-field">
+<span class="bz-flabel" id="mineBDateLabel" for="mineBDate">出生日期</span>
+<input type="date" id="mineBDate" min="1900-01-01" max="2050-12-31">
+</label>
+<label class="bz-field">
+<span class="bz-flabel" id="mineBTimeLabel" for="mineBTime">出生时间</span>
+<input type="time" id="mineBTime">
+</label>
+<div class="bz-field">
+<span class="bz-flabel" id="mineBGenderLabel">性别</span>
+<div class="bz-gender" role="group" aria-label="性别">
+<button type="button" class="bz-gbtn" id="mineMale" aria-pressed="true">男</button>
+<button type="button" class="bz-gbtn" id="mineFemale" aria-pressed="false">女</button>
+</div>
+</div>
+<label class="bz-field">
+<span class="bz-flabel" id="mineBPlaceLabel" for="mineBPlace">出生地</span>
+<input type="text" id="mineBPlace" autocomplete="off">
+</label>
+</div>
+<div class="drawbar">
+<button class="btn primary" id="mineSaveProfileBtn" type="button">保存出生信息</button>
+<button class="btn" id="mineLogoutBtn" type="button">退出登录</button>
+</div>
+<p class="bz-hint" id="mineProfileMsg"></p>
+<p class="bz-sectitle" id="mineSavedTitle" style="margin-top:26px">我保存的记录</p>
+<p class="bz-note" id="mineSavedHint">最多 50 条，满了自动删最旧的。</p>
+<div id="mineList"></div>
+<div id="mineDetail" hidden>
+<button type="button" class="learn-back" id="mineBackBtn">← 返回列表</button>
+<p class="mine-detailtitle" id="mineDetailTitle"></p>
+<p class="mine-detaildate" id="mineDetailDate"></p>
+<div class="mine-text" id="mineDetailText"></div>
+<div class="drawbar">
+<button class="btn" id="mineDetailDelBtn" type="button">删除</button>
+</div>
+</div>
+<div id="mineAcct">
+<p class="bz-sectitle" id="mineAcctTitle" style="margin-top:26px">账号</p>
+<p class="mine-email" id="mineAcctEmail"></p>
+<div class="bz-form">
+<label class="bz-field">
+<span class="bz-flabel" id="mineNewPassLabel" for="mineNewPass">新密码</span>
+<input type="password" id="mineNewPass" autocomplete="new-password" placeholder="至少 6 位">
+</label>
+</div>
+<div class="drawbar">
+<button class="btn" id="minePassBtn" type="button">修改密码</button>
+<button class="btn" id="mineDelAcctBtn" type="button">删除账号</button>
+</div>
+<p class="bz-hint" id="mineDelWarn" hidden></p>
+<p class="bz-hint" id="mineAcctMsg"></p>
+</div>
+</div>
+</section>
+
+<section class="panel" id="mentorSec" aria-label="Ember · EMBERMOON 导师" hidden>
+<div class="mentor-head">
+<p class="mentor-name"><span id="mentorName">Ember · EMBERMOON 导师</span><span class="ai-tag">AI</span></p>
+<p class="mentor-aisnote" id="mentorAiNote">这是 AI，不是真人。Ember 的回答仅供娱乐参考，不替代专业意见。</p>
+<p class="mentor-chartline" id="mentorChartLine"></p>
+<div class="mentor-chartbtns" id="mentorChartBtns"></div>
+</div>
+<div class="mentor-gate" id="mentorGate" hidden>
+<p id="mentorGateText">让导师记住你和这张盘</p>
+<button class="btn primary" id="mentorGateBtn" type="button">去登录 / 注册</button>
+</div>
+<div id="mentorMain" hidden>
+<div class="mentor-archive" id="mentorArchive">
+<p class="bz-sectitle" id="mentorArcTitle" style="text-align:left">导师眼中的你</p>
+<div id="mentorArcBody"></div>
+</div>
+<div class="bz-chatlog" id="mentorLog" aria-live="polite"></div>
+<div class="mentor-crisis" id="mentorCrisis" hidden><p id="mentorCrisisText"></p></div>
+<p class="mentor-left" id="mentorLeft"></p>
+<div class="bz-chatbar"><input type="text" id="mentorInput" autocomplete="off" placeholder="想问什么，直接打字…"><button class="btn primary" id="mentorSend" type="button">发送</button></div>
+<div class="mentor-upgrade" id="mentorUpgrade" hidden>
+<p id="mentorUpgradeText"></p>
+<div class="drawbar"><button class="btn primary" id="mentorUpgradeBtn" type="button">去订阅</button></div>
+</div>
+</div>
+</section>
+
+<section class="panel" id="legalSec" aria-label="隐私政策" hidden>
+<button type="button" class="learn-back" id="legalBack">← 返回</button>
+<div class="legal-body" id="legalBody"></div>
+</section>
+
 <datalist id="cityList"></datalist>
 
 <footer class="sloganbar">
 <p class="slogan" id="sloganText">余烬有光，月下有答。</p>
+<nav class="legal-links" aria-label="Legal">
+<button type="button" class="legal-link" id="legalLinkPrivacy">隐私政策</button>
+<button type="button" class="legal-link" id="legalLinkTerms">使用条款</button>
+<button type="button" class="legal-link" id="legalLinkDisclaimer">娱乐免责声明</button>
+</nav>
 <p class="disclaimer" id="disclaimerText">本页面内容仅供娱乐参考。</p>
 </footer>
 </div>
@@ -1151,6 +1426,20 @@ textarea:focus{outline:none;border-bottom:2px solid var(--accent)}
 
 <div class="toast" id="toast" role="status"></div>
 
+<script>
+/* Supabase 配置（「我的」用户中心用）：把你自己的 Project URL 和 anon key 填进下面两个引号里
+   （在 Supabase 后台 Settings → API 里复制），填好后注册 / 登录 / 保存才能用；留空则用户中心不开通。 */
+var SUPABASE_URL="https://rtedrumrjeujwkptbuao.supabase.co";
+var SUPABASE_ANON_KEY="sb_publishable_x8OBlUotzKhC410n5odaIg_WntETa96";
+/* Stripe 订阅价格（Price ID）：在 Stripe 后台 Products 里建好月 / 季 / 年三个订阅价格，
+   把各自的 Price ID（price_ 开头的那串）复制进下面三个引号里，填哪个，哪档就能订阅。
+   留空的那一档（或三个都留空时全部）点了订阅按钮会显示「订阅还没开通」；
+   填好后点订阅会向站点后端要一条 Stripe Checkout 结账地址并跳转过去付款，
+   付款成功后订阅状态写回 Supabase 的 subscriptions 表，登录就能看到自己是不是会员。 */
+var STRIPE_PRICE_MONTHLY="";
+var STRIPE_PRICE_QUARTERLY="";
+var STRIPE_PRICE_YEARLY="";
+</script>
 <script>
 "use strict";
 /* 78 张牌图（公有领域经典韦特 Pam-A 原图）已内嵌在本文件内，
@@ -1291,7 +1580,7 @@ return idx.slice(0,n);
 }
 
 var $=function(id){return document.getElementById(id);};
-var current=SPREADS[2], copyText="", focusedSlot=null, focusedRec=null, boardWrap=null, lastDraw=null;
+var current=SPREADS[2], copyText="", focusedSlot=null, focusedRec=null, boardWrap=null, lastDraw=null, drawGen=0;
 
 /* 牌阵滑动选项（语言切换时按当前语言重建，保留选中项） */
 function renderSpreads(){
@@ -1303,6 +1592,7 @@ b.setAttribute("aria-pressed", sp===current?"true":"false");
 b.innerHTML='<span class="sname">'+spName(sp)+'</span>';
 b.addEventListener("click",function(){
 current=sp;copyText="";lastDraw=null;$("copyBtn").disabled=true;
+if(window.__sysChat) __sysChat.reset("tarot");
 bar.querySelectorAll(".spreadchip").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false");});
 renderInfo();
 clearFocus();
@@ -1362,7 +1652,9 @@ return '<div class="flip'+(rev?" rev":"")+'"><div class="flip-inner">'+
 function doDraw(){
 var q=$("q").value.trim();
 var btn=$("drawBtn"); btn.disabled=true;
+var gen=++drawGen;
 setTimeout(function(){
+if(gen!==drawGen) return;
 btn.disabled=false;
 clearFocus();
 var sp=current;
@@ -1419,6 +1711,7 @@ board.appendChild(wrap);
 lastDraw={sp:sp,recs:recs,q:q};
 buildCopyText();
 $("copyBtn").disabled=false;
+if(window.__sysChat) __sysChat.refresh("tarot");
 }, 600);
 }
 $("drawBtn").addEventListener("click",doDraw);
@@ -2205,7 +2498,7 @@ var HIDDEN=[[9],[5,9,7],[0,2,4],[1],[4,1,9],[2,6,4],[3,5],[5,3,1],[6,8,4],[7],[4
 var JIE_POS=[[2,2],[4,3],[6,4],[8,5],[10,6],[12,7],[14,8],[16,9],[18,10],[20,11],[22,0],[0,1]];
 var JIE_SET={0:1,2:1,4:1,6:1,8:1,10:1,12:1,14:1,16:1,18:1,20:1,22:1};
 var BZ={
-zh:{title:"八字排盘",tabTarot:"塔罗",tabBazi:"八字",dateLabel:"出生日期（公历）",timeLabel:"出生时间",shichenUnknown:"不知道时辰",exactPh:"或填准确时间",genderLabel:"性别",male:"男",female:"女",draw:"开始排盘",copy:"复制结果",aiBtn:"AI 解读",aiLoading:"正在解读…",aiTitle:"AI 解读",aiError:"解读失败：服务器太忙了，请过一会儿再点一次。",aiRetry:function(n){return "服务器有点忙，正在自动重试（第 "+n+" 次）…解读要等一会儿，别关页面。";},chatGreet:"这张盘我看到了，你想先问哪方面？",chatPh:"想问什么，直接打字…",chatSend:"发送",chatThinking:"正在回复…",chatWait:"还在回复中，这次有点慢，别关页面，再等一下…",chatError:"这条没送出去：自动重试了几次，服务器还是忙。问题已放回输入框，过一会儿点发送再试一次。",
+zh:{title:"八字排盘",tabTarot:"塔罗",tabBazi:"八字",dateLabel:"出生日期（公历）",timeLabel:"出生时间",shichenUnknown:"不知道时辰",exactPh:"或填准确时间",genderLabel:"性别",male:"男",female:"女",draw:"开始排盘",copy:"复制结果",aiBtn:"AI 解读",aiLoading:"正在解读…",aiTitle:"AI 解读",aiError:"解读失败：服务器太忙了，请过一会儿再点一次。",aiRetry:function(n){return "服务器有点忙，正在自动重试（第 "+n+" 次）…解读要等一会儿，别关页面。";},chatGreet:"这张盘我看到了，你想先问哪方面？",chatPh:"想问什么，直接打字…",chatSend:"发送",chatThinking:"正在回复…",chatWait:"还在回复中，这次有点慢，别关页面，再等一下…",chatError:"这条没送出去：自动重试了几次，服务器还是忙。问题已放回输入框，过一会儿点发送再试一次。",chatLimit:"今天的免费 AI 对话已用完（每天 5 句）。开通会员后可以无限对话——点顶部的「我的」就能订阅。",
 pillars:["年柱","月柱","日柱","时柱"],dayMaster:"日主",hiddenLabel:"藏干",unknown:"未知",
 solarL:"公历",lunarL:"农历",jieqiL:"节气",dayunL:"大运",forward:"顺行",backward:"逆行",startAt:function(a){return "约 "+a+" 起运";},
 wxL:"五行分布",wxMethod:"按四柱天干 + 地支本气统计",godsL:"十神",
@@ -2223,7 +2516,7 @@ noteShichen:"只选了时辰：节气交接按该时辰的中点时刻判断；�
 manual:"自动复制没有成功，下面是这次排盘的全部内容，长按（或全选）即可手动复制：",
 disclaimer:"本页面内容仅供娱乐参考。",
 copyHead:""},
-en:{title:"BaZi Chart",tabTarot:"Tarot",tabBazi:"BaZi",dateLabel:"Birth date (Gregorian)",timeLabel:"Birth time",shichenUnknown:"I don't know",exactPh:"or exact time",genderLabel:"Gender",male:"Male",female:"Female",draw:"Cast Chart",copy:"Copy Result",aiBtn:"AI Reading",aiLoading:"Reading…",aiTitle:"AI Reading",aiError:"Reading failed: the server is too busy. Please wait a bit and tap once more.",aiRetry:function(n){return "The server is busy — retrying automatically (attempt "+n+")… Readings can take a while; please keep this page open.";},chatGreet:"I’ve seen your chart — what would you like to ask first?",chatPh:"Type your question…",chatSend:"Send",chatThinking:"Replying…",chatWait:"Still replying — it's slow this time. Keep this page open a little longer…",chatError:"That message didn't go through — retried a few times, but the server is still busy. Your question is back in the box; wait a moment and tap Send again.",
+en:{title:"BaZi Chart",tabTarot:"Tarot",tabBazi:"BaZi",dateLabel:"Birth date (Gregorian)",timeLabel:"Birth time",shichenUnknown:"I don't know",exactPh:"or exact time",genderLabel:"Gender",male:"Male",female:"Female",draw:"Cast Chart",copy:"Copy Result",aiBtn:"AI Reading",aiLoading:"Reading…",aiTitle:"AI Reading",aiError:"Reading failed: the server is too busy. Please wait a bit and tap once more.",aiRetry:function(n){return "The server is busy — retrying automatically (attempt "+n+")… Readings can take a while; please keep this page open.";},chatGreet:"I’ve seen your chart — what would you like to ask first?",chatPh:"Type your question…",chatSend:"Send",chatThinking:"Replying…",chatWait:"Still replying — it's slow this time. Keep this page open a little longer…",chatError:"That message didn't go through — retried a few times, but the server is still busy. Your question is back in the box; wait a moment and tap Send again.",chatLimit:"You've used today's free AI messages (5 a day). Members chat without limits — subscribe under “Mine” at the top.",
 pillars:["Year Pillar","Month Pillar","Day Pillar","Hour Pillar"],dayMaster:"Day Master",hiddenLabel:"Hidden",unknown:"Unknown",
 solarL:"Gregorian",lunarL:"Lunar",jieqiL:"Solar terms",dayunL:"Luck Pillars",forward:"Forward",backward:"Reverse",startAt:function(a){return "starts at about age "+a;},
 wxL:"Five Elements",wxMethod:"Counted from the four stems + the main qi of the four branches",godsL:"Ten Gods",
@@ -2241,7 +2534,7 @@ noteShichen:"Shichen only: solar-term transitions are judged at the midpoint of 
 manual:"Auto-copy didn't work. Here is the full chart — long-press (or select all) to copy it manually:",
 disclaimer:"For entertainment purposes only.",
 copyHead:"[EMBERMOON BaZi Chart]"},
-es:{title:"Carta BaZi",tabTarot:"Tarot",tabBazi:"BaZi",dateLabel:"Fecha de nacimiento (gregoriano)",timeLabel:"Hora de nacimiento",shichenUnknown:"No lo sé",exactPh:"u hora exacta",genderLabel:"Sexo",male:"Hombre",female:"Mujer",draw:"Calcular",copy:"Copiar resultado",aiBtn:"Lectura con IA",aiLoading:"Leyendo…",aiTitle:"Lectura con IA",aiError:"La lectura falló: el servidor está muy ocupado. Espera un poco y toca una vez más.",aiRetry:function(n){return "El servidor está ocupado: reintentando automáticamente (intento "+n+")… La lectura puede tardar; no cierres la página.";},chatGreet:"Ya vi tu carta, ¿qué quieres preguntar primero?",chatPh:"Escribe tu pregunta…",chatSend:"Enviar",chatThinking:"Respondiendo…",chatWait:"Sigo respondiendo: esta vez va lento. No cierres la página, espera un poco más…",chatError:"Ese mensaje no salió: lo reintenté varias veces y el servidor sigue ocupado. Tu pregunta volvió al cuadro; espera un momento y toca Enviar otra vez.",
+es:{title:"Carta BaZi",tabTarot:"Tarot",tabBazi:"BaZi",dateLabel:"Fecha de nacimiento (gregoriano)",timeLabel:"Hora de nacimiento",shichenUnknown:"No lo sé",exactPh:"u hora exacta",genderLabel:"Sexo",male:"Hombre",female:"Mujer",draw:"Calcular",copy:"Copiar resultado",aiBtn:"Lectura con IA",aiLoading:"Leyendo…",aiTitle:"Lectura con IA",aiError:"La lectura falló: el servidor está muy ocupado. Espera un poco y toca una vez más.",aiRetry:function(n){return "El servidor está ocupado: reintentando automáticamente (intento "+n+")… La lectura puede tardar; no cierres la página.";},chatGreet:"Ya vi tu carta, ¿qué quieres preguntar primero?",chatPh:"Escribe tu pregunta…",chatSend:"Enviar",chatThinking:"Respondiendo…",chatWait:"Sigo respondiendo: esta vez va lento. No cierres la página, espera un poco más…",chatError:"Ese mensaje no salió: lo reintenté varias veces y el servidor sigue ocupado. Tu pregunta volvió al cuadro; espera un momento y toca Enviar otra vez.",chatLimit:"Ya usaste los mensajes gratis de hoy (5 al día). Los miembros chatean sin límite: suscríbete en «Mi cuenta» arriba.",
 pillars:["Pilar del Año","Pilar del Mes","Pilar del Día","Pilar de la Hora"],dayMaster:"Señor del Día",hiddenLabel:"Ocultos",unknown:"Desconocida",
 solarL:"Gregoriano",lunarL:"Lunar",jieqiL:"Términos solares",dayunL:"Ciclos de Suerte",forward:"Directo",backward:"Inverso",startAt:function(a){return "comienza hacia los "+a;},
 wxL:"Cinco Elementos",wxMethod:"Contados desde los cuatro troncos + el qi principal de las cuatro ramas",godsL:"Diez Dioses",
@@ -2374,7 +2667,7 @@ lines.push(t.dayunL+": "+(r.forward?t.forward:t.backward)+" · "+t.startAt(ageSt
 lines.push(t.disclaimer);
 bzCopyText=lines.join("\n");
 $("bzCopyBtn").disabled=false;
-if($("bzChatLog")){ if(bzChat.length) bzChatRender(); else bzChatSeed(); }
+if($("bzChatLog")){ if(bzChatBusy) bzChatInvalidate(); if(bzChat.length) bzChatRender(); else bzChatSeed(); }
 }
 function bzSetTexts(){
 var t=BZT();
@@ -2539,7 +2832,23 @@ else { $("manualTip").textContent=BZT().manual; $("manualText").value=text; $("m
    后端慢且偶发忙（实测单次 8–26 秒、偶有 429），故自动重试最多 4 次
    （单次 45 秒超时、退避 2s/5s/10s，等待与重试都有文案提示）；
    全部失败才在对话里明示，并把问题放回输入框，可直接再发 */
-var bzChat=[], bzChatBusy=false;
+var bzChat=[], bzChatBusy=false, bzChatGen=0;
+/* 免费版 AI 对话每天 5 句的计数：与其它六个对话共用同一个计数（window.__aiQuota），
+   只存在本次打开页面的内存里，按本地日期换天清零，用户中心据此显示今天还剩几句；
+   会员（window.EMBERMOON_PREMIUM，由用户中心读订阅状态后写入）不计数、不设限 */
+var bzChatDay="", bzChatCount=0;
+/* 离开八字页或重新排盘时，让还在路上的那次提问作废：否则它的回调会在
+   清空之后继续写页面——成功把旧回答塞进对话、失败把旧问题放回输入框、
+   等待提示到点改气泡——回来就看到字和答案又冒出来，像没清过一样。
+   作废后顺带把被那次发送禁用的输入框与发送按钮恢复可用，
+   因为作废的回调不会再来做这件事。 */
+function bzChatInvalidate(){
+bzChatGen++;
+bzChatBusy=false;
+var inp=$("bzChatInput"), sb=$("bzChatSend");
+if(inp) inp.disabled=false;
+if(sb) sb.disabled=false;
+}
 function bzChartPayload(){
 var tt=BZT(), r=bzLast.res;
 return {dayMaster:gzOf(r.dGZ[0],r.dGZ[1]),
@@ -2568,6 +2877,24 @@ var input=$("bzChatInput"), sendBtn=$("bzChatSend"), tt=BZT(), log=$("bzChatLog"
 if(!input||!log) return;
 var q=(input.value||"").trim();
 if(!q) return;
+/* 免费版每天 5 句：超限时不发请求，只在对话里留一句提示，问题仍留在输入框，
+   开通会员后可直接接着问；会员不走这道闸 */
+if(window.EMBERMOON_PREMIUM!==true){
+var bzToday=new Date().toDateString();
+var AQ=window.__aiQuota||(window.__aiQuota={day:"",count:0});
+if(AQ.day!==bzToday){ AQ.day=bzToday; AQ.count=0; }
+bzChatDay=AQ.day; bzChatCount=AQ.count;
+if(AQ.count>=5){
+var lim=document.createElement("div");
+lim.className="bz-msg err";
+lim.textContent=tt.chatLimit;
+log.appendChild(lim);
+try{ lim.scrollIntoView({behavior:"smooth",block:"nearest"}); }catch(e){}
+return;
+}
+AQ.count++; bzChatCount=AQ.count;
+}
+var gen=bzChatGen;
 var history=bzChat.slice(-12);
 bzChat.push({role:"user",content:q});
 input.value="";
@@ -2604,7 +2931,7 @@ if(loadErr){ bzChatFail(); bzChatDone(); return; }
    （超过 15 秒→chatWait，重试→aiRetry），全部失败才报错 */
 var BZ_CHAT_URL="https://embermoon-backend.jinniezhan.workers.dev/interpret";
 var bzAttempt=0;
-var bzWaitNote=setTimeout(function(){ if(bzChatBusy&&pend.parentNode) pend.textContent=tt.chatWait||tt.chatThinking; },15000);
+var bzWaitNote=setTimeout(function(){ if(gen===bzChatGen&&bzChatBusy&&pend.parentNode) pend.textContent=tt.chatWait||tt.chatThinking; },15000);
 function bzTryOnce(){
 bzAttempt++;
 var ctrl=(typeof AbortController!=="undefined")?new AbortController():null;
@@ -2626,12 +2953,14 @@ throw err;
 }
 function bzRun(){
 bzTryOnce().then(function(text){
+if(gen!==bzChatGen) return;
 clearTimeout(bzWaitNote);
 if(pend.parentNode) pend.parentNode.removeChild(pend);
 bzChat.push({role:"assistant",content:text});
 bzChatRender();
 bzChatDone();
 }).catch(function(err){
+if(gen!==bzChatGen) return;
 var status=err&&err.status;
 /* 400 等请求错误重试也没用，立即失败；网络错误 / 超时 / 429 / 5xx / 空回复才重试 */
 var retryable=!(status&&status>=400&&status<500&&status!==429);
@@ -2955,6 +3284,7 @@ lines.push((NAV9L[LANG]||NAV9L.zh)+": "+r.planets.map(function(pl){ return t.pla
 lines.push(t.disclaimer);
 vedCopyText=lines.join("\n");
 $("vedCopyBtn").disabled=false;
+if(window.__sysChat) __sysChat.refresh("vedic");
 }
 function vedReadLoc(){
 var latV=$("vedLat").value.trim(), lonV=$("vedLon").value.trim();
@@ -3528,6 +3858,7 @@ lines.push(t.sihuaL+": "+r.sihua.map(function(s,k){ return t.stars[s]+" "+t.hua[
 lines.push(t.disclaimer);
 zwCopyText=lines.join("\n");
 $("zwCopyBtn").disabled=false;
+if(window.__sysChat) __sysChat.refresh("ziwei");
 }
 function zwSetTexts(){
 var t=ZWT();
@@ -3570,25 +3901,25 @@ $("zwCopyBtn").addEventListener("click",function(){ toolCopy(zwCopyText,ZWT().ma
    三背老阳、三字老阴；老阴老阳为动爻。装卦：纳甲配地支、按卦宫
    五行配六亲、按日干起六神、八宫法定世应，用神按所问之事取 */
 var LY={
-zh:{title:"六爻起卦",qLabel:"你想问的事",qPh:"一事一问，越具体越好，如：这次换工作能不能成",yongLabel:"用神（按所问之事取）",draw:"摇卦",copy:"复制结果",
+zh:{title:"六爻起卦",qLabel:"你想问的事",qPh:"一事一问，越具体越好，如：这次换工作能不能成",dateLabel:"起卦日期",yongLabel:"用神（按所问之事取）",draw:"摇卦",copy:"复制结果",
 hint:"先把问题想清楚，再点摇卦——三枚铜钱摇六次，自下而上成卦（真随机）。本卦是现状，动爻变出的变卦是走向；世爻是你自己，应爻是对方与环境。",
-copyHead:"[EMBERMOON 六爻起卦 · Liu Yao]",benL:"本卦",bianL:"变卦",gongL:"卦宫",shiW:"世",yingW:"应",dongW:"动",yongW:"用神",yongLineW:"用神在",yongNoneW:"用神不上卦",dayW:"起卦日辰",noChange:"无动爻，卦不变",manual:"自动复制没有成功，下面是这次起卦的全部内容，长按（或全选）即可手动复制：",
+copyHead:"[EMBERMOON 六爻起卦 · Liu Yao]",benL:"本卦",bianL:"变卦",gongL:"卦宫",shiW:"世",yingW:"应",dongW:"动",yongW:"用神",yongLineW:"用神在",yongNoneW:"用神不上卦",dayW:"起卦日辰",monthW:"月建",noChange:"无动爻，卦不变",manual:"自动复制没有成功，下面是这次起卦的全部内容，长按（或全选）即可手动复制：",
 yongOpts:["世爻 · 综合 / 不确定","妻财 · 问财、求物、男问感情","官鬼 · 问事业、考试功名、女问感情","父母 · 问长辈、文书、房屋","子孙 · 问健康、子女、解忧","兄弟 · 问朋友、合伙、竞争"],
 relNames:{xiong:"兄弟",sun:"子孙",cai:"妻财",guan:"官鬼",fu:"父母"},
 gods:["青龙","朱雀","勾陈","腾蛇","白虎","玄武"],
 kinds:["本宫卦","一世卦","二世卦","三世卦","四世卦","五世卦","游魂卦","归魂卦"],
 palNames:["坤","震","坎","兑","艮","离","巽","乾"],palSuffix:"宫",disclaimer:"本页面内容仅供娱乐参考。"},
-en:{title:"Liu Yao Casting",qLabel:"Your question",qPh:"One cast, one question — the more specific, the better",yongLabel:"Focus line (Yong Shen, by what you ask)",draw:"Cast",copy:"Copy Result",
+en:{title:"Liu Yao Casting",qLabel:"Your question",qPh:"One cast, one question — the more specific, the better",dateLabel:"Cast date",yongLabel:"Focus line (Yong Shen, by what you ask)",draw:"Cast",copy:"Copy Result",
 hint:"Settle the question first, then cast — three coins, six throws, built from the bottom up (true randomness). The original hexagram is the situation as it stands; moving lines change into the changed hexagram, where it is heading. The Self line is you; the Other line is the counterpart and the environment.",
-copyHead:"[EMBERMOON Liu Yao Casting]",benL:"Original",bianL:"Changed",gongL:"Palace",shiW:"Self",yingW:"Other",dongW:"moving",yongW:"Focus",yongLineW:"Focus line: ",yongNoneW:"The focus line is not in this hexagram",dayW:"Cast day",noChange:"No moving lines — the hexagram does not change",manual:"Auto-copy didn't work. Here is the full casting — long-press (or select all) to copy it manually:",
+copyHead:"[EMBERMOON Liu Yao Casting]",benL:"Original",bianL:"Changed",gongL:"Palace",shiW:"Self",yingW:"Other",dongW:"moving",yongW:"Focus",yongLineW:"Focus line: ",yongNoneW:"The focus line is not in this hexagram",dayW:"Cast day",monthW:"Month pillar",noChange:"No moving lines — the hexagram does not change",manual:"Auto-copy didn't work. Here is the full casting — long-press (or select all) to copy it manually:",
 yongOpts:["Self line · general / unsure","Wealth · money, things, a man's relationship question","Official · career, exams, a woman's relationship question","Parents · elders, documents, housing","Children · health, children, relief from worry","Siblings · friends, partners, rivals"],
 relNames:{xiong:"Siblings",sun:"Children",cai:"Wealth",guan:"Official",fu:"Parents"},
 gods:["Azure Dragon","Vermilion Bird","Gou Chen","Teng Snake","White Tiger","Black Tortoise"],
 kinds:["Palace hexagram","1st generation","2nd generation","3rd generation","4th generation","5th generation","Wandering","Returning"],
 palNames:["Kun","Zhen","Kan","Dui","Gen","Li","Xun","Qian"],palSuffix:" palace",disclaimer:"For entertainment purposes only."},
-es:{title:"Lanzamiento Liu Yao",qLabel:"Tu pregunta",qPh:"Una tirada, una pregunta: cuanto más concreta, mejor",yongLabel:"Línea foco (Yong Shen, según lo que preguntas)",draw:"Lanzar",copy:"Copiar resultado",
+es:{title:"Lanzamiento Liu Yao",qLabel:"Tu pregunta",qPh:"Una tirada, una pregunta: cuanto más concreta, mejor",dateLabel:"Fecha de la tirada",yongLabel:"Línea foco (Yong Shen, según lo que preguntas)",draw:"Lanzar",copy:"Copiar resultado",
 hint:"Aclara primero la pregunta y luego lanza: tres monedas, seis tiradas, de abajo hacia arriba (azar verdadero). El hexagrama original es la situación actual; las líneas móviles forman el hexagrama cambiado, hacia dónde va. La línea Propia eres tú; la Ajena, la otra parte y el entorno.",
-copyHead:"[EMBERMOON Lanzamiento Liu Yao]",benL:"Original",bianL:"Cambiado",gongL:"Palacio",shiW:"Propia",yingW:"Ajena",dongW:"móvil",yongW:"Foco",yongLineW:"Línea foco: ",yongNoneW:"La línea foco no aparece en este hexagrama",dayW:"Día de la tirada",noChange:"Sin líneas móviles: el hexagrama no cambia",manual:"La copia automática no funcionó. Aquí está la tirada completa: mantén pulsado (o selecciona todo) para copiarla manualmente:",
+copyHead:"[EMBERMOON Lanzamiento Liu Yao]",benL:"Original",bianL:"Cambiado",gongL:"Palacio",shiW:"Propia",yingW:"Ajena",dongW:"móvil",yongW:"Foco",yongLineW:"Línea foco: ",yongNoneW:"La línea foco no aparece en este hexagrama",dayW:"Día de la tirada",monthW:"Pilar del mes",noChange:"Sin líneas móviles: el hexagrama no cambia",manual:"La copia automática no funcionó. Aquí está la tirada completa: mantén pulsado (o selecciona todo) para copiarla manualmente:",
 yongOpts:["Línea Propia · general / no lo sé","Riqueza · dinero, cosas, relación (él pregunta)","Funcionario · carrera, exámenes, relación (ella pregunta)","Padres · mayores, documentos, vivienda","Hijos · salud, hijos, alivio","Hermanos · amigos, socios, rivales"],
 relNames:{xiong:"Hermanos",sun:"Hijos",cai:"Riqueza",guan:"Funcionario",fu:"Padres"},
 gods:["Dragón Azul","Pájaro Bermellón","Gou Chen","Serpiente Teng","Tigre Blanco","Tortuga Negra"],
@@ -3598,17 +3929,34 @@ palNames:["Kun","Zhen","Kan","Dui","Gen","Li","Xun","Qian"],palSuffix:"",disclai
 function LYT(){ return LY[LANG]||LY.zh; }
 var lyLast=null, lyCopyText="";
 var LY_HEX=[
-["坤","豫","比","临","谦","晋","观","泰"],
-["复","震","解","归妹","小过","丰","恒","无妄"],
-["师","屯","坎","节","蹇","既济","井","讼"],
+["坤","复","师","临","谦","明夷","升","泰"],
+["豫","震","解","归妹","小过","丰","恒","大壮"],
+["比","屯","坎","节","蹇","既济","井","需"],
 ["萃","随","困","兑","咸","革","大过","夬"],
-["剥","颐","蒙","损","艮","贲","蛊","遁"],
-["明夷","噬嗑","未济","睽","旅","离","鼎","同人"],
-["升","益","涣","中孚","渐","家人","巽","姤"],
-["否","大壮","需","履","大畜","大有","小畜","乾"]];
+["剥","颐","蒙","损","艮","贲","蛊","大畜"],
+["晋","噬嗑","未济","睽","旅","离","鼎","大有"],
+["观","益","涣","中孚","渐","家人","巽","小畜"],
+["否","无妄","讼","履","遁","同人","姤","乾"]];
 var LY_TRI_BRANCH=[[7,5,3,1,11,9],[0,2,4,6,8,10],[2,4,6,8,10,0],[5,3,1,11,9,7],[4,6,8,10,0,2],[3,1,11,9,7,5],[1,11,9,7,5,3],[0,2,4,6,8,10]];
 var LY_TRI_EL=[2,0,4,3,2,1,0,3];
 function lyTriCode(b0,b1,b2){ return b0+2*b1+4*b2; }
+/* 月建：按节气定月支（立春起寅月，逐节换月），月干按五虎遁从立春年干推；
+   取所选日期正午为判断点，与八字月柱同一套节气数据（jqAbs / JIE_POS） */
+function lyMonthGZ(y,m,d){
+var moment=dfc(y,m,d)*86400+43200;
+var gy=moment>=jqAbs(y,2)?y:y-1;
+var ystem=(((gy-4)%60+60)%60)%10;
+var best=null, yy, k;
+for(yy=y-1;yy<=y+1;yy++){ if(yy<1900||yy>2050) continue; for(k=0;k<JIE_POS.length;k++){ var tt=jqAbs(yy,JIE_POS[k][0]); if(tt<=moment&&(!best||tt>best[0])) best=[tt,JIE_POS[k][1]]; } }
+var mbranch=best?best[1]:(m%12);
+var mstem=([2,4,6,8,0][ystem%5]+((mbranch-2+12)%12))%10;
+return [mstem,mbranch];
+}
+function lyFillToday(){
+var el=$("lyDate"); if(!el) return;
+var n=new Date();
+el.value=n.getFullYear()+"-"+pad2(n.getMonth()+1)+"-"+pad2(n.getDate());
+}
 function lyHexName(lines){
 var lo=lyTriCode(lines[0],lines[1],lines[2]), up=lyTriCode(lines[3],lines[4],lines[5]);
 return {name:LY_HEX[up][lo],lo:lo,up:up};
@@ -3666,7 +4014,8 @@ var godStart=[0,0,1,1,2,3,4,4,5,5][cast.dayStem];
 var html='<div class="bz-meta">'
 +(cast.q?("<b>"+cast.q+"</b><br>"):"")
 +"<b>"+t.benL+"</b> "+ben.name+(bian?" · <b>"+t.bianL+"</b> "+bian.name:" · "+t.noChange)+"<br>"
-+"<b>"+t.gongL+"</b> "+t.palNames[pal.palace]+t.palSuffix+" · "+t.kinds[pal.kind]+" · <b>"+t.dayW+"</b> "+gzOf(cast.dayStem,cast.dayBranch)+"<br>"
++"<b>"+t.gongL+"</b> "+t.palNames[pal.palace]+t.palSuffix+" · "+t.kinds[pal.kind]+"<br>"
++"<b>"+t.dateLabel+"</b> "+cast.castY+"-"+pad2(cast.castM)+"-"+pad2(cast.castD)+" · <b>"+t.monthW+"</b> "+gzOf(cast.monthStem,cast.monthBranch)+" · <b>"+t.dayW+"</b> "+gzOf(cast.dayStem,cast.dayBranch)+"<br>"
 +"<b>"+t.yongW+"</b> "+(cast.yong==="shi"?(t.shiW+" ("+(pal.shi)+")"):(yongLines.length?t.yongLineW+yongLines.join(" · "):t.yongNoneW))
 +"</div>";
 html+='<div class="ly-lines">';
@@ -3691,7 +4040,8 @@ $("lyBoard").innerHTML=html;
 var lines=[t.copyHead];
 if(cast.q) lines.push(cast.q);
 lines.push(t.benL+": "+ben.name+(bian?" · "+t.bianL+": "+bian.name:" · "+t.noChange));
-lines.push(t.gongL+": "+t.palNames[pal.palace]+t.palSuffix+" · "+t.kinds[pal.kind]+" · "+t.dayW+": "+gzOf(cast.dayStem,cast.dayBranch));
+lines.push(t.gongL+": "+t.palNames[pal.palace]+t.palSuffix+" · "+t.kinds[pal.kind]);
+lines.push(t.dateLabel+": "+cast.castY+"-"+pad2(cast.castM)+"-"+pad2(cast.castD)+" · "+t.monthW+": "+gzOf(cast.monthStem,cast.monthBranch)+" · "+t.dayW+": "+gzOf(cast.dayStem,cast.dayBranch));
 for(var j=5;j>=0;j--){
 var inf2=infos[j], raw2=cast.raw[j];
 var mk=[]; if(j===pal.shi-1) mk.push(t.shiW); if(j===ying-1) mk.push(t.yingW); if(raw2.moving) mk.push(t.dongW+(raw2.yang?" ○":" ×"));
@@ -3701,12 +4051,14 @@ lines.push(t.yongW+": "+(cast.yong==="shi"?(t.shiW+" ("+pal.shi+")"):(yongLines.
 lines.push(t.disclaimer);
 lyCopyText=lines.join("\n");
 $("lyCopyBtn").disabled=false;
+if(window.__sysChat) __sysChat.refresh("liuyao");
 }
 function lySetTexts(){
 var t=LYT();
 $("lyQLabel").textContent=t.qLabel;
 $("lyQ").setAttribute("placeholder",t.qPh);
 $("lyQ").setAttribute("aria-label",t.qLabel);
+$("lyDateLabel").textContent=t.dateLabel;
 $("lyYongLabel").textContent=t.yongLabel;
 var sel=$("lyYong"); for(var i=0;i<sel.options.length&&i<t.yongOpts.length;i++) sel.options[i].textContent=t.yongOpts[i];
 $("lyHint").textContent=t.hint;
@@ -3725,14 +4077,18 @@ var yang=(s===7||s===9), moving=(s===6||s===9);
 raw.push({sum:s,yang:yang,moving:moving});
 lines.push(yang?1:0);
 }
-var now=new Date();
-var dc=((dfc(now.getFullYear(),now.getMonth()+1,now.getDate())-dfc(1900,1,1)+10)%60+60)%60;
-lyLast={q:$("lyQ").value.trim(),yong:$("lyYong").value,raw:raw,lines:lines,dayStem:dc%10,dayBranch:dc%12};
+var dv=($("lyDate").value||"").split("-"), cy, cm, cd;
+if(dv.length===3&&dv[0]&&dv[1]&&dv[2]){ cy=+dv[0]; cm=+dv[1]; cd=+dv[2]; }
+else{ var now=new Date(); cy=now.getFullYear(); cm=now.getMonth()+1; cd=now.getDate(); }
+var dc=((dfc(cy,cm,cd)-dfc(1900,1,1)+10)%60+60)%60;
+var mgz=lyMonthGZ(cy,cm,cd);
+lyLast={q:$("lyQ").value.trim(),yong:$("lyYong").value,raw:raw,lines:lines,dayStem:dc%10,dayBranch:dc%12,monthStem:mgz[0],monthBranch:mgz[1],castY:cy,castM:cm,castD:cd};
 $("liuyaoResult").hidden=false;
 lyRender();
 $("liuyaoResult").scrollIntoView({behavior:"smooth",block:"start"});
 });
 $("lyCopyBtn").addEventListener("click",function(){ toolCopy(lyCopyText,LYT().manual); });
+lyFillToday();
 
 </script>
 <script>
@@ -3960,6 +4316,7 @@ $("wBoard").innerHTML=html;
 lines.push(t.disclaimer);
 wCopyText=lines.join("\n");
 $("wCopyBtn").disabled=false;
+if(window.__sysChat) __sysChat.refresh("western");
 }
 function westSetSub(sub){
 westSub=sub;
@@ -4092,7 +4449,7 @@ var MH_STROKE_OVER={38736:39,40777:36,40856:48};
 var MH={
 zh:{title:"梅花易数起卦",qLabel:"你想问的事（可留空）",qPh:"一事一问，心里想着这件事再起卦",mTime:"时间起卦",mNum:"数字起卦",mChar:"字起卦",
 dateLabel:"日期",timeLabel:"时间",nowBtn:"用当前时间",numLabel:"报三个以内的数字",numPh:"如：3 58 6（空格或逗号隔开）",charLabel:"输入一或两个汉字",charPh:"如：梅花",
-hintTime:"以农历年月日时起卦：年、月、日之数定上卦，再加时辰数定下卦，两和定动爻。默认是现在这一刻，也可以改成任意年月日时。",
+hintTime:"以农历年月日时起卦：年、月、日之数定上卦，再加时辰数定下卦，两和定动爻。默认是现在这一刻，也可以改成任意年月日时。同一时辰内起卦，得到的卦相同；想换一卦，可以等下一个时辰，或改用数字、写字起卦。",
 hintNum:"心里想着问题，随口报数：三个数依次定上卦、下卦、动爻；两个数定上下卦、和数定动爻；只报一个数时，它定上卦，再加当下时辰定下卦与动爻。",
 hintChar:"按汉字笔画起卦：两个字，前字笔画定上卦、后字笔画定下卦，笔画和定动爻；一个字，笔画平分——前半定上卦、后半定下卦，总数定动爻。笔画按 Unihan 字典数据计。",
 draw:"起卦",copy:"复制结果",copyHead:"[EMBERMOON 梅花易数 · Plum Blossom]",benL:"本卦",huL:"互卦",bianL:"变卦",tiL:"体卦",yongL:"用卦",relL:"体用生克",verdictL:"断语",methodL:"起卦法",upW:"上",downW:"下",strokesW:"画",movingW:"动",
@@ -4104,10 +4461,10 @@ errCharUnknown:function(c){return "「"+c+"」查不到笔画数，请换一个�
 relNames:{shengTi:"用生体",tiSheng:"体生用",tiKe:"体克用",keTi:"用克体",bihe:"比和"},
 relText:{shengTi:"用卦五行生体卦——事情、对方与环境都在往你这边使力，外力是顺手的。",tiSheng:"体卦五行生用卦——你的力气往事情里漏，付出在前、回报在后，容易耗。",tiKe:"体卦五行克用卦——你压得住这件事，主动权在你手里，只是要费些力气。",keTi:"用卦五行克体卦——事情与环境反过来压着你，眼下的阻力大于助力。",bihe:"体用同五行、比和——你和这件事同气，彼此不拧着来，顺势即可。"},
 verdicts:{shengTi:"断：势在顺你。想推进的事可以推进，宜趁势而行，别犹豫太久。",tiSheng:"断：耗大于得。先掂量这件事值不值得，别急着投入，留力比出力重要。",tiKe:"断：可为，但要费力。把力气用在关键处，事能做成。",keTi:"断：宜守不宜进。硬推容易受挫，先避锋芒，等局势松动再动。",bihe:"断：同气相求。顺着现在的状态走即可，不必强求变化，稳中有进。"},
-errNums:"请输入 1 到 3 个正整数（空格或逗号隔开）。",errChars:"请输入一或两个汉字。",errDate:"请先选择日期与时间。",manual:"自动复制没有成功，下面是这次起卦的全部内容，长按（或全选）即可手动复制：",disclaimer:"本页面内容仅供娱乐参考。"},
+errNums:"请在三个框里填 1 到 3 个正整数（填一个或两个也可以）。",errChars:"请输入一或两个汉字。",errDate:"请先选择日期与时间。",manual:"自动复制没有成功，下面是这次起卦的全部内容，长按（或全选）即可手动复制：",disclaimer:"本页面内容仅供娱乐参考。"},
 en:{title:"Plum Blossom Casting",qLabel:"Your question (optional)",qPh:"One cast, one question — hold the matter in mind as you cast",mTime:"By Time",mNum:"By Numbers",mChar:"By Characters",
 dateLabel:"Date",timeLabel:"Time",nowBtn:"Use current time",numLabel:"Give up to three numbers",numPh:"e.g. 3 58 6 (spaces or commas)",charLabel:"Enter one or two Chinese characters",charPh:"e.g. 梅花",
-hintTime:"Cast by the lunar date and hour: year + month + day fix the upper trigram; adding the hour number fixes the lower trigram; the total fixes the moving line. It starts from the present moment — change it to any date and time you like.",
+hintTime:"Cast by the lunar date and hour: year + month + day fix the upper trigram; adding the hour number fixes the lower trigram; the total fixes the moving line. It starts from the present moment — change it to any date and time you like. Casting within the same two-hour period gives the same hexagram. To get a different one, wait for the next period, or cast by numbers or characters instead.",
 hintNum:"Hold the question in mind and speak numbers on the spot: three numbers fix the upper trigram, the lower trigram and the moving line in order; two numbers fix the two trigrams, and their sum the moving line; with a single number, it fixes the upper trigram, and the current hour completes the lower trigram and the moving line.",
 hintChar:"Cast by stroke count: with two characters, the first fixes the upper trigram and the second the lower, and the total fixes the moving line; with one character, its strokes split in half — the first half the upper trigram, the second half the lower, the total the moving line. Stroke counts follow the Unihan dictionary data.",
 draw:"Cast",copy:"Copy Result",copyHead:"[EMBERMOON Plum Blossom Numerology]",benL:"Original",huL:"Mutual",bianL:"Changed",tiL:"Self",yongL:"Matter",relL:"Self–Matter Relation",verdictL:"Verdict",methodL:"Method",upW:"Upper",downW:"Lower",strokesW:" strokes",movingW:"moving",
@@ -4119,10 +4476,10 @@ errCharUnknown:function(c){return "No stroke count found for “"+c+"” — try
 relNames:{shengTi:"Matter generates Self",tiSheng:"Self generates Matter",tiKe:"Self controls Matter",keTi:"Matter controls Self",bihe:"Self and Matter in harmony"},
 relText:{shengTi:"The Matter trigram's element generates the Self's — the affair, the other party and the environment are all pushing in your favour.",tiSheng:"The Self trigram's element generates the Matter's — your energy leaks into the affair: effort first, return later, and it can drain you.",tiKe:"The Self trigram's element controls the Matter's — you have the upper hand in this matter, though it will cost some effort.",keTi:"The Matter trigram's element controls the Self's — the affair and the environment press against you; resistance currently outweighs support.",bihe:"Self and Matter share one element, in harmony — you and this matter are on the same side; just go with the current."},
 verdicts:{shengTi:"Verdict: the current runs with you. Move the matter forward while the way is smooth — do not hesitate too long.",tiSheng:"Verdict: outgo exceeds return. Weigh whether this is worth it before committing; saving your strength matters more than spending it.",tiKe:"Verdict: doable, at a cost of effort. Put your strength where it counts and the matter can be brought through.",keTi:"Verdict: hold rather than push. Forcing it now invites frustration — step aside from the edge and wait for the situation to loosen.",bihe:"Verdict: kindred qi. Follow the present course; there is no need to force change — steady progress is already in it."},
-errNums:"Please enter 1 to 3 positive whole numbers (spaces or commas).",errChars:"Please enter one or two Chinese characters.",errDate:"Please choose a date and time first.",manual:"Auto-copy didn't work. Here is the full casting — long-press (or select all) to copy it manually:",disclaimer:"For entertainment purposes only."},
+errNums:"Please enter 1 to 3 positive whole numbers in the three boxes (one or two is fine).",errChars:"Please enter one or two Chinese characters.",errDate:"Please choose a date and time first.",manual:"Auto-copy didn't work. Here is the full casting — long-press (or select all) to copy it manually:",disclaimer:"For entertainment purposes only."},
 es:{title:"Lanzamiento Flor de Ciruelo",qLabel:"Tu pregunta (opcional)",qPh:"Una tirada, una pregunta: piensa en el asunto al lanzar",mTime:"Por la hora",mNum:"Por números",mChar:"Por caracteres",
 dateLabel:"Fecha",timeLabel:"Hora",nowBtn:"Usar la hora actual",numLabel:"Di hasta tres números",numPh:"p. ej. 3 58 6 (espacios o comas)",charLabel:"Escribe uno o dos caracteres chinos",charPh:"p. ej. 梅花",
-hintTime:"Se lanza con la fecha y la hora lunares: año + mes + día fijan el trigrama superior; al sumar el número de la hora sale el inferior; el total fija la línea móvil. Parte del momento presente: cámbialo a la fecha y hora que quieras.",
+hintTime:"Se lanza con la fecha y la hora lunares: año + mes + día fijan el trigrama superior; al sumar el número de la hora sale el inferior; el total fija la línea móvil. Parte del momento presente: cámbialo a la fecha y hora que quieras. Si consultas dentro del mismo periodo de dos horas, el hexagrama será el mismo. Para obtener otro, espera al siguiente periodo o consulta por números o caracteres.",
 hintNum:"Piensa en la pregunta y di números en el momento: tres números fijan, en orden, el trigrama superior, el inferior y la línea móvil; dos números fijan los dos trigramas y su suma, la línea móvil; con un solo número, este fija el trigrama superior y la hora actual completa el inferior y la línea móvil.",
 hintChar:"Se lanza por el número de trazos: con dos caracteres, el primero fija el trigrama superior y el segundo el inferior, y el total la línea móvil; con un carácter, sus trazos se parten por la mitad — la primera mitad para el superior, la segunda para el inferior, y el total para la línea móvil. Los trazos siguen los datos del diccionario Unihan.",
 draw:"Lanzar",copy:"Copiar resultado",copyHead:"[EMBERMOON Numerología de la Flor de Ciruelo]",benL:"Original",huL:"Mutuo",bianL:"Cambiado",tiL:"Yo",yongL:"Asunto",relL:"Relación Yo–Asunto",verdictL:"Veredicto",methodL:"Método",upW:"Superior",downW:"Inferior",strokesW:" trazos",movingW:"móvil",
@@ -4134,10 +4491,14 @@ errCharUnknown:function(c){return "No se encontró el número de trazos de «"+c
 relNames:{shengTi:"El Asunto genera al Yo",tiSheng:"El Yo genera al Asunto",tiKe:"El Yo controla al Asunto",keTi:"El Asunto controla al Yo",bihe:"Yo y Asunto en armonía"},
 relText:{shengTi:"El elemento del Asunto genera al del Yo: el asunto, la otra parte y el entorno empujan a tu favor.",tiSheng:"El elemento del Yo genera al del Asunto: tu energía se va al asunto; primero el esfuerzo, después el retorno, y puede desgastarte.",tiKe:"El elemento del Yo controla al del Asunto: llevas la ventaja en este asunto, aunque costará esfuerzo.",keTi:"El elemento del Asunto controla al del Yo: el asunto y el entorno te presionan; hoy la resistencia supera al apoyo.",bihe:"El Yo y el Asunto comparten elemento, en armonía: tú y este asunto estáis del mismo lado; basta seguir la corriente."},
 verdicts:{shengTi:"Veredicto: la corriente va contigo. Haz avanzar el asunto mientras el camino está despejado, sin dudar demasiado.",tiSheng:"Veredicto: sale más de lo que entra. Valora si merece la pena antes de comprometerte; guardar fuerzas importa más que gastarlas.",tiKe:"Veredicto: es posible, con esfuerzo. Pon tu fuerza donde cuenta y el asunto puede salir adelante.",keTi:"Veredicto: mejor guardar que empujar. Forzarlo ahora trae frustración: apártate del filo y espera a que la situación se afloje.",bihe:"Veredicto: qi afín. Sigue el curso actual; no hace falta forzar cambios — ya hay avance en la constancia."},
-errNums:"Escribe de 1 a 3 números enteros positivos (espacios o comas).",errChars:"Escribe uno o dos caracteres chinos.",errDate:"Elige primero la fecha y la hora.",manual:"La copia automática no funcionó. Aquí está la tirada completa: mantén pulsado (o selecciona todo) para copiarla manualmente:",disclaimer:"Solo con fines de entretenimiento."}
+errNums:"Escribe de 1 a 3 números enteros positivos en las tres casillas (uno o dos también vale).",errChars:"Escribe uno o dos caracteres chinos.",errDate:"Elige primero la fecha y la hora.",manual:"La copia automática no funcionó. Aquí está la tirada completa: mantén pulsado (o selecciona todo) para copiarla manualmente:",disclaimer:"Solo con fines de entretenimiento."}
 };
 function MHT(){ return MH[LANG]||MH.zh; }
 var mhMethod="time", mhLast=null, mhCopyText="";
+/* 时间起卦的日期/时间默认取「点起卦那一刻」的现在：只要用户没手动改过，
+   每次起卦前先刷新到当前时刻，避免页面停留太久、旧时辰一直被拿来起卦；
+   用户手动改过日期或时间后，尊重他选定的时间，不再自动刷新。 */
+var mhTimeCustom=false;
 var MH_NUM_CODE=[0,7,3,5,1,6,2,4,0];
 var MH_TRI=[
 {zh:["坤","地"],en:["Kun","Earth"],es:["Kun","Tierra"]},
@@ -4234,6 +4595,7 @@ lines.push(t.verdictL+": "+t.verdicts[r.rel]+" "+t.changeText(r.moving,bianN));
 lines.push(t.disclaimer);
 mhCopyText=lines.join("\n");
 $("mhCopyBtn").disabled=false;
+if(window.__sysChat) __sysChat.refresh("meihua");
 }
 function mhSetMethod(m){
 mhMethod=m;
@@ -4247,12 +4609,27 @@ $("mhHint").textContent=m==="time"?t.hintTime:(m==="num"?t.hintNum:t.hintChar);
 [["mhMTime","time"],["mhMNum","num"],["mhMChar","char"]].forEach(function(pr){
 $(pr[0]).addEventListener("click",function(){ mhSetMethod(pr[1]); });
 });
+/* 时间只选时辰：十二地支下拉（子 23:00–01:00 起，每时辰两小时），不填分钟 */
+(function(){
+var sel=$("mhTime"); if(!sel||sel.options.length) return;
+for(var i=0;i<12;i++){
+var st=(23+2*i)%24, en=(st+2)%24, o=document.createElement("option");
+o.value=String(i);
+o.textContent=BRANCHES[i]+" · "+pad2(st)+":00–"+pad2(en)+":00";
+sel.appendChild(o);
+}
+})();
 function mhFillNow(){
 var n=new Date();
 $("mhDate").value=n.getFullYear()+"-"+pad2(n.getMonth()+1)+"-"+pad2(n.getDate());
-$("mhTime").value=pad2(n.getHours())+":"+pad2(n.getMinutes());
+$("mhTime").value=String(Math.floor((n.getHours()+1)/2)%12);
+mhTimeCustom=false;
 }
 $("mhNowBtn").addEventListener("click",mhFillNow);
+["mhDate","mhTime"].forEach(function(id){
+$(id).addEventListener("input",function(){ mhTimeCustom=true; });
+$(id).addEventListener("change",function(){ mhTimeCustom=true; });
+});
 function mhSetTexts(){
 var t=MHT();
 $("mhQLabel").textContent=t.qLabel;
@@ -4263,7 +4640,7 @@ $("mhDateLabel").textContent=t.dateLabel;
 $("mhTimeLabel").textContent=t.timeLabel;
 $("mhNowBtn").textContent=t.nowBtn;
 $("mhNumLabel").textContent=t.numLabel;
-$("mhNums").setAttribute("placeholder",t.numPh);
+["mhNum1","mhNum2","mhNum3"].forEach(function(id,i){ $(id).setAttribute("aria-label",t.numLabel+" "+(i+1)); });
 $("mhCharLabel").textContent=t.charLabel;
 $("mhChars").setAttribute("placeholder",t.charPh);
 $("mhDrawBtn").textContent=t.draw;
@@ -4278,17 +4655,18 @@ $("mhDrawBtn").addEventListener("click",function(){
 var t=MHT(), err=$("mhError");
 var upCode,downCode,moving,basisData;
 if(mhMethod==="time"){
+if(!mhTimeCustom) mhFillNow();
 var dv=$("mhDate").value, tv=$("mhTime").value;
 if(!dv||!tv){ err.textContent=t.errDate; err.hidden=false; return; }
-var dp=dv.split("-"), y=+dp[0], mo=+dp[1], d=+dp[2], tp=tv.split(":"), hh=+tp[0];
+var dp=dv.split("-"), y=+dp[0], mo=+dp[1], d=+dp[2];
 var L=lunarOf(y,mo,d);
-var yNum=((L[0]-4)%12+12)%12+1, hIdx=Math.floor((hh+1)/2)%12, hNum=hIdx+1;
+var yNum=((L[0]-4)%12+12)%12+1, hIdx=parseInt(tv,10), hNum=hIdx+1;
+if(!(hIdx>=0&&hIdx<=11)){ err.textContent=t.errDate; err.hidden=false; return; }
 var s1=yNum+L[1]+L[2], s2=s1+hNum;
 upCode=MH_NUM_CODE[mhMod(s1,8)]; downCode=MH_NUM_CODE[mhMod(s2,8)]; moving=mhMod(s2,6);
 basisData={ly:L[0],lm:L[1],ld:L[2],hIdx:hIdx};
 } else if(mhMethod==="num"){
-var raw=$("mhNums").value.trim();
-var parts=raw.length?raw.split(/[^0-9]+/).filter(function(s){ return s.length; }).map(function(s){ return parseInt(s,10); }):[];
+var parts=["mhNum1","mhNum2","mhNum3"].map(function(id){ return $(id).value.trim(); }).filter(function(s){ return s.length; }).map(function(s){ return /^[0-9]+$/.test(s)?parseInt(s,10):NaN; });
 if(parts.length<1||parts.length>3||parts.some(function(n){ return !(n>=1&&n<=999999999); })){ err.textContent=t.errNums; err.hidden=false; return; }
 if(parts.length===3){ upCode=MH_NUM_CODE[mhMod(parts[0],8)]; downCode=MH_NUM_CODE[mhMod(parts[1],8)]; moving=mhMod(parts[2],6); }
 else if(parts.length===2){ upCode=MH_NUM_CODE[mhMod(parts[0],8)]; downCode=MH_NUM_CODE[mhMod(parts[1],8)]; moving=mhMod(parts[0]+parts[1],6); }
@@ -4424,5 +4802,1585 @@ b.addEventListener("click",function(){ setTimeout(updateHeads,60); });
 updateHeads();
 })();
 </script>
+<script>
+"use strict";
+/* ================= 其余六个系统的 AI 对话（紫微 / 印占 / 西占 / 塔罗 / 六爻 / 梅花易数） =================
+   与八字对话同一套形式与逻辑：排盘 / 起卦 / 抽牌出结果后，对话区先出现一句
+   本地打招呼（不调接口）；用户提问时把问题 + 最近 12 条对话历史 + 这次的
+   排盘结果（各系统自己的完整结果文本，与「复制结果」同一份）发给同一个
+   后端 /interpret，system 传各自的值（ziwei / vedic / western / tarot /
+   liuyao / meihua）。重试与八字一致：每问最多 4 次，单次 45 秒超时，
+   退避 2s/5s/10s，等待超 15 秒换慢提示，4xx（429 除外）不重试；
+   全部失败才在对话里明示，并把问题放回输入框。免费版每天 5 句
+   （七个对话共用一个计数，会员 window.EMBERMOON_PREMIUM 不限），
+   用户中心按这个计数显示今天还剩几句。离开页面、重新出结果、塔罗换牌阵都会清空，
+   与八字离开清空的规则一致。问候语按各自流派写，六个系统互不混用；
+   输入框占位、发送、等待、失败、超限等通用文案与八字共用同一套。 */
+var $=function(id){return document.getElementById(id);};
+var SYS_CHAT_URL="https://embermoon-backend.jinniezhan.workers.dev/interpret";
+var sysChatDay="", sysChatCount=0;
+var SYS_GREET={
+ziwei:{zh:"命盘排好了，十二宫和四化都摆在上面。你想先问哪一宫——事业、财帛，还是感情？",
+en:"Your Zi Wei chart is cast — all twelve palaces and the Four Transformations are laid out above. Which would you like to ask about first: career, wealth, or love?",
+es:"Tu carta Zi Wei está lista: los doce palacios y las Cuatro Transformaciones están arriba. ¿Qué quieres preguntar primero: carrera, dinero o amor?"},
+vedic:{zh:"星盘排好了，Lagna、九曜落宫和当前大运都在上面。你想先问哪方面？",
+en:"Your Vedic chart is cast — the Lagna, the nine grahas and your current dasha are all above. What would you like to ask first?",
+es:"Tu carta védica está lista: el Lagna, los nueve grahas y tu dasha actual están arriba. ¿Qué quieres preguntar primero?"},
+western:{zh:"星盘排好了，行星落座落宫和主要相位都在上面。你想先问哪方面？",
+en:"Your chart is cast — the planets in their signs and houses, and the main aspects, are all above. What would you like to ask first?",
+es:"Tu carta está lista: los planetas en sus signos y casas, y los aspectos principales, están arriba. ¿Qué quieres preguntar primero?"},
+tarot:{zh:"牌已经翻开了，都摆在上面。关于你问的这件事，你还想追问什么？",
+en:"The cards are face up, all laid out above. About the question you asked — what would you like to follow up on?",
+es:"Las cartas ya están boca arriba, todas desplegadas arriba. Sobre lo que preguntaste, ¿qué más quieres saber?"},
+liuyao:{zh:"卦已经摇出来了，本卦、动爻、用神和变卦都在上面。你想问卦里的哪一点？",
+en:"The hexagram is cast — the main hexagram, moving lines, the yong shen and the changed hexagram are all above. Which part of it would you like to ask about?",
+es:"El hexagrama ya salió: el hexagrama principal, las líneas móviles, el yong shen y el hexagrama cambiado están arriba. ¿Qué parte quieres preguntar?"},
+meihua:{zh:"卦已经起好了，本卦、互卦、变卦和体用生克都在上面。你想先问哪方面？",
+en:"The hexagram is formed — the main, mutual and changed hexagrams, and the ti–yong relation, are all above. What would you like to ask first?",
+es:"El hexagrama ya está formado: el principal, el mutuo, el cambiado y la relación ti–yong están arriba. ¿Qué quieres preguntar primero?"}
+};
+function sysChatMake(cfg){
+var st={msgs:[],busy:false,gen:0};
+function els(){ return {log:$(cfg.p+"ChatLog"),input:$(cfg.p+"ChatInput"),send:$(cfg.p+"ChatSend"),wrap:cfg.wrapId?$(cfg.wrapId):null}; }
+function render(){
+var e=els(); if(!e.log) return;
+e.log.innerHTML="";
+st.msgs.forEach(function(m){
+var d=document.createElement("div");
+d.className="bz-msg "+(m.role==="user"?"me":"ai");
+d.textContent=m.content;
+e.log.appendChild(d);
+});
+}
+function seed(){
+st.msgs=[{role:"assistant",content:(SYS_GREET[cfg.sys]||{})[LANG]||SYS_GREET[cfg.sys].zh}];
+render();
+}
+function invalidate(){
+st.gen++;
+st.busy=false;
+var e=els();
+if(e.input) e.input.disabled=false;
+if(e.send) e.send.disabled=false;
+}
+function send(){
+if(st.busy||!cfg.has()) return;
+var e=els(), tt=BZT();
+if(!e.input||!e.log) return;
+var q=(e.input.value||"").trim();
+if(!q) return;
+/* 免费版每天 5 句：七个对话共用同一个计数（window.__aiQuota），超限只留提示、不发请求 */
+if(window.EMBERMOON_PREMIUM!==true){
+var today=new Date().toDateString();
+var AQ=window.__aiQuota||(window.__aiQuota={day:"",count:0});
+if(AQ.day!==today){ AQ.day=today; AQ.count=0; }
+sysChatDay=AQ.day; sysChatCount=AQ.count;
+if(AQ.count>=5){
+var lim=document.createElement("div");
+lim.className="bz-msg err";
+lim.textContent=tt.chatLimit;
+e.log.appendChild(lim);
+try{ lim.scrollIntoView({behavior:"smooth",block:"nearest"}); }catch(err){}
+return;
+}
+AQ.count++; sysChatCount=AQ.count;
+}
+var gen=st.gen;
+var history=st.msgs.slice(-12);
+st.msgs.push({role:"user",content:q});
+e.input.value="";
+render();
+st.busy=true;
+if(e.send) e.send.disabled=true;
+e.input.disabled=true;
+var pend=document.createElement("div");
+pend.className="bz-msg ai pending";
+pend.textContent=tt.chatThinking;
+e.log.appendChild(pend);
+try{ pend.scrollIntoView({behavior:"smooth",block:"nearest"}); }catch(err){}
+var payload=null, loadErr=null;
+try{ payload=JSON.stringify({system:cfg.sys,chart:cfg.chart(),language:LANG,question:q,history:history}); }
+catch(err){ loadErr=err; }
+function fail(){
+if(pend.parentNode) pend.parentNode.removeChild(pend);
+var er=document.createElement("div");
+er.className="bz-msg err";
+er.textContent=tt.chatError;
+e.log.appendChild(er);
+e.input.value=q;
+}
+function done(){
+st.busy=false;
+if(e.send) e.send.disabled=false;
+e.input.disabled=false;
+try{ e.input.focus(); }catch(err){}
+}
+if(loadErr){ fail(); done(); return; }
+/* 自动重试与八字一致：单次 45 秒超时，失败按 2s/5s/10s 退避，
+   等待超 15 秒换慢提示，重试时气泡显示第几次重试 */
+var attempt=0;
+var waitNote=setTimeout(function(){ if(gen===st.gen&&st.busy&&pend.parentNode) pend.textContent=tt.chatWait||tt.chatThinking; },15000);
+function tryOnce(){
+attempt++;
+var ctrl=(typeof AbortController!=="undefined")?new AbortController():null;
+var timer=ctrl?setTimeout(function(){ try{ctrl.abort();}catch(err){} },45000):null;
+var opts={method:"POST",headers:{"Content-Type":"application/json"},body:payload};
+if(ctrl) opts.signal=ctrl.signal;
+return fetch(SYS_CHAT_URL,opts).then(function(res){
+if(timer) clearTimeout(timer);
+if(!res.ok){ var er=new Error("http "+res.status); er.status=res.status; throw er; }
+return res.json();
+}).then(function(data){
+var text=data&&(data.interpretation||data.reading||data.text||data.result);
+if(!text) throw new Error("empty");
+return text;
+}).catch(function(err){
+if(timer) clearTimeout(timer);
+throw err;
+});
+}
+function run(){
+tryOnce().then(function(text){
+if(gen!==st.gen) return;
+clearTimeout(waitNote);
+if(pend.parentNode) pend.parentNode.removeChild(pend);
+st.msgs.push({role:"assistant",content:text});
+render();
+done();
+}).catch(function(err){
+if(gen!==st.gen) return;
+var status=err&&err.status;
+/* 400 等请求错误重试也没用，立即失败；网络错误 / 超时 / 429 / 5xx / 空回复才重试 */
+var retryable=!(status&&status>=400&&status<500&&status!==429);
+if(!retryable||attempt>=4){
+clearTimeout(waitNote);
+if(st.msgs.length&&st.msgs[st.msgs.length-1].role==="user"&&st.msgs[st.msgs.length-1].content===q) st.msgs.pop();
+render();
+fail();
+done();
+return;
+}
+pend.textContent=(typeof tt.aiRetry==="function")?tt.aiRetry(attempt):tt.chatThinking;
+try{ pend.scrollIntoView({behavior:"smooth",block:"nearest"}); }catch(e2){}
+var delays=[2000,5000,10000];
+setTimeout(run,delays[Math.min(attempt-1,delays.length-1)]);
+});
+}
+run();
+}
+var e0=els();
+if(e0.send) e0.send.addEventListener("click",send);
+if(e0.input) e0.input.addEventListener("keydown",function(ev){
+if(ev.key==="Enter"){ ev.preventDefault(); send(); }
+});
+return {
+refresh:function(){
+if(!cfg.has()) return;
+var e=els();
+if(e.wrap) e.wrap.hidden=false;
+if(st.busy) invalidate();
+if(st.msgs.length) render(); else seed();
+},
+reset:function(){
+st.msgs=[];
+invalidate();
+var e=els();
+if(e.log) e.log.innerHTML="";
+if(e.input) e.input.value="";
+if(e.wrap) e.wrap.hidden=true;
+},
+texts:function(){
+var e=els(), tt=BZT();
+if(e.send) e.send.textContent=tt.chatSend;
+if(e.input) e.input.setAttribute("placeholder",tt.chatPh);
+}
+};
+}
+var SYS_CHATS={
+ziwei:sysChatMake({sys:"ziwei",p:"zw",has:function(){ return !!zwLast; },chart:function(){ return zwCopyText; }}),
+vedic:sysChatMake({sys:"vedic",p:"ved",has:function(){ return !!vedLast; },chart:function(){ return vedCopyText; }}),
+western:sysChatMake({sys:"western",p:"w",has:function(){ return !!wLast; },chart:function(){ return wCopyText; }}),
+tarot:sysChatMake({sys:"tarot",p:"ta",wrapId:"taChatWrap",has:function(){ return !!lastDraw; },chart:function(){ return copyText; }}),
+liuyao:sysChatMake({sys:"liuyao",p:"ly",has:function(){ return !!lyLast; },chart:function(){ return lyCopyText; }}),
+meihua:sysChatMake({sys:"meihua",p:"mh",has:function(){ return !!mhLast; },chart:function(){ return mhCopyText; }})
+};
+window.__sysChat={
+refresh:function(k){ var c=SYS_CHATS[k]; if(c) c.refresh(); },
+reset:function(k){ var c=SYS_CHATS[k]; if(c) c.reset(); }
+};
+/* 切语言时与八字一样更新发送按钮与输入框占位（对话内容本身不重译） */
+document.querySelectorAll(".langbtn").forEach(function(b){
+b.addEventListener("click",function(){
+setTimeout(function(){ Object.keys(SYS_CHATS).forEach(function(k){ SYS_CHATS[k].texts(); }); },80);
+});
+});
+Object.keys(SYS_CHATS).forEach(function(k){ SYS_CHATS[k].texts(); });
+</script>
+<script>
+"use strict";
+/* ================= 离开工具页即清空 =================
+   离开任何一个工具页面（塔罗 / 八字 / 紫微 / 六爻 / 梅花易数 / 星盘 / 印占）时，
+   把那个工具的输入框、下方已出的结果、复制内容与错误提示一并清掉，
+   重新进入时和第一次打开一样干净；梅花易数清完恢复默认的时间起卦 + 当前时间，
+   八字的 AI 对话也随排盘一起清空。只在真正切换到别的页面时清，
+   同一页面内的操作（切牌阵、切星盘子功能、切语言）不清。 */
+(function(){
+var $=function(id){return document.getElementById(id);};
+function setPressed(id,on){ var e=$(id); if(e) e.setAttribute("aria-pressed",on?"true":"false"); }
+function hideErr(id){ var e=$(id); if(e){ e.hidden=true; e.textContent=""; } }
+function clearText(id){ var e=$(id); if(e) e.textContent=""; }
+function clearBoard(id,btnId,resId){
+var bd=$(id); if(bd) bd.innerHTML="";
+var cb=$(btnId); if(cb) cb.disabled=true;
+var rs=$(resId); if(rs) rs.hidden=true;
+}
+/* 清一个表单区里的全部输入：文本 / 日期 / 时间 / 数字框与文本域清空，
+   下拉回到默认项（八字时辰回「不确定」、六爻用神回世爻） */
+function clearInputs(secId){
+var sec=$(secId); if(!sec) return;
+sec.querySelectorAll("input,textarea,select").forEach(function(el){
+if(el.tagName==="SELECT"){
+var def=0;
+for(var i=0;i<el.options.length;i++){ if(el.options[i].defaultSelected){ def=i; break; } }
+el.selectedIndex=def;
+} else if(el.type==="checkbox"||el.type==="radio"){ el.checked=el.defaultChecked; }
+else { el.value=""; }
+});
+}
+var CLEARERS={
+tarot:function(){
+var q=$("q"); if(q) q.value="";
+copyText=""; lastDraw=null; drawGen++;
+if(window.__sysChat) __sysChat.reset("tarot");
+var db=$("drawBtn"); if(db) db.disabled=false;
+try{ clearFocus(); }catch(e){}
+boardWrap=null;
+var b=$("board"); if(b) b.innerHTML='<div class="empty">'+T().empty+'</div>';
+var cb=$("copyBtn"); if(cb) cb.disabled=true;
+},
+bazi:function(){
+clearInputs("baziSec");
+bzGender="M"; setPressed("bzMale",true); setPressed("bzFemale",false);
+bzLast=null; bzCopyText=""; bzChat=[]; bzChatBusy=false;
+if(typeof bzChatInvalidate==="function") bzChatInvalidate();
+clearBoard("bzBoard","bzCopyBtn","baziResult");
+var log=$("bzChatLog"); if(log) log.innerHTML="";
+var ci=$("bzChatInput"); if(ci) ci.value="";
+hideErr("bzError"); clearText("bzCityStatus"); clearText("bzTzInfo");
+},
+vedic:function(){
+clearInputs("vedicSec");
+vedLast=null; vedCopyText="";
+if(window.__sysChat) __sysChat.reset("vedic");
+clearBoard("vedBoard","vedCopyBtn","vedicResult");
+hideErr("vedError"); clearText("vedCityStatus");
+if(typeof vedShowPart==="function") vedShowPart("natal");
+},
+ziwei:function(){
+clearInputs("ziweiSec");
+zwGender="M"; setPressed("zwMale",true); setPressed("zwFemale",false);
+zwLast=null; zwCopyText="";
+if(window.__sysChat) __sysChat.reset("ziwei");
+clearBoard("zwBoard","zwCopyBtn","ziweiResult");
+hideErr("zwError");
+},
+liuyao:function(){
+clearInputs("liuyaoSec");
+lyFillToday();
+lyLast=null; lyCopyText="";
+if(window.__sysChat) __sysChat.reset("liuyao");
+clearBoard("lyBoard","lyCopyBtn","liuyaoResult");
+hideErr("lyError");
+},
+meihua:function(){
+clearInputs("meihuaSec");
+mhLast=null; mhCopyText="";
+if(window.__sysChat) __sysChat.reset("meihua");
+clearBoard("mhBoard","mhCopyBtn","meihuaResult");
+hideErr("mhError");
+mhSetMethod("time");
+mhFillNow();
+},
+western:function(){
+clearInputs("westSec");
+wLast=null; wCopyText="";
+if(window.__sysChat) __sysChat.reset("western");
+clearBoard("wBoard","wCopyBtn","westResult");
+hideErr("wError");
+clearText("wACityStatus"); clearText("wBCityStatus"); clearText("wSRCityStatus");
+westSub="natal";
+[["wSubNatal","natal"],["wSubSyn","synastry"],["wSubTra","transit"],["wSubSR","solar"]].forEach(function(pr){ setPressed(pr[0],pr[1]==="natal"); });
+["wBBlock","wTBlock","wSRBlock"].forEach(function(id){ var e=$(id); if(e) e.hidden=true; });
+}
+};
+var prevMode=(typeof bzMode!=="undefined"&&bzMode)?bzMode:"home";
+var _prevSetMode=setMode;
+setMode=function(mode){
+if(mode&&prevMode&&mode!==prevMode&&CLEARERS[prevMode]){
+try{ CLEARERS[prevMode](); }catch(e){}
+}
+if(mode) prevMode=mode;
+_prevSetMode(mode);
+};
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+"use strict";
+/* ================= 用户中心（我的） =================
+   邮箱注册 / 登录 / 退出走 Supabase Auth；出生信息存 profiles 表（每人一行），
+   登录后排盘自动带入；每个工具结果下方有「保存」按钮，点了才把这次结果
+   存进 saved_readings 表，每人最多 50 条，超出自动删最旧的。
+   连接信息读页面脚本最上方的 SUPABASE_URL / SUPABASE_ANON_KEY，留空则本区不开通。 */
+(function(){
+var $=function(id){return document.getElementById(id);};
+var UMTXT={
+zh:{title:"我的",email:"邮箱",password:"密码",login:"登录",signup:"注册",logout:"退出登录",
+checkEmail:"注册成功。如果邮箱收到确认信，先点信里的链接，再回来登录。",
+birthTitle:"我的出生信息",date:"出生日期",time:"出生时间",gender:"性别",male:"男",female:"女",place:"出生地",placePh:"填写你出生的城市",
+saveProfile:"保存出生信息",profileSaved:"已保存。以后排盘会自动带入。",
+savedTitle:"我保存的记录",savedHint:"最多 50 条，满了自动删最旧的。",
+emptyList:"还没有保存的记录。做完一次排盘，点「保存这次结果」，就会出现在这里。",
+saveBtn:"保存这次结果",saved:"已保存到「我的」。",needLogin:"先登录才能保存——正在带你去「我的」。",
+noResult:"还没有结果可保存。",notCfg:"暂时还不能登录，请稍后再来看看。",
+del:"删除",delSure:"再点一次确认",deleted:"已删除。",back:"← 返回列表",
+fillEmail:"请填写邮箱和密码。",saving:"保存中…",loading:"加载中…",
+saveFailed:"保存没成功，请稍后再试一次。",
+loadFailed:"暂时打不开，请稍后再试一次。",
+actionFailed:"没成功，请稍后再试一次。",
+loginFailed:"登录没成功，请检查邮箱和密码后再试一次。",
+signupFailed:"注册没成功，这个邮箱可能已经注册过，或密码太短了，请换一个再试试。",
+profilePartial:"已保存大部分内容，出生地这次没存上，请再保存一次试试。",
+subTitle:"订阅会员",statusFree:"当前：免费版",
+statusPro:function(plan,until){ return "当前：会员 · "+plan+(until?(" · 有效期至 "+until):""); },
+planM:"月度会员",planQ:"季度会员",planY:"年度会员",perM:"/月",perQ:"/季",perY:"/年",
+noteM:"随时可取消",noteQ:"约 $8.33/月，比月付省 17%",noteY:"约 $6.67/月，比月付省 33%",
+bestTag:"最划算",subBtn:"订阅",subCurrent:"当前方案",subNotOpen:"订阅还没开通",
+subNeedSb:"订阅还没开通",
+cmp1:"全部排盘：免费版与会员都免费",cmp2:"AI 对话：免费版每天 5 句 · 会员无限次",cmp3:"保存记录：免费版最多 50 条 · 会员不限条数",
+savedHintPro:"会员不限条数。",
+subRenew:"续费",chatHead:"—— 和 AI 的对话 ——",chatMe:"我",chatAi:"AI",
+aiTitle:"今天的 AI 对话",aiLeft:function(n){ return "今天还剩 "+n+" 句"; },aiNone:"今天的 5 句已经问完了，明天再来；开通会员就不受限制。",aiUnlimited:"会员不限次，今天想问多少都可以。",
+acctTitle:"账号",acctEmail:function(e){ return "登录邮箱："+e; },newPass:"新密码",passPh:"至少 6 位",changePass:"修改密码",passEmpty:"先输入新密码（至少 6 位）。",passDone:"密码已改好，下次登录用新密码。",passFail:"改密码没成功，请稍后再试一次。",deleting:"删除中…",delAcct:"删除账号",delAcctWarn:"删除后，你的出生信息和保存的记录都会清掉，这个账号也无法再登录。",delAcctSure:"再点一次确认删除",delAcctDone:"账号和全部数据已删除。"},
+en:{title:"Mine",email:"Email",password:"Password",login:"Log In",signup:"Sign Up",logout:"Log Out",
+checkEmail:"You're signed up. If a confirmation email arrives, tap its link first, then come back and log in.",
+birthTitle:"My Birth Details",date:"Birth date",time:"Birth time",gender:"Gender",male:"Male",female:"Female",place:"Birthplace",placePh:"Enter the city where you were born",
+saveProfile:"Save Birth Details",profileSaved:"Saved. Charts will fill these in automatically.",
+savedTitle:"My Saved Readings",savedHint:"Up to 50 — the oldest is removed automatically when full.",
+emptyList:"Nothing saved yet. After a reading, tap “Save This Result” and it will show up here.",
+saveBtn:"Save This Result",saved:"Saved to “Mine”.",needLogin:"Log in first to save — taking you to “Mine”.",
+noResult:"No result to save yet.",notCfg:"Sign-in isn't available right now. Please check back later.",
+del:"Delete",delSure:"Tap again to confirm",deleted:"Deleted.",back:"← Back to list",
+fillEmail:"Please enter your email and password.",saving:"Saving…",loading:"Loading…",
+saveFailed:"Couldn't save. Please try again in a moment.",
+loadFailed:"Couldn't load right now. Please try again in a moment.",
+actionFailed:"That didn't work. Please try again.",
+loginFailed:"Couldn't log in. Please check your email and password and try again.",
+signupFailed:"Couldn't sign up. This email may already be registered, or the password is too short — please try again.",
+profilePartial:"Most of it is saved, but the birthplace didn't save this time. Please try saving again.",
+subTitle:"Membership",statusFree:"Current plan: Free",
+statusPro:function(plan,until){ return "Current plan: Member · "+plan+(until?(" · until "+until):""); },
+planM:"Monthly",planQ:"Quarterly",planY:"Yearly",perM:"/month",perQ:"/quarter",perY:"/year",
+noteM:"Cancel anytime",noteQ:"About $8.33/mo — save 17% vs monthly",noteY:"About $6.67/mo — save 33% vs monthly",
+bestTag:"Best value",subBtn:"Subscribe",subCurrent:"Current plan",subNotOpen:"Subscriptions aren't open yet",
+subNeedSb:"Subscriptions aren't open yet",
+cmp1:"All charts: free on both plans",cmp2:"AI chat: 5 messages a day free · unlimited for members",cmp3:"Saved readings: up to 50 free · unlimited for members",
+savedHintPro:"Unlimited on your membership.",
+subRenew:"Renew",chatHead:"— Chat with the AI —",chatMe:"Me",chatAi:"AI",
+aiTitle:"Today's AI Chat",aiLeft:function(n){ return n+" of today's 5 left"; },aiNone:"You've used today's 5. Come back tomorrow — members ask without limits.",aiUnlimited:"Unlimited for members — ask as much as you like today.",
+acctTitle:"Account",acctEmail:function(e){ return "Signed in as: "+e; },newPass:"New password",passPh:"At least 6 characters",changePass:"Change Password",passEmpty:"Enter a new password first (at least 6 characters).",passDone:"Password changed. Use it next time you log in.",passFail:"Couldn't change the password. Please try again in a moment.",deleting:"Deleting…",delAcct:"Delete Account",delAcctWarn:"This removes your birth details and all saved readings, and this account will no longer be able to log in.",delAcctSure:"Tap again to confirm deletion",delAcctDone:"Your account and all its data are deleted."},
+es:{title:"Mi cuenta",email:"Correo electrónico",password:"Contraseña",login:"Iniciar sesión",signup:"Registrarse",logout:"Cerrar sesión",
+checkEmail:"Registro completo. Si llega un correo de confirmación, toca primero su enlace y luego vuelve para iniciar sesión.",
+birthTitle:"Mis datos de nacimiento",date:"Fecha de nacimiento",time:"Hora de nacimiento",gender:"Sexo",male:"Hombre",female:"Mujer",place:"Lugar de nacimiento",placePh:"Escribe la ciudad donde naciste",
+saveProfile:"Guardar datos",profileSaved:"Guardado. Las cartas se rellenarán automáticamente.",
+savedTitle:"Mis lecturas guardadas",savedHint:"Hasta 50; al llenarse se borra la más antigua.",
+emptyList:"Aún no tienes nada guardado. Después de una lectura, toca «Guardar este resultado» y aparecerá aquí.",
+saveBtn:"Guardar este resultado",saved:"Guardado en «Mi cuenta».",needLogin:"Inicia sesión primero para guardar: te llevo a «Mi cuenta».",
+noResult:"Aún no hay resultado que guardar.",notCfg:"El inicio de sesión no está disponible por ahora. Vuelve a intentarlo más tarde.",
+del:"Eliminar",delSure:"Toca otra vez para confirmar",deleted:"Eliminado.",back:"← Volver a la lista",
+fillEmail:"Escribe tu correo y tu contraseña.",saving:"Guardando…",loading:"Cargando…",
+saveFailed:"No se pudo guardar. Inténtalo de nuevo en un momento.",
+loadFailed:"No se pudo cargar ahora. Inténtalo de nuevo en un momento.",
+actionFailed:"No funcionó. Inténtalo de nuevo.",
+loginFailed:"No se pudo iniciar sesión. Revisa tu correo y tu contraseña e inténtalo de nuevo.",
+signupFailed:"No se pudo registrar. Este correo puede ya estar registrado o la contraseña es muy corta; inténtalo de nuevo.",
+profilePartial:"Se guardó casi todo, pero el lugar de nacimiento no se guardó esta vez. Intenta guardar de nuevo.",
+subTitle:"Suscripción",statusFree:"Plan actual: Gratis",
+statusPro:function(plan,until){ return "Plan actual: Miembro · "+plan+(until?(" · hasta el "+until):""); },
+planM:"Mensual",planQ:"Trimestral",planY:"Anual",perM:"/mes",perQ:"/trimestre",perY:"/año",
+noteM:"Cancela cuando quieras",noteQ:"Unos $8.33/mes: ahorras 17 % frente al mensual",noteY:"Unos $6.67/mes: ahorras 33 % frente al mensual",
+bestTag:"La mejor opción",subBtn:"Suscribirse",subCurrent:"Plan actual",subNotOpen:"La suscripción aún no está disponible",
+subNeedSb:"La suscripción aún no está disponible",
+cmp1:"Todas las cartas: gratis en ambos planes",cmp2:"Chat con IA: 5 mensajes al día gratis · ilimitado para miembros",cmp3:"Lecturas guardadas: hasta 50 gratis · ilimitadas para miembros",
+savedHintPro:"Ilimitado con tu suscripción.",
+subRenew:"Renovar",chatHead:"— Conversación con la IA —",chatMe:"Yo",chatAi:"IA",
+aiTitle:"Chat con IA de hoy",aiLeft:function(n){ return "Te quedan "+n+" de los 5 de hoy"; },aiNone:"Ya usaste los 5 de hoy. Vuelve mañana; los miembros no tienen límite.",aiUnlimited:"Ilimitado para miembros: pregunta todo lo que quieras hoy.",
+acctTitle:"Cuenta",acctEmail:function(e){ return "Sesión iniciada como: "+e; },newPass:"Nueva contraseña",passPh:"Al menos 6 caracteres",changePass:"Cambiar contraseña",passEmpty:"Escribe primero una contraseña nueva (al menos 6 caracteres).",passDone:"Contraseña cambiada. Úsala la próxima vez que inicies sesión.",passFail:"No se pudo cambiar la contraseña. Inténtalo de nuevo en un momento.",deleting:"Eliminando…",delAcct:"Eliminar cuenta",delAcctWarn:"Esto borra tus datos de nacimiento y todas tus lecturas guardadas, y esta cuenta ya no podrá iniciar sesión.",delAcctSure:"Toca otra vez para confirmar",delAcctDone:"Tu cuenta y todos sus datos han sido eliminados."}
+};
+function UMT(){ return UMTXT[LANG]||UMTXT.zh; }
+function press(id,on){ var e=$(id); if(e) e.setAttribute("aria-pressed",on?"true":"false"); }
+function fire(el,type){ if(!el) return; var ev=document.createEvent("HTMLEvents"); ev.initEvent(type,true,false); el.dispatchEvent(ev); }
+function fmtDate(iso){ var d=new Date(iso); if(isNaN(d.getTime())) return ""; return d.toLocaleDateString()+" "+d.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}); }
+
+var sb=null, mineUser=null, mineProfile=null, mineGender="M", mineRows=[], mineCur=false, curDetail=null;
+try{
+if(window.SUPABASE_URL&&window.SUPABASE_ANON_KEY&&window.supabase&&window.supabase.createClient){
+sb=window.supabase.createClient(window.SUPABASE_URL,window.SUPABASE_ANON_KEY);
+}
+}catch(e){ sb=null; }
+
+/* ---------- 出生信息：读写 profiles，并带入各排盘表单 ---------- */
+function normProfile(row){
+if(!row) return null;
+var tm=row.birth_time||row.birth_hour||row.shichen||"";
+if(tm&&tm.length>5) tm=tm.slice(0,5);
+return {
+date:row.birth_date||row.birthdate||row.birthday||"",
+time:tm,
+gender:row.gender||row.sex||"",
+place:row.birth_place||row.birth_city||row.place||row.city||""
+};
+}
+function fillProfileForm(){
+if(!mineProfile) return;
+if($("mineBDate")) $("mineBDate").value=mineProfile.date||"";
+if($("mineBTime")) $("mineBTime").value=mineProfile.time||"";
+mineGender=mineProfile.gender==="F"?"F":"M";
+press("mineMale",mineGender==="M"); press("mineFemale",mineGender==="F");
+if($("mineBPlace")) $("mineBPlace").value=mineProfile.place||"";
+}
+function applyProfile(only){
+if(!mineProfile) return; var p=mineProfile;
+function want(m){ return !only||only===m; }
+if(want("bazi")){
+var d=$("bzDate"); if(d&&p.date&&!d.value) d.value=p.date;
+var tm=$("bzTime"); if(tm&&p.time&&!tm.value){ tm.value=p.time; fire(tm,"change"); }
+if(p.gender){ bzGender=p.gender; press("bzMale",p.gender==="M"); press("bzFemale",p.gender==="F"); }
+var c=$("bzCity"); if(c&&p.place&&!c.value){ c.value=p.place; fire(c,"input"); }
+}
+if(want("vedic")){
+var d2=$("vedDate"); if(d2&&p.date&&!d2.value) d2.value=p.date;
+var t2=$("vedTime"); if(t2&&p.time&&!t2.value) t2.value=p.time;
+var pl2=$("vedPlace"); if(pl2&&p.place&&!pl2.value) pl2.value=p.place;
+var c2=$("vedCity"); if(c2&&p.place&&!c2.value){ c2.value=p.place; fire(c2,"input"); }
+}
+if(want("ziwei")){
+var d3=$("zwDate"); if(d3&&p.date&&!d3.value) d3.value=p.date;
+var t3=$("zwTime"); if(t3&&p.time&&!t3.value) t3.value=p.time;
+if(p.gender){ zwGender=p.gender; press("zwMale",p.gender==="M"); press("zwFemale",p.gender==="F"); }
+}
+if(want("western")){
+var d4=$("wADate"); if(d4&&p.date&&!d4.value) d4.value=p.date;
+var t4=$("wATime"); if(t4&&p.time&&!t4.value) t4.value=p.time;
+var pl4=$("wAPlace"); if(pl4&&p.place&&!pl4.value) pl4.value=p.place;
+var c4=$("wACity"); if(c4&&p.place&&!c4.value){ c4.value=p.place; fire(c4,"input"); }
+}
+}
+/* profiles 的归属列名以线上表为准：先按 id 试，接口点名说没有 id 列时自动换成 user_id */
+var profileKey="id";
+function keyMissing(msg){ return /profiles\.id does not exist/i.test(msg||"")||/could not find the 'id' column/i.test(msg||""); }
+function loadProfile(){
+if(!sb||!mineUser) return;
+sb.from("profiles").select("*").eq(profileKey,mineUser.id).maybeSingle().then(function(r){
+if(r.error){
+if(profileKey==="id"&&keyMissing(r.error.message)){ profileKey="user_id"; loadProfile(); return; }
+return;
+}
+if(!r.data) return;
+mineProfile=normProfile(r.data);
+fillProfileForm();
+applyProfile();
+});
+}
+
+/* ---------- 订阅：状态存 Supabase 的 subscriptions 表 ----------
+   Stripe 收款成功后由后端（service role）把 plan / status / current_period_end
+   写进这张表，网页端只读自己的一行：status 是 active / trialing 且没过期就是会员。
+   会员标记同步写到 window.EMBERMOON_PREMIUM，八字 AI 对话靠它放行无限次；
+   保存记录的 50 条上限也靠 minePremium 决定要不要修剪。暂时读不到时按免费版处理。 */
+var mineSub=null, minePremium=false;
+window.EMBERMOON_PREMIUM=false;
+function planName(key){ var t=UMT(); return key==="monthly"?t.planM:(key==="quarterly"?t.planQ:(key==="yearly"?t.planY:(key||""))); }
+function renderSub(){
+var t=UMT();
+var st=$("mineSubStatus");
+if(st){
+if(minePremium&&mineSub){
+var until="";
+if(mineSub.current_period_end){ var d=new Date(mineSub.current_period_end); if(!isNaN(d.getTime())) until=d.toLocaleDateString(); }
+st.textContent=t.statusPro(planName(mineSub.plan),until);
+}else{
+st.textContent=t.statusFree;
+}
+}
+[["monthly","mineSubBtnM"],["quarterly","mineSubBtnQ"],["yearly","mineSubBtnY"]].forEach(function(pair){
+var b=$(pair[1]); if(!b) return;
+var cur=minePremium&&mineSub&&mineSub.plan===pair[0];
+b.textContent=cur?t.subRenew:t.subBtn;
+b.disabled=false;
+});
+var hint=$("mineSavedHint"); if(hint) hint.textContent=minePremium?t.savedHintPro:t.savedHint;
+renderQuota();
+}
+function setPremium(on){
+minePremium=!!on;
+window.EMBERMOON_PREMIUM=minePremium;
+renderSub();
+}
+/* ---------- 今天 AI 还能问几句：读七个对话共用的计数（window.__aiQuota） ---------- */
+function aiLeftToday(){
+var AQ=window.__aiQuota, today=new Date().toDateString();
+if(!AQ||AQ.day!==today) return 5;
+return Math.max(0,5-(AQ.count||0));
+}
+function renderQuota(){
+var e=$("mineAiLeft"); if(!e) return;
+var t=UMT(), left=aiLeftToday();
+e.textContent=minePremium?t.aiUnlimited:(left>0?t.aiLeft(left):t.aiNone);
+}
+function loadSubscription(){
+if(!sb||!mineUser){ mineSub=null; setPremium(false); return; }
+sb.from("subscriptions").select("*").eq("user_id",mineUser.id).order("updated_at",{ascending:false}).limit(1).then(function(r){
+if(r.error){ mineSub=null; setPremium(false); return; }
+var row=(r.data&&r.data[0])||null;
+mineSub=row;
+var active=false;
+if(row&&(row.status==="active"||row.status==="trialing")){
+if(!row.current_period_end) active=true;
+else{ var end=new Date(row.current_period_end); active=!isNaN(end.getTime())&&end.getTime()>Date.now(); }
+}
+setPremium(active);
+});
+}
+/* 点订阅：页面顶部配置里的 Price ID 还没填 → 直接提示「订阅还没开通」；
+   填了 → 向站点后端要一条 Stripe Checkout 结账地址再跳转（静态页自己变不出
+   Checkout Session，后端按 Price ID 建好后回 {url}；要不到地址同样按未开通处理）。 */
+function startCheckout(plan){
+var t=UMT();
+var prices={monthly:window.STRIPE_PRICE_MONTHLY||"",quarterly:window.STRIPE_PRICE_QUARTERLY||"",yearly:window.STRIPE_PRICE_YEARLY||""};
+var price=prices[plan]||"";
+var msg=$("mineSubMsg");
+function show(m){ if(msg){ msg.hidden=false; msg.textContent=m; } toast(m); }
+if(msg) msg.hidden=true;
+if(!sb){ show(t.subNeedSb); return; }
+if(!price){ show(t.subNotOpen); return; }
+if(!mineUser){ show(t.needLogin); return; }
+fetch("https://embermoon-backend.jinniezhan.workers.dev/create-checkout-session",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({priceId:price,plan:plan,userId:mineUser.id,email:mineUser.email||""})}).then(function(res){ return res.json(); }).then(function(d){
+if(d&&d.url){ window.location.assign(d.url); }else{ show(t.subNotOpen); }
+}).catch(function(){ show(t.subNotOpen); });
+}
+[["mineSubBtnM","monthly"],["mineSubBtnQ","quarterly"],["mineSubBtnY","yearly"]].forEach(function(pair){
+var b=$(pair[0]); if(b) b.addEventListener("click",function(){ startCheckout(pair[1]); });
+});
+
+/* ---------- 保存的记录：列表 / 查看 / 删除 / 50 条上限 ---------- */
+function trimReadings(){
+if(!sb||!mineUser) return;
+if(minePremium) return;
+sb.from("saved_readings").select("id").eq("user_id",mineUser.id).order("created_at",{ascending:false}).range(50,999).then(function(r){
+if(r.data&&r.data.length){
+var ids=r.data.map(function(x){ return x.id; });
+sb.from("saved_readings").delete().in("id",ids);
+}
+});
+}
+var delArm={};
+function delFlow(btn,id,done){
+var t=UMT();
+if(delArm[id]){
+delArm[id]=false; btn.textContent=t.del;
+sb.from("saved_readings").delete().eq("id",id).then(function(r){
+if(r.error){ toast(t.actionFailed); return; }
+toast(t.deleted); done();
+});
+}else{
+delArm[id]=true; btn.textContent=t.delSure;
+setTimeout(function(){ if(delArm[id]){ delArm[id]=false; btn.textContent=t.del; } },3000);
+}
+}
+function renderList(){
+var list=$("mineList"); if(!list) return;
+list.hidden=false; list.innerHTML="";
+if($("mineDetail")) $("mineDetail").hidden=true;
+curDetail=null;
+if(!mineRows.length){
+var e=document.createElement("p"); e.className="bz-note"; e.textContent=UMT().emptyList; list.appendChild(e); return;
+}
+mineRows.forEach(function(row){
+var div=document.createElement("div"); div.className="mine-row";
+var tt=document.createElement("span"); tt.className="mr-title"; tt.textContent=row.title||"";
+var dt=document.createElement("span"); dt.className="mr-date"; dt.textContent=fmtDate(row.created_at);
+var del=document.createElement("button"); del.type="button"; del.className="mr-del"; del.textContent=UMT().del;
+del.addEventListener("click",function(ev){ ev.stopPropagation(); delFlow(del,row.id,function(){ loadReadings(); }); });
+div.appendChild(tt); div.appendChild(dt); div.appendChild(del);
+div.addEventListener("click",function(){ showDetail(row); });
+list.appendChild(div);
+});
+}
+function loadReadings(){
+if(!sb||!mineUser) return;
+var list=$("mineList"); if(!list) return;
+list.hidden=false; list.innerHTML="";
+var ld=document.createElement("p"); ld.className="bz-note"; ld.textContent=UMT().loading; list.appendChild(ld);
+sb.from("saved_readings").select("id,title,data,created_at").eq("user_id",mineUser.id).order("created_at",{ascending:false}).limit(minePremium?500:50).then(function(r){
+if(r.error){ list.innerHTML=""; var e=document.createElement("p"); e.className="bz-error"; e.textContent=UMT().loadFailed; list.appendChild(e); return; }
+mineRows=r.data||[];
+renderList();
+});
+}
+function showDetail(row){
+curDetail=row;
+$("mineList").hidden=true;
+$("mineDetail").hidden=false;
+$("mineDetailTitle").textContent=row.title||"";
+$("mineDetailDate").textContent=fmtDate(row.created_at);
+$("mineDetailText").textContent=(row.data&&row.data.text)?row.data.text:"";
+var db=$("mineDetailDelBtn"); if(db) db.textContent=UMT().del;
+if(row.id&&delArm[row.id]) delArm[row.id]=false;
+window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* ---------- 各工具结果下方的「保存」按钮 ---------- */
+function stampTitle(base){
+var d=new Date();
+var s=d.toLocaleDateString()+" "+d.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"});
+return base?(base+" · "+s):s;
+}
+function namedTitle(fn){ var n=""; try{ n=fn(); }catch(e){} return stampTitle(n); }
+function tarotTitle(){
+var q=$("q")?$("q").value.trim():"";
+var base=q||T().title;
+if(base.length>36) base=base.slice(0,36)+"…";
+return stampTitle(base);
+}
+var SAVE_TOOLS=[
+{tool:"tarot",sec:"stageSec",log:"taChatLog",get:function(){ return (typeof copyText!=="undefined")?copyText:""; },title:tarotTitle},
+{tool:"bazi",sec:"baziResult",log:"bzChatLog",before:".bz-ai",get:function(){ return (typeof bzCopyText!=="undefined")?bzCopyText:""; },title:function(){ return namedTitle(function(){ return BZT().title; }); }},
+{tool:"vedic",sec:"vedicResult",log:"vedChatLog",get:function(){ return (typeof vedCopyText!=="undefined")?vedCopyText:""; },title:function(){ return namedTitle(function(){ return VEDT().title; }); }},
+{tool:"ziwei",sec:"ziweiResult",log:"zwChatLog",get:function(){ return (typeof zwCopyText!=="undefined")?zwCopyText:""; },title:function(){ return namedTitle(function(){ return ZWT().title; }); }},
+{tool:"liuyao",sec:"liuyaoResult",log:"lyChatLog",get:function(){ return (typeof lyCopyText!=="undefined")?lyCopyText:""; },title:function(){ return namedTitle(function(){ return LYT().title; }); }},
+{tool:"meihua",sec:"meihuaResult",log:"mhChatLog",get:function(){ return (typeof mhCopyText!=="undefined")?mhCopyText:""; },title:function(){ return namedTitle(function(){ return MHT().title; }); }},
+{tool:"western",sec:"westResult",log:"wChatLog",get:function(){ return (typeof wCopyText!=="undefined")?wCopyText:""; },title:function(){ return namedTitle(function(){ return WESTT().title; }); }}
+];
+/* 把这次的 AI 对话一起存：从对话区读问答（跳过开场问候、等待与失败提示），
+   只存用户真正问过的问题和 AI 的回答，拼在排盘结果后面 */
+function chatTranscript(logId){
+var log=logId?$(logId):null; if(!log) return "";
+var t=UMT(), lines=[], seen=false;
+var nodes=log.querySelectorAll(".bz-msg");
+for(var i=0;i<nodes.length;i++){
+var d=nodes[i];
+if(d.classList.contains("pending")||d.classList.contains("err")) continue;
+var isMe=d.classList.contains("me");
+if(isMe) seen=true;
+if(!seen) continue;
+var txt=(d.textContent||"").trim();
+if(txt) lines.push((isMe?t.chatMe:t.chatAi)+(LANG==="zh"?"：":": ")+txt);
+}
+return lines.join("\n");
+}
+function doSave(tool){
+var t=UMT(), item=null;
+SAVE_TOOLS.forEach(function(x){ if(x.tool===tool) item=x; });
+if(!item) return;
+if(!sb){ toast(t.notCfg); return; }
+var text=""; try{ text=item.get(); }catch(e){}
+if(!text){ toast(t.noResult); return; }
+var chatTxt=chatTranscript(item.log);
+if(chatTxt) text=text+"\n\n"+t.chatHead+"\n"+chatTxt;
+if(!mineUser){ toast(t.needLogin); setMode("mine"); window.scrollTo({top:0,behavior:"smooth"}); return; }
+sb.from("saved_readings").insert({user_id:mineUser.id,title:item.title(),data:{tool:tool,text:text}}).then(function(r){
+if(r.error){ toast(t.actionFailed); return; }
+trimReadings();
+toast(t.saved);
+});
+}
+SAVE_TOOLS.forEach(function(item){
+var sec=$(item.sec); if(!sec) return;
+var bar=document.createElement("div"); bar.className="savebar"; bar.hidden=true;
+var btn=document.createElement("button"); btn.type="button"; btn.className="btn savebtn"; btn.textContent=UMT().saveBtn;
+btn.addEventListener("click",function(){ doSave(item.tool); });
+bar.appendChild(btn);
+var anchor=item.before?sec.querySelector(item.before):null;
+if(anchor) sec.insertBefore(bar,anchor); else sec.appendChild(bar);
+item.bar=bar;
+});
+setInterval(function(){
+SAVE_TOOLS.forEach(function(item){
+if(!item.bar) return;
+var has=false; try{ has=!!item.get(); }catch(e){}
+item.bar.hidden=!has;
+});
+},800);
+
+/* ---------- 用户中心界面 ---------- */
+function authErr(msg){
+var e=$("mineAuthErr"); if(!e) return;
+e.hidden=!msg; e.textContent=msg||"";
+}
+function renderMine(){
+if($("mineNotCfg")) $("mineNotCfg").hidden=!!sb;
+if($("mineAuth")) $("mineAuth").hidden=!sb||!!mineUser;
+if($("mineMain")) $("mineMain").hidden=!sb||!mineUser;
+if(mineUser&&$("mineEmailLine")) $("mineEmailLine").textContent=mineUser.email||"";
+if($("mineAcctEmail")) $("mineAcctEmail").textContent=mineUser?UMT().acctEmail(mineUser.email||""):"";
+}
+function creds(){
+return {email:($("mineEmail").value||"").trim(),password:$("minePass").value||""};
+}
+function doLogin(){
+if(!sb) return;
+var c=creds();
+if(!c.email||!c.password){ authErr(UMT().fillEmail); return; }
+authErr("");
+sb.auth.signInWithPassword({email:c.email,password:c.password}).then(function(r){
+if(r.error) authErr(UMT().loginFailed);
+});
+}
+function doSignup(){
+if(!sb) return;
+var c=creds();
+if(!c.email||!c.password){ authErr(UMT().fillEmail); return; }
+authErr("");
+sb.auth.signUp({email:c.email,password:c.password}).then(function(r){
+if(r.error){ authErr(UMT().signupFailed); return; }
+if(!r.data.session){ var m=$("mineAuthMsg"); if(m) m.textContent=UMT().checkEmail; }
+});
+}
+if($("mineLoginBtn")) $("mineLoginBtn").addEventListener("click",doLogin);
+if($("mineSignupBtn")) $("mineSignupBtn").addEventListener("click",doSignup);
+if($("minePass")) $("minePass").addEventListener("keydown",function(e){ if(e.key==="Enter") doLogin(); });
+if($("mineLogoutBtn")) $("mineLogoutBtn").addEventListener("click",function(){
+if(!sb) return;
+sb.auth.signOut().then(function(){ mineProfile=null; mineRows=[]; authErr(""); });
+});
+/* ---------- 改密码：登录状态下直接改，成功后下次登录用新密码 ---------- */
+if($("minePassBtn")) $("minePassBtn").addEventListener("click",function(){
+if(!sb||!mineUser) return;
+var t=UMT(), msg=$("mineAcctMsg");
+var pw=($("mineNewPass")?$("mineNewPass").value:"")||"";
+if(pw.length<6){ if(msg) msg.textContent=t.passEmpty; return; }
+sb.auth.updateUser({password:pw}).then(function(r){
+if(msg) msg.textContent=r.error?t.passFail:t.passDone;
+if(!r.error&&$("mineNewPass")) $("mineNewPass").value="";
+});
+});
+/* ---------- 删除账号：先点一次亮出说明，再点一次才真删 ----------
+   删除顺序：保存的记录 → 出生信息 → 订阅记录 → 退出登录，删完回到未登录状态。 */
+var delAcctArm=false, delAcctTimer=null;
+function delAcctReset(){
+delAcctArm=false;
+var b=$("mineDelAcctBtn"); if(b){ b.disabled=false; b.textContent=UMT().delAcct; }
+var w=$("mineDelWarn"); if(w) w.hidden=true;
+}
+if($("mineDelAcctBtn")) $("mineDelAcctBtn").addEventListener("click",function(){
+if(!sb||!mineUser) return;
+var t=UMT(), btn=this, msg=$("mineAcctMsg");
+if(!delAcctArm){
+delAcctArm=true;
+btn.textContent=t.delAcctSure;
+var w=$("mineDelWarn"); if(w){ w.hidden=false; w.textContent=t.delAcctWarn; }
+if(delAcctTimer) clearTimeout(delAcctTimer);
+delAcctTimer=setTimeout(delAcctReset,5000);
+return;
+}
+if(delAcctTimer) clearTimeout(delAcctTimer);
+delAcctArm=false;
+btn.disabled=true;
+if(msg) msg.textContent=t.deleting;
+var id=mineUser.id;
+function wipe(table,key){ return sb.from(table).delete().eq(key,id).then(function(){},function(){}); }
+wipe("saved_readings","user_id").then(function(){
+return wipe("profiles",profileKey);
+}).then(function(){
+return wipe("subscriptions","user_id");
+}).then(function(){
+return sb.auth.signOut();
+}).then(function(){
+mineUser=null; mineProfile=null; mineRows=[]; mineSub=null; setPremium(false);
+delAcctReset();
+if(msg) msg.textContent="";
+renderMine();
+toast(t.delAcctDone);
+}).catch(function(){
+btn.disabled=false;
+if(msg) msg.textContent=t.actionFailed;
+});
+});
+if($("mineMale")) $("mineMale").addEventListener("click",function(){ mineGender="M"; press("mineMale",true); press("mineFemale",false); });
+if($("mineFemale")) $("mineFemale").addEventListener("click",function(){ mineGender="F"; press("mineFemale",true); press("mineMale",false); });
+if($("mineSaveProfileBtn")) $("mineSaveProfileBtn").addEventListener("click",function(){
+if(!sb||!mineUser) return;
+var t=UMT();
+var d=$("mineBDate").value||"", tm=$("mineBTime").value||"", pl=$("mineBPlace").value.trim();
+var fields={birth_date:d||null,birth_time:tm||null,gender:mineGender,birth_place:pl||null,updated_at:new Date().toISOString()};
+var dropped=[];
+$("mineProfileMsg").textContent=t.saving;
+/* 保存走「先更新、没有行再插入」，不假设表的主键 / 唯一约束；
+   表里缺哪一列，接口就会点名哪一列：把被点名的列摘掉重试，能存的先存下来；
+   出生地没存上时，用普通话告诉用户再保存一次。 */
+function stripField(msg){
+var m=/could not find the '([^']+)' column/i.exec(msg||"");
+if(m&&(m[1] in fields)){ dropped.push(m[1]); delete fields[m[1]]; return true; }
+return false;
+}
+function fail(msg){
+if(profileKey==="id"&&keyMissing(msg)){ profileKey="user_id"; doUpdate(); return; }
+$("mineProfileMsg").textContent=t.saveFailed;
+}
+function done(){
+mineProfile={date:d,time:tm,gender:mineGender,place:("birth_place" in fields)?pl:""};
+$("mineProfileMsg").textContent=(dropped.length&&pl)?t.profilePartial:t.profileSaved;
+applyProfile();
+}
+function doInsert(){
+var ins={}; ins[profileKey]=mineUser.id; for(var k in fields) ins[k]=fields[k];
+sb.from("profiles").insert(ins).then(function(r){
+if(!r.error) return done();
+if(stripField(r.error.message)) return doInsert();
+fail(r.error.message);
+});
+}
+function doUpdate(){
+sb.from("profiles").update(fields).eq(profileKey,mineUser.id).select("*").then(function(r){
+if(r.error){ if(stripField(r.error.message)) return doUpdate(); return fail(r.error.message); }
+if(r.data&&r.data.length) return done();
+doInsert();
+});
+}
+doUpdate();
+});
+if($("mineBackBtn")) $("mineBackBtn").addEventListener("click",function(){
+$("mineDetail").hidden=true;
+if($("mineList")) $("mineList").hidden=false;
+});
+if($("mineDetailDelBtn")) $("mineDetailDelBtn").addEventListener("click",function(){
+if(!curDetail) return;
+var btn=this;
+delFlow(btn,curDetail.id,function(){ curDetail=null; loadReadings(); });
+});
+
+/* ---------- 三语 ---------- */
+function mineSetTexts(){
+var t=UMT();
+var set=function(id,v){ var e=$(id); if(e) e.textContent=v; };
+var tm=$("tnavMine");
+if(tm){ var l=tm.querySelector(".tnav-label"); if(l) l.textContent=t.title; tm.setAttribute("aria-label",t.title); }
+if($("mineSec")) $("mineSec").setAttribute("aria-label",t.title);
+set("mineNotCfgText",t.notCfg);
+set("mineEmailLabel",t.email); set("minePassLabel",t.password);
+set("mineLoginBtn",t.login); set("mineSignupBtn",t.signup);
+set("mineBirthTitle",t.birthTitle);
+set("mineBDateLabel",t.date); set("mineBTimeLabel",t.time); set("mineBGenderLabel",t.gender);
+set("mineMale",t.male); set("mineFemale",t.female);
+set("mineBPlaceLabel",t.place);
+var pl=$("mineBPlace"); if(pl) pl.setAttribute("placeholder",t.placePh);
+set("mineSaveProfileBtn",t.saveProfile); set("mineLogoutBtn",t.logout);
+set("mineSavedTitle",t.savedTitle); set("mineSavedHint",t.savedHint);
+set("mineAiTitle",t.aiTitle);
+set("mineAcctTitle",t.acctTitle); set("mineNewPassLabel",t.newPass); set("minePassBtn",t.changePass);
+var np=$("mineNewPass"); if(np) np.setAttribute("placeholder",t.passPh);
+if(!delAcctArm) set("mineDelAcctBtn",t.delAcct);
+renderQuota();
+set("mineSubTitle",t.subTitle);
+set("subNameM",t.planM); set("subPerM",t.perM); set("subNoteM",t.noteM);
+set("subNameQ",t.planQ); set("subPerQ",t.perQ); set("subNoteQ",t.noteQ);
+set("subNameY",t.planY); set("subPerY",t.perY); set("subNoteY",t.noteY);
+set("subBestTag",t.bestTag);
+set("subCmp1",t.cmp1); set("subCmp2",t.cmp2); set("subCmp3",t.cmp3);
+renderSub();
+set("mineBackBtn",t.back);
+document.querySelectorAll(".savebtn").forEach(function(b){ b.textContent=t.saveBtn; });
+if(mineCur) $("pageTitle").textContent=t.title;
+if(mineUser&&$("mineDetail")&&$("mineDetail").hidden) renderList();
+}
+document.querySelectorAll(".langbtn").forEach(function(b){
+b.addEventListener("click",function(){ mineSetTexts(); });
+});
+
+/* ---------- 导航接入：新模式 mine + 进排盘页时自动带入出生信息 ---------- */
+var tmBtn=$("tnavMine");
+if(tmBtn) tmBtn.addEventListener("click",function(){
+if(typeof tnavGate==="function"&&!tnavGate(this)) return;
+setMode("mine"); window.scrollTo({top:0,behavior:"smooth"});
+});
+var _prevSM=setMode;
+setMode=function(mode){
+_prevSM(mode);
+var ms=$("mineSec"); if(ms) ms.hidden=(mode!=="mine");
+mineCur=(mode==="mine");
+var tm=$("tnavMine");
+if(mode==="mine"){
+$("pageTitle").hidden=false;
+$("pageTitle").textContent=UMT().title;
+["tnavHome","tnavDong","tnavXi","tnavYin","tnavLearn"].forEach(function(id){ var e=$(id); if(e) e.setAttribute("aria-pressed","false"); });
+if(tm) tm.setAttribute("aria-pressed","true");
+renderMine();
+if(mineUser){ fillProfileForm(); loadReadings(); loadSubscription(); }
+}else{
+if(tm) tm.setAttribute("aria-pressed","false");
+if(mode==="bazi"||mode==="vedic"||mode==="ziwei"||mode==="western") applyProfile(mode);
+}
+};
+
+/* ---------- 登录态 ---------- */
+if(sb){
+sb.auth.getSession().then(function(r){
+var s=r&&r.data?r.data.session:null;
+mineUser=s?s.user:null;
+renderMine();
+if(mineUser) loadProfile();
+loadSubscription();
+});
+sb.auth.onAuthStateChange(function(ev,session){
+mineUser=session?session.user:null;
+renderMine();
+loadSubscription();
+if(mineUser){ loadProfile(); if(mineCur) loadReadings(); }
+});
+}
+setInterval(function(){ if(mineCur) renderQuota(); },2000);
+mineSetTexts();
+renderMine();
+})();
+</script>
+<script>
+"use strict";
+/* ================= 法务页面：隐私政策 / 使用条款 / 娱乐免责声明 =================
+   页脚三个入口各开一个独立视图（legalSec），内容三语，跟随全站语言切换；
+   显隐接入既有的 setMode 链：包一层，进 legal 时藏起其它所有区、标题换成法务页名，
+   离开时由原有逻辑照常恢复。返回键回到打开法务页之前所在的页面。 */
+var LEGAL_TXT={
+labels:{
+zh:{privacy:"隐私政策",terms:"使用条款",disclaimer:"娱乐免责声明",back:"← 返回"},
+en:{privacy:"Privacy Policy",terms:"Terms of Use",disclaimer:"Entertainment Disclaimer",back:"← Back"},
+es:{privacy:"Política de Privacidad",terms:"Términos de Uso",disclaimer:"Aviso de Entretenimiento",back:"← Volver"}
+},
+pages:{
+privacy:{
+zh:{title:"隐私政策",updated:"最后更新：2026 年 11 月 24 日",intro:"EMBERMOON 是一款玄学娱乐应用。本政策说明我们收集哪些信息、为什么收集，以及你对自己的信息有哪些权利。",secs:[
+{h:"1 · 我们收集什么",list:["邮箱地址：注册和登录账号时使用。","出生信息：你填写的出生日期、出生时间和出生地点，用来生成你的命盘。","你保存的记录：你在站内主动保存的排盘与解读记录，每人最多 50 条。","订阅信息：你的订阅档位与状态。付款由 Stripe 处理，我们不保存你的完整银行卡号。"]},
+{h:"2 · 我们用这些信息做什么",list:["登录与账号：验证你的身份，让你在不同设备上找回自己的资料。","保存记录：把你保存的排盘存回你的账号，供你随时查看或删除。","订阅：确认会员状态，开放订阅功能。","我们不会把你的信息用于与上述无关的用途。"]},
+{h:"3 · 我们不出售你的数据",paras:["我们不会出售、出租你的个人信息。仅在运行服务所必需的范围内，你的信息会经由我们的技术服务商（例如账号数据库与支付处理方）处理。"]},
+{h:"4 · 删除账号与数据",paras:["你可以随时删除自己的账号和全部数据：在“我的”页面注销账号，或发邮件给我们申请删除。删除后，你的出生信息与保存的记录将一并移除，无法恢复。"]},
+{h:"5 · 联系我们",paras:["关于隐私的任何问题，请写信到 Issvengali@gmail.com。"]},
+{h:"6 · 政策更新",paras:["本政策如有修改，我们会在本页更新，并注明新的更新日期。"]}
+]},
+en:{title:"Privacy Policy",updated:"Last updated: November 24, 2026",intro:"EMBERMOON is a metaphysics entertainment app. This policy explains what information we collect, why we collect it, and the control you have over it.",secs:[
+{h:"1. What we collect",list:["Email address — used to register and sign in to your account.","Birth details — the date, time, and place of birth you enter, used to generate your charts.","Records you save — charts and readings you choose to save in the app, up to 50 per person.","Subscription information — your plan and subscription status. Payments are processed by Stripe; we do not store your full card number."]},
+{h:"2. How we use it",list:["Sign-in and your account: to verify it is you, and to keep your data available across your devices.","Saved records: to store the charts you save so you can view or delete them at any time.","Subscriptions: to confirm your membership and unlock subscriber features.","We do not use your information for purposes unrelated to the above."]},
+{h:"3. We do not sell your data",paras:["We never sell or rent your personal information. Only as far as running the service requires, your information is processed by our technical providers, such as our account database and payment processor."]},
+{h:"4. Deleting your account and data",paras:["You can delete your account and all of your data at any time — from the My page, or by emailing us a deletion request. Once deleted, your birth details and saved records are removed and cannot be recovered."]},
+{h:"5. Contact us",paras:["For any question about privacy, write to Issvengali@gmail.com."]},
+{h:"6. Changes to this policy",paras:["If this policy changes, we will update this page and note the new date."]}
+]},
+es:{title:"Política de Privacidad",updated:"Última actualización: 24 de noviembre de 2026",intro:"EMBERMOON es una aplicación de entretenimiento metafísico. Esta política explica qué información recogemos, para qué la usamos y qué control tienes sobre ella.",secs:[
+{h:"1. Qué recogemos",list:["Correo electrónico: para registrarte e iniciar sesión en tu cuenta.","Datos de nacimiento: la fecha, la hora y el lugar de nacimiento que introduces, para generar tus cartas.","Registros que guardas: las cartas y lecturas que decides guardar en la aplicación, hasta 50 por persona.","Información de suscripción: tu plan y el estado de tu suscripción. Los pagos los procesa Stripe; no guardamos el número completo de tu tarjeta."]},
+{h:"2. Para qué lo usamos",list:["Inicio de sesión y tu cuenta: verificar tu identidad y mantener tus datos disponibles en tus dispositivos.","Registros guardados: almacenar las cartas que guardas para que puedas verlas o eliminarlas cuando quieras.","Suscripciones: confirmar tu membresía y activar las funciones para suscriptores.","No usamos tu información para fines ajenos a los anteriores."]},
+{h:"3. No vendemos tus datos",paras:["Nunca vendemos ni alquilamos tu información personal. Solo en la medida necesaria para que el servicio funcione, tu información la procesan nuestros proveedores técnicos, como la base de datos de cuentas y el procesador de pagos."]},
+{h:"4. Eliminar tu cuenta y tus datos",paras:["Puedes eliminar tu cuenta y todos tus datos en cualquier momento, desde la página «Mi cuenta» o enviándonos un correo con la solicitud. Al hacerlo, tus datos de nacimiento y tus registros guardados se eliminan y no se pueden recuperar."]},
+{h:"5. Contacto",paras:["Para cualquier pregunta sobre privacidad, escribe a Issvengali@gmail.com."]},
+{h:"6. Cambios en esta política",paras:["Si esta política cambia, actualizaremos esta página e indicaremos la nueva fecha."]}
+]}
+},
+terms:{
+zh:{title:"使用条款",updated:"最后更新：2026 年 11 月 24 日",intro:"使用 EMBERMOON 即表示你同意以下条款。",secs:[
+{h:"1 · 娱乐性质",paras:["EMBERMOON 提供的塔罗、八字、紫微斗数、印度占星、西方占星、六爻、梅花易数等排盘与解读，全部属于娱乐与文化体验内容，不构成任何形式的预测保证或专业服务。"]},
+{h:"2 · 不保证结果准确",paras:["排盘由算法生成，解读由 AI 生成或辅助生成，内容可能不准确、不完整，仅供参考。我们不对任何解读的准确性与适用性作任何保证。"]},
+{h:"3 · 不提供专业建议",paras:["本站内容不提供、也不替代医疗、心理、法律、财务或投资建议。涉及健康、法律纠纷、投资决策等重要事项，请咨询有资质的专业人士。"]},
+{h:"4 · 决定由你负责",paras:["你基于本站内容作出的任何决定与行动，后果由你本人负责。重要决定请结合现实信息与专业意见，独立判断。"]},
+{h:"5 · 禁止滥用",paras:["使用本站时不得：以任何方式攻击、干扰或破坏服务的运行；批量抓取、复制站内内容或数据；冒充他人或以虚假信息注册；将本站用于任何违法用途；干扰其他用户的正常使用。"]},
+{h:"6 · 订阅",paras:["付费订阅的价格、周期与取消规则以结账页面显示为准，付款由 Stripe 处理。"]},
+{h:"7 · 条款变更",paras:["我们可能更新本条款，更新后在本页公布并注明日期；继续使用本站即视为接受更新后的条款。"]}
+]},
+en:{title:"Terms of Use",updated:"Last updated: November 24, 2026",intro:"By using EMBERMOON, you agree to the following terms.",secs:[
+{h:"1. An entertainment service",paras:["The tarot readings and the BaZi, Zi Wei Dou Shu, Vedic astrology, Western astrology, Liu Yao, and Meihua charts and interpretations offered by EMBERMOON are entertainment and cultural content. They are not a guarantee of any outcome, and they are not a professional service."]},
+{h:"2. No guarantee of accuracy",paras:["Charts are generated by algorithms, and interpretations are generated or assisted by AI. Content may be inaccurate or incomplete and is provided for reference only. We make no guarantee as to the accuracy or suitability of any reading."]},
+{h:"3. No professional advice",paras:["Nothing on this site provides or replaces medical, psychological, legal, financial, or investment advice. For important matters involving health, legal disputes, or investment decisions, please consult a qualified professional."]},
+{h:"4. Your decisions are your own",paras:["Any decision or action you take based on content from this site is your own responsibility. For important decisions, rely on real-world information and professional advice."]},
+{h:"5. No misuse",paras:["You must not: attack, disrupt, or interfere with the operation of the service in any way; scrape or copy site content or data in bulk; impersonate another person or register with false information; use this site for any unlawful purpose; or interfere with other users' normal use of the service."]},
+{h:"6. Subscriptions",paras:["Prices, billing periods, and cancellation terms for paid subscriptions are as shown on the checkout page. Payments are processed by Stripe."]},
+{h:"7. Changes to these terms",paras:["We may update these terms. Updates will be posted on this page with a new date, and continuing to use the site means you accept the updated terms."]}
+]},
+es:{title:"Términos de Uso",updated:"Última actualización: 24 de noviembre de 2026",intro:"Al usar EMBERMOON, aceptas los siguientes términos.",secs:[
+{h:"1. Un servicio de entretenimiento",paras:["Las lecturas de tarot y las cartas e interpretaciones de BaZi, Zi Wei Dou Shu, astrología védica, astrología occidental, Liu Yao y Meihua que ofrece EMBERMOON son contenido de entretenimiento y cultura. No garantizan ningún resultado ni constituyen un servicio profesional."]},
+{h:"2. Sin garantía de exactitud",paras:["Las cartas se generan mediante algoritmos y las interpretaciones las genera o ayuda a generar una IA. El contenido puede ser inexacto o incompleto y se ofrece solo como referencia. No garantizamos la exactitud ni la idoneidad de ninguna lectura."]},
+{h:"3. Sin asesoramiento profesional",paras:["Nada en este sitio ofrece ni sustituye asesoramiento médico, psicológico, legal, financiero o de inversión. Para asuntos importantes de salud, conflictos legales o decisiones de inversión, consulta a un profesional cualificado."]},
+{h:"4. Tus decisiones son tuyas",paras:["Cualquier decisión o acción que tomes a partir del contenido de este sitio es tu responsabilidad. Para decisiones importantes, apóyate en información real y en consejo profesional."]},
+{h:"5. Uso indebido prohibido",paras:["No debes: atacar, interrumpir ni interferir en el funcionamiento del servicio; extraer o copiar en masa el contenido o los datos del sitio; suplantar a otra persona ni registrarte con información falsa; usar este sitio con fines ilícitos; ni interferir en el uso normal del servicio por parte de otros usuarios."]},
+{h:"6. Suscripciones",paras:["Los precios, los periodos de facturación y las condiciones de cancelación de las suscripciones de pago son los que se muestran en la página de pago. Los pagos los procesa Stripe."]},
+{h:"7. Cambios en estos términos",paras:["Podemos actualizar estos términos. Los cambios se publicarán en esta página con una nueva fecha, y seguir usando el sitio significa que los aceptas."]}
+]}
+},
+disclaimer:{
+zh:{title:"娱乐免责声明",updated:"最后更新：2026 年 11 月 24 日",intro:"请在使用 EMBERMOON 前阅读本声明。",secs:[
+{h:"1 · 仅供娱乐",paras:["EMBERMOON 的全部内容——塔罗抽牌，以及八字、紫微斗数、印度占星、西方占星、六爻、梅花易数的排盘结果与 AI 解读——仅供娱乐与自我反思参考。"]},
+{h:"2 · 不是专业建议",paras:["这些内容源于传统文化，并由算法与 AI 生成，不代表事实，也不保证准确，不应作为重大决定的唯一依据，包括但不限于健康、婚姻、事业与投资方面的决定。本站不提供医疗、心理、法律、财务或投资建议；如果你正面临健康问题、心理困扰、法律纠纷或财务决策，请咨询医生、心理咨询师、律师、财务顾问等专业人士；紧急情况请联系当地紧急服务。"]},
+{h:"3 · 决定在你",paras:["你如何使用本站内容、以及据此作出的任何决定，都由你本人负责。"]}
+]},
+en:{title:"Entertainment Disclaimer",updated:"Last updated: November 24, 2026",intro:"Please read this disclaimer before using EMBERMOON.",secs:[
+{h:"1. For entertainment only",paras:["Everything on EMBERMOON — tarot draws, and the charts and AI interpretations for BaZi, Zi Wei Dou Shu, Vedic astrology, Western astrology, Liu Yao, and Meihua — is provided for entertainment and self-reflection only."]},
+{h:"2. Not professional advice",paras:["This content comes from traditional culture and from algorithm- and AI-generated output. It does not state facts, its accuracy is not guaranteed, and it should never be the sole basis for a major decision, including decisions about health, marriage, career, or investments. This site does not provide medical, psychological, legal, financial, or investment advice. If you are dealing with a health issue, emotional distress, a legal dispute, or a financial decision, please consult a doctor, therapist, lawyer, financial adviser, or other qualified professional; in an emergency, contact your local emergency services."]},
+{h:"3. Your responsibility",paras:["How you use this content, and any decision you make based on it, is your own responsibility."]}
+]},
+es:{title:"Aviso de Entretenimiento",updated:"Última actualización: 24 de noviembre de 2026",intro:"Lee este aviso antes de usar EMBERMOON.",secs:[
+{h:"1. Solo entretenimiento",paras:["Todo el contenido de EMBERMOON —las tiradas de tarot y las cartas e interpretaciones con IA de BaZi, Zi Wei Dou Shu, astrología védica, astrología occidental, Liu Yao y Meihua— se ofrece únicamente con fines de entretenimiento y reflexión personal."]},
+{h:"2. No es asesoramiento profesional",paras:["Este contenido procede de la cultura tradicional y de resultados generados por algoritmos e IA. No afirma hechos, no se garantiza su exactitud y nunca debe ser la única base de una decisión importante, incluidas las decisiones sobre salud, matrimonio, carrera o inversiones. Este sitio no ofrece asesoramiento médico, psicológico, legal, financiero ni de inversión. Si tienes un problema de salud, malestar emocional, un conflicto legal o una decisión financiera, consulta a un médico, un terapeuta, un abogado, un asesor financiero u otro profesional cualificado; en caso de emergencia, contacta con los servicios de emergencia de tu zona."]},
+{h:"3. Tu responsabilidad",paras:["El uso que hagas de este contenido, y cualquier decisión que tomes a partir de él, es tu responsabilidad."]}
+]}
+}
+}
+};
+var legalPage="privacy", legalFromMode="home", legalCur=false;
+function legalPageData(){ var p=LEGAL_TXT.pages[legalPage]; return p[LANG]||p.zh; }
+function legalLabels(){ return LEGAL_TXT.labels[LANG]||LEGAL_TXT.labels.zh; }
+function renderLegal(){
+var d=legalPageData();
+var html='<p class="legal-updated">'+d.updated+'</p><p class="legal-intro">'+d.intro+'</p>';
+d.secs.forEach(function(s){
+html+="<h3>"+s.h+"</h3>";
+if(s.paras) s.paras.forEach(function(p){ html+="<p>"+p+"</p>"; });
+if(s.list){ html+="<ul>"; s.list.forEach(function(li){ html+="<li>"+li+"</li>"; }); html+="</ul>"; }
+});
+$("legalBody").innerHTML=html;
+$("legalSec").setAttribute("aria-label",d.title);
+}
+function legalSetTexts(){
+var lb=legalLabels();
+$("legalLinkPrivacy").textContent=lb.privacy;
+$("legalLinkTerms").textContent=lb.terms;
+$("legalLinkDisclaimer").textContent=lb.disclaimer;
+$("legalBack").textContent=lb.back;
+if(legalCur){ renderLegal(); $("pageTitle").textContent=legalPageData().title; }
+}
+function openLegal(page){
+legalPage=page;
+setMode("legal");
+window.scrollTo({top:0,behavior:"smooth"});
+}
+$("legalLinkPrivacy").addEventListener("click",function(){ openLegal("privacy"); });
+$("legalLinkTerms").addEventListener("click",function(){ openLegal("terms"); });
+$("legalLinkDisclaimer").addEventListener("click",function(){ openLegal("disclaimer"); });
+$("legalBack").addEventListener("click",function(){ setMode(legalFromMode||"home"); window.scrollTo({top:0,behavior:"smooth"}); });
+document.querySelectorAll(".langbtn").forEach(function(b){
+b.addEventListener("click",function(){ legalSetTexts(); });
+});
+var _legalPrevSetMode=setMode;
+setMode=function(mode){
+if(mode!=="legal") legalFromMode=mode;
+_legalPrevSetMode(mode);
+var ls=$("legalSec"); if(ls) ls.hidden=(mode!=="legal");
+legalCur=(mode==="legal");
+if(mode==="legal"){
+$("pageTitle").hidden=false;
+renderLegal();
+$("pageTitle").textContent=legalPageData().title;
+["tnavHome","tnavDong","tnavXi","tnavYin","tnavLearn","tnavMine"].forEach(function(id){ var e=$(id); if(e) e.setAttribute("aria-pressed","false"); });
+}
+};
+legalSetTexts();
+</script>
+<script>
+"use strict";
+/* ================= 导师页 Ember（第一步） =================
+   一个导师、一份共享档案：出生信息（profiles）、保存的盘（saved_readings）、
+   用户说过的事（账号元数据 ember_facts）。回答按流派分段标注，每段写清
+   依据哪张盘、哪个体系，跨流派不合成一个结论。工具页原有各系统对话保留，
+   与导师共用同一个每日计数（window.__aiQuota，只计用户发出的消息，
+   按用户本地日期零点重置，会员不限）。导师开场 3 句与首次生活问题不计入。 */
+(function(){
+var $=function(id){return document.getElementById(id);};
+var CHAT_URL="https://embermoon-backend.jinniezhan.workers.dev/interpret";
+function L(){ return (typeof LANG!=="undefined"&&LANG)?LANG:"zh"; }
+var TXT={
+zh:{pageTitle:"Ember · EMBERMOON 导师",name:"Ember · EMBERMOON 导师",aiNote:"这是 AI，不是真人。Ember 的回答仅供娱乐参考，不替代医疗、法律、财务等专业意见。",bring:"带给导师",gateHint:"让导师记住你和这张盘",gateBtn:"去登录 / 注册",
+homeZh:"认识你的导师",homeEn:"MEET YOUR MENTOR",homeDesc:"Ember 是 EMBERMOON 的 AI 导师，记得你的盘，也记得你说过的事。排完盘点「带给导师」，就能接着聊。",homeGo:"去见 Ember →",
+mineTitle:"导师",mineDesc:"Ember 记得你的盘和你说过的事。",mineBtn:"继续和导师聊",
+arcTitle:"导师眼中的你",arcBirth:"出生信息",arcCharts:"保存的盘",arcFacts:"你说过的事",arcNoBirth:"还没有保存出生信息——在「我的」里填一次，排盘会自动带入。",arcNoCharts:"还没有带给导师的盘。排完盘，点结果页底部的「带给导师」。",arcNoFacts:"还没有。你在这里说过的事，会记在这一栏。",del:"删除",
+nowChart:function(n){return "正在聊：你的"+n+"盘";},noChart:"还没有挂上的盘——先去排一张盘，点「带给导师」，Ember 会先看盘再和你聊。",switchHint:"切换正在聊的盘：",
+ph:"想问什么，直接打字…",send:"发送",thinking:"正在回复…",wait:"还在回复中，这次有点慢，别关页面，再等一下…",
+left:function(n){return "今日还剩 "+n+"/5 句";},leftNone:"今天先聊到这里，明天零点后继续。",premiumLeft:"会员 · 导师对话不限句数",
+limitMem:function(m){return "导师还记得你上次说的——「"+m+"」。今天先聊到这里，明天零点后我们接着聊。成为会员后，Ember 可以一直陪你聊，也会把你说的长期记进档案。";},
+limitGen:"导师还记得你上次说的那些事。今天先聊到这里，明天零点后我们接着聊。成为会员后，Ember 可以一直陪你聊，也会把你说的长期记进档案。",
+upTitle:"升级会员，和 Ember 继续聊",upBtn:"去订阅",
+welcome:"我是 Ember，EMBERMOON 的 AI 导师。把任意一张盘带给我，我会按它自己的体系陪你聊；你说过的事，我会记进你的档案。",
+lifeQ:"在继续之前，我想多了解你一点：\n1）你现在最关心的是什么？\n2）你最近在做什么决定？\n3）这件事里，最让你放不下的是什么？\n想到什么说什么就好，我会记进你的档案。",
+lifeAck:"记下了，已经放进你的档案。以后聊起相关的事，我会记得这些。",
+open1:function(ex){return "我先看了这张盘——"+ex;},open2:function(ex){return ex+"——这一块，我们可以慢慢聊。";},open3:function(ex){return "还有一处也在盘里："+ex+"。你想先问哪方面？";},
+basis:function(n,s){return "依据：你的"+n+"盘 · "+s+"体系";},
+missing:function(n){return "你还没有把"+n+"盘带给我——先去排一张，点结果页底部的「带给导师」，我再按那个体系和你聊。";},
+attachNote:function(n){return "好，我们接着聊这张"+n+"盘。想问什么都可以。";},
+savedNote:"这张盘已经保存到你的档案里了。",
+errMsg:"这条没送出去，服务器有点忙。问题已放回输入框，过一会儿点发送再试一次。",
+ageTextA:"我确认我已满 18 岁，并同意",ageTerms:"用户条款",ageHint:"注册导师账号需年满 18 岁，勾选时间会被记录；排盘工具不需要登录就能用。合盘里他人的出生日期不会用来判断你的年龄。",ageErr:"注册前请先勾选确认你已满 18 岁。",
+crisis:"先停一下命理的事——我更在意你现在是否安全。如果你正在想伤害自己，请马上联系 988（美国可拨打或发短信，全天 24 小时，有西班牙语服务，也可请求其他语言口译）；情况紧急时请拨 911。你不需要一个人扛着，先找一个真人聊聊。",
+toolNames:{bazi:"八字",ziwei:"紫微斗数",vedic:"印占",western:"西占",tarot:"塔罗",liuyao:"六爻",meihua:"梅花易数"},
+sysNames:{bazi:"八字",ziwei:"紫微",vedic:"印占",western:"西占",tarot:"塔罗",liuyao:"六爻",meihua:"梅花"},
+tags:{bazi:"八字视角",ziwei:"紫微视角",vedic:"印占视角",western:"西占视角",tarot:"塔罗视角",liuyao:"六爻视角",meihua:"梅花视角"}},
+en:{pageTitle:"Ember · EMBERMOON Mentor",name:"Ember · EMBERMOON Mentor",aiNote:"This is an AI, not a real person. Ember's answers are for entertainment only and do not replace professional advice.",bring:"Bring to Ember",gateHint:"Let Ember remember you and this chart",gateBtn:"Log in / Sign up",
+homeZh:"Meet your mentor",homeEn:"MEET YOUR MENTOR",homeDesc:"Ember is EMBERMOON's AI mentor — it remembers your charts and what you have told it. After casting a chart, tap “Bring to Ember” to keep talking.",homeGo:"Meet Ember →",
+mineTitle:"Mentor",mineDesc:"Ember remembers your charts and what you have shared.",mineBtn:"Continue with Ember",
+arcTitle:"You, as Ember sees you",arcBirth:"Birth details",arcCharts:"Saved charts",arcFacts:"Things you have told Ember",arcNoBirth:"No birth details saved yet — add them once under “My” and charts will fill them in automatically.",arcNoCharts:"No chart brought to Ember yet. Cast a chart and tap “Bring to Ember” at the bottom of the result.",arcNoFacts:"Nothing yet. What you share here will be kept in this section.",del:"Delete",
+nowChart:function(n){return "Discussing: your "+n+" chart";},noChart:"No chart attached yet — cast a chart first and tap “Bring to Ember”, and Ember will read it before you talk.",switchHint:"Switch the chart under discussion:",
+ph:"Ask anything — just type…",send:"Send",thinking:"Replying…",wait:"Still replying — this one is slow. Hang on a little longer…",
+left:function(n){return n+"/5 messages left today";},leftNone:"That is all for today — we continue after midnight.",premiumLeft:"Member · unlimited mentor messages",
+limitMem:function(m){return "Ember still remembers what you said last time — “"+m+"”. Let us pause here today and continue after midnight. As a member, Ember can keep talking with you and keeps what you share in your long-term archive.";},
+limitGen:"Ember still remembers what you shared last time. Let us pause here today and continue after midnight. As a member, Ember can keep talking with you and keeps what you share in your long-term archive.",
+upTitle:"Upgrade to keep talking with Ember",upBtn:"See plans",
+welcome:"I am Ember, EMBERMOON's AI mentor. Bring me any chart and I will talk it through in that chart's own system; what you tell me goes into your archive.",
+lifeQ:"Before we go on, I would like to know you a little better:\n1) What is on your mind most right now?\n2) What decision are you in the middle of?\n3) In all of this, what is the part you cannot let go of?\nSay whatever comes to mind — I will keep it in your archive.",
+lifeAck:"Noted, and saved to your archive. When related things come up, I will remember this.",
+open1:function(ex){return "I have looked at this chart first — "+ex;},open2:function(ex){return ex+" — this part is worth a slow conversation.";},open3:function(ex){return "One more thing in the chart: "+ex+". What would you like to ask about first?";},
+basis:function(n,s){return "Based on: your "+n+" chart · "+s+" system";},
+missing:function(n){return "You have not brought me a "+n+" chart yet — cast one and tap “Bring to Ember” at the bottom of the result, and I will go through it in that system.";},
+attachNote:function(n){return "Good — let us continue with this "+n+" chart. Ask me anything.";},
+savedNote:"This chart has been saved to your archive.",
+errMsg:"That message did not go through — the server is busy. Your question is back in the box; try sending again in a moment.",
+ageTextA:"I confirm I am 18 or older and agree to the",ageTerms:"Terms of Use",ageHint:"A mentor account requires you to be 18+; the time of this confirmation is recorded. Chart tools work without an account. Other people's birth dates in a synastry chart are never used to judge your age.",ageErr:"Before signing up, please tick the box confirming you are 18 or older.",
+crisis:"Let us pause the charts for a moment — your safety matters more. If you are thinking of harming yourself, please contact 988 right away (call or text, in the US, 24/7; Spanish-language service available, interpreters for other languages on request). In an emergency, call 911. You do not have to carry this alone — please talk to a real person first.",
+toolNames:{bazi:"Ba Zi",ziwei:"Zi Wei",vedic:"Vedic",western:"Western",tarot:"Tarot",liuyao:"Liu Yao",meihua:"Mei Hua"},
+sysNames:{bazi:"Ba Zi",ziwei:"Zi Wei",vedic:"Vedic astrology",western:"Western astrology",tarot:"Tarot",liuyao:"Liu Yao",meihua:"Mei Hua"},
+tags:{bazi:"Ba Zi view",ziwei:"Zi Wei view",vedic:"Vedic view",western:"Western view",tarot:"Tarot view",liuyao:"Liu Yao view",meihua:"Mei Hua view"}},
+es:{pageTitle:"Ember · Mentor de EMBERMOON",name:"Ember · Mentor de EMBERMOON",aiNote:"Esto es una IA, no una persona real. Las respuestas de Ember son solo de entretenimiento y no sustituyen el consejo profesional.",bring:"Llevar a Ember",gateHint:"Deja que Ember te recuerde a ti y a esta carta",gateBtn:"Iniciar sesión / Registrarse",
+homeZh:"Conoce a tu mentor",homeEn:"MEET YOUR MENTOR",homeDesc:"Ember es el mentor de IA de EMBERMOON: recuerda tus cartas y lo que le has contado. Después de levantar una carta, toca «Llevar a Ember» para seguir hablando.",homeGo:"Conocer a Ember →",
+mineTitle:"Mentor",mineDesc:"Ember recuerda tus cartas y lo que le has contado.",mineBtn:"Seguir hablando con Ember",
+arcTitle:"Cómo te ve Ember",arcBirth:"Datos de nacimiento",arcCharts:"Cartas guardadas",arcFacts:"Lo que le has contado",arcNoBirth:"Aún no hay datos de nacimiento guardados: añádelos una vez en «Mi cuenta» y las cartas los usarán automáticamente.",arcNoCharts:"Aún no has traído ninguna carta a Ember. Levanta una y toca «Llevar a Ember» al final del resultado.",arcNoFacts:"Todavía nada. Lo que compartas aquí quedará en esta sección.",del:"Eliminar",
+nowChart:function(n){return "Hablando de: tu carta de "+n;},noChart:"Aún no hay carta adjunta: levanta una primero y toca «Llevar a Ember»; Ember la leerá antes de hablar.",switchHint:"Cambiar la carta en discusión:",
+ph:"Pregunta lo que quieras…",send:"Enviar",thinking:"Respondiendo…",wait:"Sigo respondiendo, esta vez va lento. Espera un poco más…",
+left:function(n){return "Te quedan "+n+"/5 mensajes hoy";},leftNone:"Por hoy es todo; seguimos después de medianoche.",premiumLeft:"Miembro · mensajes ilimitados con Ember",
+limitMem:function(m){return "Ember aún recuerda lo que dijiste la última vez: «"+m+"». Pausemos por hoy y seguimos después de medianoche. Como miembro, Ember puede seguir hablando contigo y guarda lo que compartes en tu archivo a largo plazo.";},
+limitGen:"Ember aún recuerda lo que compartiste la última vez. Pausemos por hoy y seguimos después de medianoche. Como miembro, Ember puede seguir hablando contigo y guarda lo que compartes en tu archivo a largo plazo.",
+upTitle:"Hazte miembro para seguir con Ember",upBtn:"Ver planes",
+welcome:"Soy Ember, el mentor de IA de EMBERMOON. Tráeme cualquier carta y la hablaremos en su propio sistema; lo que me cuentes irá a tu archivo.",
+lifeQ:"Antes de seguir, quiero conocerte un poco mejor:\n1) ¿Qué es lo que más te preocupa ahora?\n2) ¿Qué decisión estás tomando?\n3) De todo eso, ¿qué es lo que no puedes soltar?\nDi lo que te venga a la mente; lo guardaré en tu archivo.",
+lifeAck:"Anotado y guardado en tu archivo. Cuando surjan temas relacionados, lo recordaré.",
+open1:function(ex){return "Primero miré esta carta: "+ex;},open2:function(ex){return ex+" — esta parte merece una conversación tranquila.";},open3:function(ex){return "Hay algo más en la carta: "+ex+". ¿Qué quieres preguntar primero?";},
+basis:function(n,s){return "Base: tu carta de "+n+" · sistema "+s;},
+missing:function(n){return "Aún no me has traído una carta de "+n+": levanta una y toca «Llevar a Ember» al final del resultado, y la veremos en ese sistema.";},
+attachNote:function(n){return "Bien, sigamos con esta carta de "+n+". Pregunta lo que quieras.";},
+savedNote:"Esta carta ya está guardada en tu archivo.",
+errMsg:"Ese mensaje no salió: el servidor está ocupado. Tu pregunta volvió al cuadro; inténtalo de nuevo en un momento.",
+ageTextA:"Confirmo que tengo 18 años o más y acepto los",ageTerms:"Términos de Uso",ageHint:"La cuenta de mentor requiere tener 18 años o más; la hora de esta confirmación queda registrada. Las herramientas de cartas funcionan sin cuenta. Las fechas de nacimiento de otras personas en una sinastría nunca se usan para juzgar tu edad.",ageErr:"Antes de registrarte, marca la casilla que confirma que tienes 18 años o más.",
+crisis:"Pausemos las cartas un momento: tu seguridad importa más. Si estás pensando en hacerte daño, contacta de inmediato al 988 (llamada o mensaje de texto en EE. UU., 24/7; hay servicio en español y pueden pedirse intérpretes para otros idiomas). En una emergencia, llama al 911. No tienes que cargar con esto en soledad: habla primero con una persona real.",
+toolNames:{bazi:"Ba Zi",ziwei:"Zi Wei",vedic:"védica",western:"occidental",tarot:"Tarot",liuyao:"Liu Yao",meihua:"Mei Hua"},
+sysNames:{bazi:"Ba Zi",ziwei:"Zi Wei",vedic:"astrología védica",western:"astrología occidental",tarot:"Tarot",liuyao:"Liu Yao",meihua:"Mei Hua"},
+tags:{bazi:"Perspectiva Ba Zi",ziwei:"Perspectiva Zi Wei",vedic:"Perspectiva védica",western:"Perspectiva occidental",tarot:"Perspectiva Tarot",liuyao:"Perspectiva Liu Yao",meihua:"Perspectiva Mei Hua"}}
+};
+function T(){ return TXT[L()]||TXT.zh; }
+var TOOLS=[
+{tool:"tarot",sec:"stageSec",get:function(){ return (typeof copyText!=="undefined")?copyText:""; }},
+{tool:"bazi",sec:"baziResult",get:function(){ return (typeof bzCopyText!=="undefined")?bzCopyText:""; }},
+{tool:"vedic",sec:"vedicResult",get:function(){ return (typeof vedCopyText!=="undefined")?vedCopyText:""; }},
+{tool:"ziwei",sec:"ziweiResult",get:function(){ return (typeof zwCopyText!=="undefined")?zwCopyText:""; }},
+{tool:"liuyao",sec:"liuyaoResult",get:function(){ return (typeof lyCopyText!=="undefined")?lyCopyText:""; }},
+{tool:"meihua",sec:"meihuaResult",get:function(){ return (typeof mhCopyText!=="undefined")?mhCopyText:""; }},
+{tool:"western",sec:"westResult",get:function(){ return (typeof wCopyText!=="undefined")?wCopyText:""; }}
+];
+var E={sb:null,user:null,msgs:[],charts:{},active:null,savedRows:[],birth:null,facts:[],lifeAsked:false,lifePending:false,busy:false,pendingBring:null,ageTs:null,greetedKey:"",welcomed:false};
+function chartKey(c){ return c.tool+"|"+(c.text||"").length+"|"+(c.text||"").slice(0,60); }
+function chartTitle(tool){ var t=T(); return t.toolNames[tool]+" · "+new Date().toLocaleDateString(); }
+try{ if(window.supabase&&window.SUPABASE_URL&&window.SUPABASE_ANON_KEY) E.sb=window.supabase.createClient(window.SUPABASE_URL,window.SUPABASE_ANON_KEY); }catch(e){ E.sb=null; }
+function persistMeta(){
+if(!E.sb||!E.user) return;
+var data={ember_facts:E.facts,ember_life_asked:E.lifeAsked};
+if(E.ageTs) data.age18_confirmed_at=E.ageTs;
+E.sb.auth.updateUser({data:data}).then(function(){},function(){});
+}
+function loadArchive(){
+if(!E.sb||!E.user) return;
+E.sb.from("saved_readings").select("id,title,data,created_at").eq("user_id",E.user.id).order("created_at",{ascending:false}).limit(50).then(function(r){
+if(!r.error&&r.data){ E.savedRows=r.data; renderArchive(); }
+});
+E.sb.from("profiles").select("*").eq("id",E.user.id).maybeSingle().then(function(r){
+if(!r.error&&r.data){ var d=r.data; E.birth={date:d.birth_date||d.date||"",time:d.birth_time||"",place:d.birth_place||d.place||""}; renderArchive(); }
+});
+}
+function onAuth(){
+if(E.user){
+var md=E.user.user_metadata||{};
+if(Array.isArray(md.ember_facts)) E.facts=md.ember_facts.slice(0,50);
+if(md.ember_life_asked) E.lifeAsked=true;
+if(E.ageTs&&!md.age18_confirmed_at) persistMeta();
+loadArchive();
+if(E.pendingBring){ var c=E.pendingBring; E.pendingBring=null; completeBring(c); }
+}else{
+E.charts={}; E.active=null; E.savedRows=[]; E.birth=null;
+}
+renderMentor();
+}
+/* ---------- [带给导师] ---------- */
+function bring(tool){
+var item=null; TOOLS.forEach(function(x){ if(x.tool===tool) item=x; });
+if(!item) return;
+var text=""; try{ text=item.get()||""; }catch(e){}
+if(!text) return;
+var chart={tool:tool,text:text,title:chartTitle(tool)};
+if(!E.user){
+E.pendingBring=chart;
+setMode("mine"); window.scrollTo({top:0,behavior:"smooth"});
+var m=$("mineAuthMsg"); if(m) m.textContent=T().gateHint;
+toast(T().gateHint);
+return;
+}
+completeBring(chart);
+}
+function completeBring(chart){
+attachChart(chart);
+enterMentor();
+saveChart(chart);
+emberOpen(chart);
+}
+function attachChart(chart){
+E.charts[chart.tool]=chart;
+E.active=chart.tool;
+}
+function saveChart(chart){
+if(!E.sb||!E.user) return;
+var dup=false;
+E.savedRows.forEach(function(r){ if(r.data&&r.data.tool===chart.tool&&r.data.text===chart.text) dup=true; });
+if(dup){ chart.saved=true; return; }
+/* 新盘自动存入 saved_readings（与手动保存同一张表，上限 50 条自动删最旧） */
+E.sb.from("saved_readings").insert({user_id:E.user.id,title:chart.title,data:{tool:chart.tool,text:chart.text}}).then(function(r){
+if(r.error) return;
+chart.saved=true;
+E.sb.from("saved_readings").select("id,created_at").eq("user_id",E.user.id).order("created_at",{ascending:false}).then(function(q){
+if(q.error||!q.data||q.data.length<=50) { loadArchive(); return; }
+var old=q.data.slice(50).map(function(x){ return x.id; });
+E.sb.from("saved_readings").delete().in("id",old).then(function(){ loadArchive(); });
+});
+});
+}
+/* ---------- 导师开场：基于这张盘主动说 3 句（带流派标签，不计入免费句数） ---------- */
+function excerpts(text){
+var lines=(text||"").split("\n").map(function(s){ return s.trim(); }).filter(function(s){ return s.length>=4&&s.length<=90; });
+if(!lines.length) return ["","",""];
+var picks=[lines[0],lines[Math.min(1,lines.length-1)],lines[Math.min(2,lines.length-1)]];
+for(var i=0;i<lines.length&&picks.length<4;i++){ if(picks.indexOf(lines[i])<0) picks.push(lines[i]); }
+return [picks[0]||"",picks[1]||picks[0]||"",picks[2]||picks[1]||picks[0]||""];
+}
+function emberOpen(chart){
+var key=chartKey(chart);
+if(E.greetedKey===key) { ensureLife(); return; }
+E.greetedKey=key;
+var t=T(), ex=excerpts(chart.text), tag=t.tags[chart.tool], basis=t.basis(t.toolNames[chart.tool],t.sysNames[chart.tool]);
+addMsg("assistant",t.open1(ex[0]),tag,basis);
+addMsg("assistant",t.open2(ex[1]),tag,basis);
+addMsg("assistant",t.open3(ex[2]),tag,basis);
+addMsg("assistant",t.savedNote,"","");
+ensureLife();
+}
+function ensureLife(){
+if(E.lifeAsked||E.lifePending||!E.user) return;
+E.lifePending=true;
+addMsg("assistant",T().lifeQ,"","");
+}
+/* ---------- 对话渲染 ---------- */
+function addMsg(role,content,tag,basis){
+E.msgs.push({role:role,content:content,tag:tag||"",basis:basis||""});
+renderMsgs();
+}
+function renderMsgs(){
+var log=$("mentorLog"); if(!log) return;
+log.innerHTML="";
+E.msgs.forEach(function(m){
+var d=document.createElement("div");
+d.className="bz-msg "+(m.role==="user"?"me":"ai");
+if(m.role!=="user"&&m.tag){ var tg=document.createElement("span"); tg.className="mtag"; tg.textContent="「"+m.tag+"」"; d.appendChild(tg); d.appendChild(document.createElement("br")); }
+var tx=document.createElement("span"); tx.textContent=m.content; d.appendChild(tx);
+if(m.role!=="user"&&m.basis){ var b=document.createElement("span"); b.className="mbasis"; b.textContent=m.basis; d.appendChild(b); }
+log.appendChild(d);
+});
+try{ var last=log.lastElementChild; if(last) last.scrollIntoView({behavior:"smooth",block:"nearest"}); }catch(e){}
+renderLeft();
+}
+function quotaLeft(){
+if(window.EMBERMOON_PREMIUM===true) return -1;
+var AQ=window.__aiQuota, today=new Date().toDateString();
+if(!AQ||AQ.day!==today) return 5;
+return Math.max(0,5-(AQ.count||0));
+}
+function renderLeft(){
+var e=$("mentorLeft"); if(!e) return;
+var t=T();
+if(window.EMBERMOON_PREMIUM===true){ e.textContent=t.premiumLeft; return; }
+var left=quotaLeft();
+e.textContent=left>0?t.left(left):t.leftNone;
+}
+function showLimit(){
+var t=T(), mem="";
+for(var i=E.msgs.length-1;i>=0;i--){ if(E.msgs[i].role==="user"){ mem=E.msgs[i].content; break; } }
+if(!mem&&E.facts.length) mem=E.facts[E.facts.length-1];
+if(mem&&mem.length>42) mem=mem.slice(0,42)+"…";
+addMsg("assistant",mem?t.limitMem(mem):t.limitGen,"","");
+var up=$("mentorUpgrade"); if(up){ up.hidden=false; var tx=$("mentorUpgradeText"); if(tx) tx.textContent=t.upTitle; var b=$("mentorUpgradeBtn"); if(b) b.textContent=t.upBtn; }
+}
+/* ---------- 危机应对：停下解读，给 988 / 911，不计入句数；只记事件次数，不记内容 ---------- */
+var CRISIS_RE=/(想死|自杀|结束(自己的)?生命|伤害自己|不想活|活不下去|suicide|kill myself|end my life|self[-\s]?harm|suicidio|matarme|quitarme la vida)/i;
+function crisisHit(q){ return CRISIS_RE.test(q||""); }
+function crisisReply(q){
+addMsg("user",q,"","");
+var t=T();
+addMsg("assistant",t.crisis,"","");
+var c=$("mentorCrisis"); if(c){ c.hidden=false; var ct=$("mentorCrisisText"); if(ct) ct.textContent=t.crisis; }
+window.__emberCrisisEvents=(window.__emberCrisisEvents||0)+1;
+}
+/* ---------- 发送：分流派作答，跨流派分段、不合成结论 ---------- */
+var SCHOOL_KEYS=[["bazi",/(八字|ba\s?zi)/i],["ziwei",/(紫微|zi\s?wei)/i],["vedic",/(印占|吠陀|vedic|védica)/i],["western",/(西占|西洋占星|western|occidental)/i],["tarot",/(塔罗|tarot)/i],["liuyao",/(六爻|liu\s?yao)/i],["meihua",/(梅花|mei\s?hua)/i]];
+function detectSchools(q){
+var found=[];
+SCHOOL_KEYS.forEach(function(pair){ if(pair[1].test(q)) found.push(pair[0]); });
+return found;
+}
+function callBackend(sys,chartText,chartObj,q,history){
+var payload;
+try{ payload=JSON.stringify({system:sys,chart:chartObj||chartText,language:L(),question:q,history:history}); }catch(e){ return Promise.reject(e); }
+function once(){
+var ctrl=(typeof AbortController!=="undefined")?new AbortController():null;
+var timer=ctrl?setTimeout(function(){ try{ctrl.abort();}catch(e){} },45000):null;
+var opts={method:"POST",headers:{"Content-Type":"application/json"},body:payload};
+if(ctrl) opts.signal=ctrl.signal;
+return fetch(CHAT_URL,opts).then(function(res){
+if(timer) clearTimeout(timer);
+if(!res.ok){ var er=new Error("http "+res.status); er.status=res.status; throw er; }
+return res.json();
+}).then(function(data){
+var text=data&&(data.interpretation||data.reading||data.text||data.result);
+if(!text) throw new Error("empty");
+return text;
+}).catch(function(err){ if(timer) clearTimeout(timer); throw err; });
+}
+return once().catch(function(){ return new Promise(function(res,rej){ setTimeout(function(){ once().then(res,rej); },3000); }); });
+}
+function mentorSend(){
+if(E.busy) return;
+var input=$("mentorInput"), log=$("mentorLog");
+if(!input||!log) return;
+var q=(input.value||"").trim();
+if(!q) return;
+if(!E.user){ enterMentor(); return; }
+var t=T();
+if(crisisHit(q)){ input.value=""; crisisReply(q); return; }
+if(E.lifePending){
+E.lifePending=false; E.lifeAsked=true;
+addMsg("user",q,"","");
+E.facts.push(q); if(E.facts.length>50) E.facts=E.facts.slice(-50);
+persistMeta(); renderArchive();
+input.value="";
+addMsg("assistant",t.lifeAck,"","");
+return;
+}
+var activeChart=E.active?E.charts[E.active]:null;
+if(!activeChart){
+addMsg("user",q,"","");
+input.value="";
+addMsg("assistant",t.noChart,"","");
+return;
+}
+if(window.EMBERMOON_PREMIUM!==true){
+var today=new Date().toDateString();
+var AQ=window.__aiQuota||(window.__aiQuota={day:"",count:0});
+if(AQ.day!==today){ AQ.day=today; AQ.count=0; }
+if(AQ.count>=5){ showLimit(); return; }
+AQ.count++;
+}
+input.value="";
+addMsg("user",q,"","");
+var history=E.msgs.slice(0,-1).slice(-12).map(function(m){ return {role:m.role,content:m.content}; });
+var schools=detectSchools(q);
+var targets=[];
+schools.forEach(function(s){ if(E.charts[s]) targets.push(s); });
+if(!targets.length) targets=[activeChart.tool];
+var missingSchools=schools.filter(function(s){ return !E.charts[s]; });
+E.busy=true;
+var sendBtn=$("mentorSend"); if(sendBtn) sendBtn.disabled=true;
+input.disabled=true;
+var pend=document.createElement("div");
+pend.className="bz-msg ai pending"; pend.textContent=t.thinking;
+log.appendChild(pend);
+var waitNote=setTimeout(function(){ if(pend.parentNode) pend.textContent=t.wait; },15000);
+var jobs=targets.map(function(tool){
+var chart=E.charts[tool];
+var obj=null;
+if(tool==="bazi"&&typeof bzChartPayload==="function"){ try{ obj=bzChartPayload(); }catch(e){ obj=null; } }
+return callBackend(tool,chart.text,obj,q,history).then(function(text){ return {tool:tool,text:text}; }).catch(function(){ return {tool:tool,text:null}; });
+});
+Promise.all(jobs).then(function(results){
+clearTimeout(waitNote);
+if(pend.parentNode) pend.parentNode.removeChild(pend);
+var anyOk=false;
+results.forEach(function(r){
+if(r.text){ anyOk=true; addMsg("assistant",r.text,t.tags[r.tool],t.basis(t.toolNames[r.tool],t.sysNames[r.tool])); }
+});
+missingSchools.forEach(function(s){ addMsg("assistant",t.missing(t.toolNames[s]),"",""); });
+if(!anyOk){
+var er=document.createElement("div"); er.className="bz-msg err"; er.textContent=t.errMsg; log.appendChild(er);
+input.value=q;
+}
+E.busy=false;
+if(sendBtn) sendBtn.disabled=false;
+input.disabled=false;
+renderLeft();
+try{ input.focus(); }catch(e){}
+});
+}
+/* ---------- 导师页渲染 ---------- */
+function enterMentor(){
+setMode("mentor");
+window.scrollTo({top:0,behavior:"smooth"});
+renderMentor();
+if(E.user&&!E.welcomed&&!E.msgs.length){
+E.welcomed=true;
+addMsg("assistant",T().welcome,"","");
+ensureLife();
+}
+}
+function renderMentor(){
+var gate=$("mentorGate"), main=$("mentorMain");
+if(gate) gate.hidden=!!E.user;
+if(main) main.hidden=!E.user;
+var t=T();
+var nm=$("mentorName"); if(nm) nm.textContent=t.name;
+var an=$("mentorAiNote"); if(an) an.textContent=t.aiNote;
+var gt=$("mentorGateText"); if(gt) gt.textContent=t.gateHint;
+var gb=$("mentorGateBtn"); if(gb) gb.textContent=t.gateBtn;
+var at=$("mentorArcTitle"); if(at) at.textContent=t.arcTitle;
+var line=$("mentorChartLine"), btns=$("mentorChartBtns");
+if(line&&btns){
+btns.innerHTML="";
+var keys=Object.keys(E.charts);
+if(E.active&&E.charts[E.active]){
+line.textContent=t.nowChart(t.toolNames[E.active]);
+if(keys.length>1){
+var hint=document.createElement("span"); hint.textContent=t.switchHint; btns.appendChild(hint);
+keys.forEach(function(k){
+var b=document.createElement("button"); b.type="button"; b.className="mentor-chartbtn"; b.textContent=t.toolNames[k];
+b.setAttribute("aria-pressed",k===E.active?"true":"false");
+b.addEventListener("click",function(){ E.active=k; renderMentor(); });
+btns.appendChild(b);
+});
+}
+}else{
+line.textContent=t.noChart;
+}
+}
+var inp=$("mentorInput"); if(inp) inp.setAttribute("placeholder",t.ph);
+var sb2=$("mentorSend"); if(sb2) sb2.textContent=t.send;
+renderMsgs();
+renderArchive();
+}
+function renderArchive(){
+var body=$("mentorArcBody"); if(!body||!E.user) { if(body) body.innerHTML=""; return; }
+var t=T();
+body.innerHTML="";
+function sec(title){ var p=document.createElement("p"); p.className="mentor-arcsec"; p.textContent=title; body.appendChild(p); }
+function line(txt){ var p=document.createElement("p"); p.className="mentor-arcline"; p.textContent=txt; body.appendChild(p); }
+sec(t.arcBirth);
+if(E.birth&&(E.birth.date||E.birth.place)){ line([E.birth.date,E.birth.time,E.birth.place].filter(Boolean).join(" · ")); }
+else line(t.arcNoBirth);
+sec(t.arcCharts);
+var shown={};
+E.savedRows.forEach(function(r){
+var tool=r.data&&r.data.tool;
+var row=document.createElement("button"); row.type="button"; row.className="mentor-savedrow";
+var s1=document.createElement("span"); s1.textContent=r.title||""; row.appendChild(s1);
+var s2=document.createElement("span"); s2.className="ms-date"; s2.textContent=r.created_at?new Date(r.created_at).toLocaleDateString():""; row.appendChild(s2);
+row.addEventListener("click",function(){
+if(!r.data||!r.data.text) return;
+var chart={tool:tool||"bazi",text:r.data.text,title:r.title||chartTitle(tool||"bazi"),saved:true};
+attachChart(chart);
+E.greetedKey=chartKey(chart);
+renderMentor();
+addMsg("assistant",t.attachNote(t.toolNames[chart.tool]||""),"","");
+});
+body.appendChild(row);
+if(tool) shown[tool]=true;
+});
+Object.keys(E.charts).forEach(function(k){
+if(shown[k]) return;
+line(E.charts[k].title);
+});
+if(!E.savedRows.length&&!Object.keys(E.charts).length) line(t.arcNoCharts);
+sec(t.arcFacts);
+if(!E.facts.length) line(t.arcNoFacts);
+E.facts.forEach(function(f,i){
+var row=document.createElement("div"); row.className="mentor-fact";
+var s=document.createElement("span"); s.textContent=f; row.appendChild(s);
+var del=document.createElement("button"); del.type="button"; del.className="mr-del"; del.textContent=t.del;
+del.addEventListener("click",function(){ E.facts.splice(i,1); persistMeta(); renderArchive(); });
+row.appendChild(del);
+body.appendChild(row);
+});
+}
+/* ---------- 入口与接线 ---------- */
+TOOLS.forEach(function(item){
+var sec=$(item.sec); if(!sec) return;
+var bar=document.createElement("div"); bar.className="savebar bringbar"; bar.hidden=true;
+var btn=document.createElement("button"); btn.type="button"; btn.className="btn primary bringbtn"; btn.textContent=T().bring;
+btn.addEventListener("click",function(){ bring(item.tool); });
+bar.appendChild(btn);
+sec.appendChild(bar);
+item.bar=bar;
+});
+setInterval(function(){
+TOOLS.forEach(function(item){
+if(!item.bar) return;
+var has=false; try{ has=!!item.get(); }catch(e){}
+item.bar.hidden=!has;
+});
+if(!$("mentorSec").hidden) renderLeft();
+},800);
+var hc=$("homeMentor"); if(hc) hc.addEventListener("click",function(){ enterMentor(); });
+var mb=$("mineMentorBtn"); if(mb) mb.addEventListener("click",function(){ enterMentor(); });
+var gbtn=$("mentorGateBtn"); if(gbtn) gbtn.addEventListener("click",function(){ setMode("mine"); window.scrollTo({top:0,behavior:"smooth"}); var m=$("mineAuthMsg"); if(m) m.textContent=T().gateHint; });
+var msb=$("mentorSend"); if(msb) msb.addEventListener("click",mentorSend);
+var minp=$("mentorInput"); if(minp) minp.addEventListener("keydown",function(ev){ if(ev.key==="Enter"){ ev.preventDefault(); mentorSend(); } });
+var ub=$("mentorUpgradeBtn"); if(ub) ub.addEventListener("click",function(){ setMode("mine"); setTimeout(function(){ var s=$("mineSub"); if(s) s.scrollIntoView({behavior:"smooth",block:"start"}); },60); });
+/* 注册 18+ 确认：默认不勾；未勾时拦下注册（登录不受影响），勾选时间随注册写入账号 */
+document.addEventListener("click",function(ev){
+var target=ev.target;
+var b=(target&&target.closest)?target.closest("#mineSignupBtn"):null;
+if(!b) return;
+var chk=$("mineAgeCheck");
+if(chk&&!chk.checked){
+ev.preventDefault(); ev.stopPropagation(); ev.stopImmediatePropagation();
+var e=$("mineAuthErr"); if(e){ e.hidden=false; e.textContent=T().ageErr; }
+return;
+}
+if(chk&&chk.checked) E.ageTs=new Date().toISOString();
+},true);
+var tl=$("mineTermsLink"); if(tl) tl.addEventListener("click",function(ev){ ev.preventDefault(); if(typeof openLegal==="function") openLegal("terms"); });
+function applyTexts(){
+var t=T();
+document.querySelectorAll(".bringbtn").forEach(function(b){ b.textContent=t.bring; });
+var set=function(id,v){ var e=$(id); if(e) e.textContent=v; };
+set("homeMentorZh",t.homeZh); set("homeMentorEn",t.homeEn); set("homeMentorDesc",t.homeDesc); set("homeMentorGo",t.homeGo);
+set("mineMentorTitle",t.mineTitle); set("mineMentorDesc",t.mineDesc); set("mineMentorBtn",t.mineBtn);
+var at=$("mineAgeTextA"); if(at) at.textContent=t.ageTextA;
+var al=$("mineTermsLink"); if(al) al.textContent=t.ageTerms;
+set("mineAgeHint",t.ageHint);
+if(!$("mentorSec").hidden) renderMentor();
+}
+document.querySelectorAll(".langbtn").forEach(function(b){ b.addEventListener("click",function(){ setTimeout(applyTexts,90); }); });
+applyTexts();
+/* 接入 setMode 链：新增 mentor 模式，其余模式照旧 */
+var _prevSetMode=setMode;
+setMode=function(mode){
+_prevSetMode(mode);
+var ms=$("mentorSec"); if(ms) ms.hidden=(mode!=="mentor");
+if(mode==="mentor"){
+$("pageTitle").hidden=false;
+$("pageTitle").textContent=T().pageTitle;
+["tnavHome","tnavDong","tnavXi","tnavYin","tnavLearn","tnavMine"].forEach(function(id){ var e=$(id); if(e) e.setAttribute("aria-pressed","false"); });
+renderMentor();
+}
+};
+if(E.sb){
+E.sb.auth.getSession().then(function(r){ var s=r&&r.data?r.data.session:null; E.user=s?s.user:null; onAuth(); });
+E.sb.auth.onAuthStateChange(function(ev,session){ E.user=session?session.user:null; onAuth(); });
+}
+window.__ember={enter:enterMentor,bring:bring};
+})();
+</script>
+
 </body>
 </html>
