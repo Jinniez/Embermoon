@@ -8,12 +8,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light" />
 <script>
-/* EMBER_BUILD 2026-11-25-3 — bump on every deploy. Stale-cache guard:
+/* EMBER_BUILD 2026-11-25-4 — bump on every deploy. Stale-cache guard:
    reload once when the served copy is older than the newest version seen
    (localStorage fast path, before paint) or than version.json (async check).
    Never hides the page: hiding caused a white flash on every refresh. */
 (function(){try{
-var V='2026-11-25-3';
+var V='2026-11-25-4';
 function cmp(a,b){var pa=a.split('-'),pb=b.split('-');for(var i=0;i<Math.max(pa.length,pb.length);i++){var x=parseInt(pa[i]||'0',10),y=parseInt(pb[i]||'0',10);if(x!==y) return x<y?-1:1;}return 0;}
 var seen=''; try{seen=localStorage.getItem('ember_build')||'';}catch(e){}
 var reloaded=''; try{reloaded=sessionStorage.getItem('ember_v_reload')||'';}catch(e){}
