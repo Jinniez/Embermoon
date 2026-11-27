@@ -755,6 +755,8 @@ textarea:focus{outline:none;border-bottom:2px solid var(--accent)}
 .age-row input[type="checkbox"]{flex:0 0 auto;width:19px;height:19px;margin:2px 0 0;accent-color:var(--accent);cursor:pointer}
 .age-row span{font-size:13.5px;line-height:1.6;color:var(--ink)}
 .age-row a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-weight:700}
+.auth-links{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px}
+.auth-link{background:none;border:0;padding:0;font:inherit;font-size:13.5px;color:var(--accent);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .bringbar .btn{min-width:210px}
 </style>
 
@@ -1287,8 +1289,26 @@ textarea:focus{outline:none;border-bottom:2px solid var(--accent)}
 <button class="btn primary" id="mineLoginBtn" type="button">登录</button>
 <button class="btn" id="mineSignupBtn" type="button">注册</button>
 </div>
+<div class="auth-links">
+<button type="button" class="auth-link" id="mineForgotBtn">忘记密码？</button>
+<button type="button" class="auth-link" id="mineResendBtn" hidden>重发确认信</button>
+</div>
 <p class="bz-error" id="mineAuthErr" hidden></p>
 <p class="bz-hint" id="mineAuthMsg"></p>
+</div>
+<div id="mineRecovery" hidden>
+<p class="bz-sectitle" id="mineRecoveryTitle">设置新密码</p>
+<div class="bz-form">
+<label class="bz-field">
+<span class="bz-flabel" id="mineRecoveryPassLabel">新密码</span>
+<input type="password" id="mineRecoveryPass" autocomplete="new-password" placeholder="至少 6 位">
+</label>
+</div>
+<div class="drawbar">
+<button class="btn primary" id="mineRecoveryBtn" type="button">保存新密码</button>
+</div>
+<p class="bz-error" id="mineRecoveryErr" hidden></p>
+<p class="bz-hint" id="mineRecoveryMsg"></p>
 </div>
 <div id="mineMain" hidden>
 <p class="mine-email" id="mineEmailLine"></p>
@@ -5185,6 +5205,20 @@ loadFailed:"暂时打不开，请稍后再试一次。",
 actionFailed:"没成功，请稍后再试一次。",
 loginFailed:"登录没成功，请检查邮箱和密码后再试一次。",
 signupFailed:"注册没成功，这个邮箱可能已经注册过，或密码太短了，请换一个再试试。",
+errInvalidCreds:"邮箱或密码不对，请检查后再试一次。",
+errNotConfirmed:"这个邮箱还没确认。先点确认信里的链接，或者点下面的「重发确认信」。",
+errAlreadyReg:"这个邮箱已经注册过了，请直接登录；忘了密码就点「忘记密码？」。",
+errPassShort:"密码至少要 6 位。",
+errBadEmail:"邮箱格式不对，请检查一下再试。",
+errRateLimit:"邮件发得太频繁了，请等几分钟再试。",
+errLinkInvalid:"这个链接已经失效或过期了，请重新申请一封邮件。",
+errSessionMissing:"登录状态已过期，请重新登录后再试。",
+errSamePass:"新密码不能和现在的密码一样，换一个吧。",
+errSignupOff:"暂时不能注册，请稍后再来看看。",
+errNetwork:"网络有问题，请检查网络再试。",
+resendLink:"重发确认信",resendSent:"确认信已重新发送，去邮箱里看看吧，也翻一下垃圾邮件。",
+forgotLink:"忘记密码？",resetSent:"重置密码的邮件已发送。点信里的链接回来，就能设置新密码。",
+resetTitle:"设置新密码",resetBtn:"保存新密码",resetDone:"新密码已设置好。",
 profilePartial:"已保存大部分内容，出生地这次没存上，请再保存一次试试。",
 subTitle:"订阅会员",statusFree:"当前：免费版",
 statusPro:function(plan,until){ return "当前：会员 · "+plan+(until?(" · 有效期至 "+until):""); },
@@ -5212,6 +5246,20 @@ loadFailed:"Couldn't load right now. Please try again in a moment.",
 actionFailed:"That didn't work. Please try again.",
 loginFailed:"Couldn't log in. Please check your email and password and try again.",
 signupFailed:"Couldn't sign up. This email may already be registered, or the password is too short — please try again.",
+errInvalidCreds:"That email or password doesn't match. Check them and try again.",
+errNotConfirmed:"This email hasn't been confirmed yet. Tap the link in the confirmation email, or use “Resend confirmation email” below.",
+errAlreadyReg:"This email is already registered. Log in directly — or tap “Forgot password?” if you don't remember it.",
+errPassShort:"Your password needs at least 6 characters.",
+errBadEmail:"That email address doesn't look right. Please check it and try again.",
+errRateLimit:"Too many emails have been sent. Please wait a few minutes and try again.",
+errLinkInvalid:"That link is invalid or has expired. Please request a new email.",
+errSessionMissing:"Your session has expired. Please log in again and retry.",
+errSamePass:"The new password must be different from your current one.",
+errSignupOff:"Sign-ups aren't open right now. Please check back later.",
+errNetwork:"There's a network problem. Check your connection and try again.",
+resendLink:"Resend confirmation email",resendSent:"Confirmation email sent again — check your inbox, and the spam folder too.",
+forgotLink:"Forgot password?",resetSent:"Password reset email sent. Tap the link in it to come back and set a new password.",
+resetTitle:"Set a new password",resetBtn:"Save new password",resetDone:"Your new password is set.",
 profilePartial:"Most of it is saved, but the birthplace didn't save this time. Please try saving again.",
 subTitle:"Membership",statusFree:"Current plan: Free",
 statusPro:function(plan,until){ return "Current plan: Member · "+plan+(until?(" · until "+until):""); },
@@ -5239,6 +5287,20 @@ loadFailed:"No se pudo cargar ahora. Inténtalo de nuevo en un momento.",
 actionFailed:"No funcionó. Inténtalo de nuevo.",
 loginFailed:"No se pudo iniciar sesión. Revisa tu correo y tu contraseña e inténtalo de nuevo.",
 signupFailed:"No se pudo registrar. Este correo puede ya estar registrado o la contraseña es muy corta; inténtalo de nuevo.",
+errInvalidCreds:"Ese correo o contraseña no coinciden. Revísalos e inténtalo de nuevo.",
+errNotConfirmed:"Este correo aún no está confirmado. Toca el enlace del correo de confirmación o usa «Reenviar correo de confirmación» abajo.",
+errAlreadyReg:"Este correo ya está registrado. Inicia sesión directamente, o toca «¿Olvidaste tu contraseña?» si no la recuerdas.",
+errPassShort:"La contraseña debe tener al menos 6 caracteres.",
+errBadEmail:"Esa dirección de correo no parece válida. Revísala e inténtalo de nuevo.",
+errRateLimit:"Se han enviado demasiados correos. Espera unos minutos e inténtalo de nuevo.",
+errLinkInvalid:"Ese enlace no es válido o ya caducó. Pide un correo nuevo.",
+errSessionMissing:"Tu sesión caducó. Inicia sesión de nuevo e inténtalo otra vez.",
+errSamePass:"La contraseña nueva debe ser distinta de la actual.",
+errSignupOff:"El registro no está abierto por ahora. Vuelve más tarde.",
+errNetwork:"Hay un problema de red. Revisa tu conexión e inténtalo de nuevo.",
+resendLink:"Reenviar correo de confirmación",resendSent:"Correo de confirmación reenviado: revisa tu bandeja de entrada y también la carpeta de spam.",
+forgotLink:"¿Olvidaste tu contraseña?",resetSent:"Correo de restablecimiento enviado. Toca su enlace para volver y crear una contraseña nueva.",
+resetTitle:"Crear una contraseña nueva",resetBtn:"Guardar contraseña nueva",resetDone:"Tu contraseña nueva está guardada.",
 profilePartial:"Se guardó casi todo, pero el lugar de nacimiento no se guardó esta vez. Intenta guardar de nuevo.",
 subTitle:"Suscripción",statusFree:"Plan actual: Gratis",
 statusPro:function(plan,until){ return "Plan actual: Miembro · "+plan+(until?(" · hasta el "+until):""); },
@@ -5257,7 +5319,7 @@ function press(id,on){ var e=$(id); if(e) e.setAttribute("aria-pressed",on?"true
 function fire(el,type){ if(!el) return; var ev=document.createEvent("HTMLEvents"); ev.initEvent(type,true,false); el.dispatchEvent(ev); }
 function fmtDate(iso){ var d=new Date(iso); if(isNaN(d.getTime())) return ""; return d.toLocaleDateString()+" "+d.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}); }
 
-var sb=null, mineUser=null, mineProfile=null, mineGender="M", mineRows=[], mineCur=false, curDetail=null;
+var sb=null, mineUser=null, mineProfile=null, mineGender="M", mineRows=[], mineCur=false, curDetail=null, recoveryMode=false;
 try{
 if(window.SUPABASE_URL&&window.SUPABASE_ANON_KEY&&window.supabase&&window.supabase.createClient){
 sb=window.supabase.createClient(window.SUPABASE_URL,window.SUPABASE_ANON_KEY);
@@ -5553,10 +5615,55 @@ function authErr(msg){
 var e=$("mineAuthErr"); if(!e) return;
 e.hidden=!msg; e.textContent=msg||"";
 }
+/* Supabase 报错 → 用户能看懂的话。参照开源项目 Wolfcha 的 auth-errors 方案：
+   先按稳定的 error code 判断，再按报错原文包含匹配；弱密码 / 密码策略类报错
+   直接显示 Supabase 的原文（那才是用户真正要改的地方）；都不认识就回原文，
+   绝不再吞成一句万能报错。 */
+function translateAuthError(err){
+var t=UMT();
+if(!err) return t.actionFailed;
+var msg=String(err.message||""), code=String(err.code||"");
+if(err.name==="AuthRetryableFetchError"||/failed to fetch|load failed|network|fetch/i.test(msg)) return t.errNetwork;
+if(code==="weak_password"||/password.*(weak|should contain|at least one)/i.test(msg)){
+if(/at least 6 characters/i.test(msg)) return t.errPassShort;
+return msg||t.errPassShort;
+}
+var table=[
+["invalid_credentials","errInvalidCreds","Invalid login credentials"],
+["email_not_confirmed","errNotConfirmed","Email not confirmed"],
+["user_already_exists","errAlreadyReg","User already registered"],
+["","errPassShort","Password should be at least 6 characters"],
+["validation_failed","errBadEmail","Unable to validate email address: invalid format"],
+["over_email_send_rate_limit","errRateLimit","Email rate limit exceeded"],
+["over_request_rate_limit","errRateLimit","For security purposes, you can only request this after"],
+["otp_expired","errLinkInvalid","Email link is invalid or has expired"],
+["","errLinkInvalid","Token has expired or is invalid"],
+["session_not_found","errSessionMissing","Auth session missing"],
+["same_password","errSamePass","New password should be different"],
+["signup_disabled","errSignupOff","Signups not allowed for this instance"]
+];
+for(var i=0;i<table.length;i++){
+if((table[i][0]&&code===table[i][0])||(table[i][2]&&msg.indexOf(table[i][2])>-1)) return t[table[i][1]];
+}
+return msg||t.actionFailed;
+}
+function isNotConfirmed(err){
+return !!err&&(String(err.code||"")==="email_not_confirmed"||/not confirmed/i.test(String(err.message||"")));
+}
+function validEmail(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e||""); }
+function showResend(){ var b=$("mineResendBtn"); if(b) b.hidden=false; }
+function showRecovery(){
+recoveryMode=true;
+if($("mineNotCfg")) $("mineNotCfg").hidden=true;
+if($("mineAuth")) $("mineAuth").hidden=true;
+if($("mineMain")) $("mineMain").hidden=true;
+if($("mineRecovery")) $("mineRecovery").hidden=false;
+}
 function renderMine(){
-if($("mineNotCfg")) $("mineNotCfg").hidden=!!sb;
-if($("mineAuth")) $("mineAuth").hidden=!sb||!!mineUser;
-if($("mineMain")) $("mineMain").hidden=!sb||!mineUser;
+if($("mineNotCfg")) $("mineNotCfg").hidden=!!sb||recoveryMode;
+if($("mineAuth")) $("mineAuth").hidden=!sb||!!mineUser||recoveryMode;
+if($("mineMain")) $("mineMain").hidden=!sb||!mineUser||recoveryMode;
+if($("mineRecovery")) $("mineRecovery").hidden=!recoveryMode;
 if(mineUser&&$("mineEmailLine")) $("mineEmailLine").textContent=mineUser.email||"";
 if($("mineAcctEmail")) $("mineAcctEmail").textContent=mineUser?UMT().acctEmail(mineUser.email||""):"";
 }
@@ -5567,23 +5674,66 @@ function doLogin(){
 if(!sb) return;
 var c=creds();
 if(!c.email||!c.password){ authErr(UMT().fillEmail); return; }
+if(!validEmail(c.email)){ authErr(UMT().errBadEmail); return; }
 authErr("");
 sb.auth.signInWithPassword({email:c.email,password:c.password}).then(function(r){
-if(r.error) authErr(UMT().loginFailed);
+if(r.error){ authErr(translateAuthError(r.error)); if(isNotConfirmed(r.error)) showResend(); }
 });
 }
 function doSignup(){
 if(!sb) return;
 var c=creds();
 if(!c.email||!c.password){ authErr(UMT().fillEmail); return; }
+if(!validEmail(c.email)){ authErr(UMT().errBadEmail); return; }
+if(c.password.length<6){ authErr(UMT().errPassShort); return; }
 authErr("");
-sb.auth.signUp({email:c.email,password:c.password}).then(function(r){
-if(r.error){ authErr(UMT().signupFailed); return; }
-if(!r.data.session){ var m=$("mineAuthMsg"); if(m) m.textContent=UMT().checkEmail; }
+sb.auth.signUp({email:c.email,password:c.password,options:{emailRedirectTo:location.origin}}).then(function(r){
+if(r.error){ authErr(translateAuthError(r.error)); return; }
+/* 开了邮箱确认时，给已注册邮箱注册会返回一个 identities 为空的假用户而不是报错 */
+var u=r.data&&r.data.user;
+if(u&&u.identities&&u.identities.length===0){ authErr(UMT().errAlreadyReg); showResend(); return; }
+if(!r.data.session){ var m=$("mineAuthMsg"); if(m) m.textContent=UMT().checkEmail; showResend(); }
 });
 }
 if($("mineLoginBtn")) $("mineLoginBtn").addEventListener("click",doLogin);
 if($("mineSignupBtn")) $("mineSignupBtn").addEventListener("click",doSignup);
+if($("mineResendBtn")) $("mineResendBtn").addEventListener("click",function(){
+if(!sb) return;
+var email=($("mineEmail").value||"").trim();
+if(!email){ authErr(UMT().fillEmail); return; }
+if(!validEmail(email)){ authErr(UMT().errBadEmail); return; }
+authErr("");
+sb.auth.resend({type:"signup",email:email,options:{emailRedirectTo:location.origin}}).then(function(r){
+if(r.error){ authErr(translateAuthError(r.error)); return; }
+var m=$("mineAuthMsg"); if(m) m.textContent=UMT().resendSent;
+});
+});
+if($("mineForgotBtn")) $("mineForgotBtn").addEventListener("click",function(){
+if(!sb) return;
+var email=($("mineEmail").value||"").trim();
+if(!email){ authErr(UMT().fillEmail); return; }
+if(!validEmail(email)){ authErr(UMT().errBadEmail); return; }
+authErr("");
+sb.auth.resetPasswordForEmail(email,{redirectTo:location.origin}).then(function(r){
+if(r.error){ authErr(translateAuthError(r.error)); return; }
+var m=$("mineAuthMsg"); if(m) m.textContent=UMT().resetSent;
+});
+});
+if($("mineRecoveryBtn")) $("mineRecoveryBtn").addEventListener("click",function(){
+if(!sb) return;
+var t=UMT(), e=$("mineRecoveryErr"), m=$("mineRecoveryMsg");
+var pw=($("mineRecoveryPass")?$("mineRecoveryPass").value:"")||"";
+function rErr(s){ if(e){ e.hidden=!s; e.textContent=s||""; } }
+if(pw.length<6){ rErr(t.errPassShort); return; }
+rErr(""); if(m) m.textContent="";
+sb.auth.updateUser({password:pw}).then(function(r){
+if(r.error){ rErr(translateAuthError(r.error)); return; }
+recoveryMode=false;
+if($("mineRecoveryPass")) $("mineRecoveryPass").value="";
+renderMine();
+toast(t.resetDone);
+});
+});
 if($("minePass")) $("minePass").addEventListener("keydown",function(e){ if(e.key==="Enter") doLogin(); });
 if($("mineLogoutBtn")) $("mineLogoutBtn").addEventListener("click",function(){
 if(!sb) return;
@@ -5596,7 +5746,7 @@ var t=UMT(), msg=$("mineAcctMsg");
 var pw=($("mineNewPass")?$("mineNewPass").value:"")||"";
 if(pw.length<6){ if(msg) msg.textContent=t.passEmpty; return; }
 sb.auth.updateUser({password:pw}).then(function(r){
-if(msg) msg.textContent=r.error?t.passFail:t.passDone;
+if(msg) msg.textContent=r.error?translateAuthError(r.error):t.passDone;
 if(!r.error&&$("mineNewPass")) $("mineNewPass").value="";
 });
 });
@@ -5705,6 +5855,9 @@ if($("mineSec")) $("mineSec").setAttribute("aria-label",t.title);
 set("mineNotCfgText",t.notCfg);
 set("mineEmailLabel",t.email); set("minePassLabel",t.password);
 set("mineLoginBtn",t.login); set("mineSignupBtn",t.signup);
+set("mineForgotBtn",t.forgotLink); set("mineResendBtn",t.resendLink);
+set("mineRecoveryTitle",t.resetTitle); set("mineRecoveryBtn",t.resetBtn); set("mineRecoveryPassLabel",t.newPass);
+var rp=$("mineRecoveryPass"); if(rp) rp.setAttribute("placeholder",t.passPh);
 set("mineBirthTitle",t.birthTitle);
 set("mineBDateLabel",t.date); set("mineBTimeLabel",t.time); set("mineBGenderLabel",t.gender);
 set("mineMale",t.male); set("mineFemale",t.female);
@@ -5769,6 +5922,7 @@ loadSubscription();
 });
 sb.auth.onAuthStateChange(function(ev,session){
 mineUser=session?session.user:null;
+if(ev==="PASSWORD_RECOVERY") showRecovery();
 renderMine();
 loadSubscription();
 if(mineUser){ loadProfile(); if(mineCur) loadReadings(); }
